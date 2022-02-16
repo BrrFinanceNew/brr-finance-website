@@ -20,14 +20,14 @@ import shibaLogo from '../../assets/img/shiba_logo.svg';
 import bifiLogo from '../../assets/img/COW.svg';
 import mimLogo from '../../assets/img/mimlogopng.png';
 import bloomLogo from '../../assets/img/BLOOM.jpg';
-import TwoombLPLogo from '../../assets/img/2OMB-WFTM.png';
-import TwosharesLPLogo from '../../assets/img/2SHARES-WFTM.png';
-import TwoombTwosharesLPLogo from '../../assets/img/2OMB-2SHARES.png';
+import TwoombLPLogo from '../../assets/img/TOMB-WFTM.png';
+import TwosharesLPLogo from '../../assets/img/TSHARES-WFTM.png';
+import TwoombTwosharesLPLogo from '../../assets/img/TOMB-TSHARES.png';
 
 import UsdcLogo from '../../assets/img/USDC.png';
 
-import ThreeombLPLogo from '../../assets/img/DEGEN-WFTM.png';
-import ThreesharesLPLogo from '../../assets/img/DSHARES-WFTM.png';
+import ThreeombLPLogo from '../../assets/img/DEGEN-TOMB.png';
+import ThreesharesLPLogo from '../../assets/img/DSHARES-TOMB.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -46,12 +46,12 @@ const logosBySymbol: { [title: string]: string } = {
   MIM: mimLogo,
   USDC: UsdcLogo,
   BLOOM: bloomLogo,
-  '2OMB-WFTM LP': TwoombLPLogo,
-  '2SHARES-WFTM LP': TwosharesLPLogo,
-  '2OMB-2SHARES LP': TwoombTwosharesLPLogo,
+  'TOMB-WFTM LP': TwoombLPLogo,
+  'TSHARES-WFTM LP': TwosharesLPLogo,
+  'TOMB-TSHARES LP': TwoombTwosharesLPLogo,
 
-  'DEGEN-WFTM LP': ThreeombLPLogo,
-  'DSHARES-WFTM LP': ThreesharesLPLogo,
+  'DEGEN-TOMB LP': ThreeombLPLogo,
+  'DSHARES-TOMB LP': ThreesharesLPLogo,
 
 
   'wFTM': wftmLogo,

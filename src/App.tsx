@@ -96,7 +96,7 @@ const Providers: React.FC = ({ children }) => {
             walletlink: {
               url: config.defaultProvider,
               appName: 'degen Finance',
-              appLogoUrl: 'https://github.com/2omb/degen-frontend/blob/8ab3b1f5ecc7d5dad5b856f160d6e7afb8357560/src/assets/img/2OMB-2SHARES.png',
+              appLogoUrl: 'https://github.com/2omb/degen-frontend/blob/8ab3b1f5ecc7d5dad5b856f160d6e7afb8357560/src/assets/img/TOMB-TSHARES.png',
             },
           }}
         >

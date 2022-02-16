@@ -44,7 +44,7 @@ const Footer = () => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="body2" color="textPrimary" align="left">
-              {'Copyright © degen Finance '}
+              {'Copyright © Degen Finance '}
               {new Date().getFullYear()}
             </Typography>
           </Grid>
@@ -56,17 +56,6 @@ const Footer = () => {
               className={classes.link}
             >
               <img alt="twitter" src={TwitterImage} className={classes.img} />
-            </a>
-            <a
-              href="https://github.com/2omb"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={classes.link}
-            >
-              <img alt="github" src={GithubImage} className={classes.img} />
-            </a>
-            <a href="https://bit.ly/3AUcaBI" rel="noopener noreferrer" target="_blank" className={classes.link}>
-              <img alt="telegram" src={TelegramImage} className={classes.img} />
             </a>
             <a
               href="https://www.youtube.com/results?search_query=2omb+finance"

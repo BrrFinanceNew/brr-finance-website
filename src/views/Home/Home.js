@@ -154,13 +154,12 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Paper style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <Box p={4}>
-              <h2>Welcome to degen Finance!</h2>
-              <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 FTM</p>
-              <p>degen utilizes multiple bonding mechanisms at the <StyledLink href="/">3DAO</StyledLink> as well as seigniorage.</p>
-              <p>Built on top of <StyledLink target="_blank" href="https://2omb.finance">2omb.finance</StyledLink>.</p>
+              <h2>Welcome to Degen Finance!</h2>
+              <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 TOMB</p>
+              <p>Degen utilizes multiple bonding mechanisms at the <StyledLink href="/">DAO</StyledLink> as well as seigniorage.</p>
               <p>
-                Stake your DEGEN-WFTM LP in the <StyledLink href="/farms">3Farms</StyledLink> to earn DSHARES rewards.
-                Then stake your earned DSHARES in the <StyledLink href="/">3Room</StyledLink> to maximize profits!
+                Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARES rewards.
+                Then stake your earned DSHARES in the <StyledLink href="/">Mortuary</StyledLink> to maximize profits!
               </p>
             </Box>
           </Paper>
@@ -203,12 +202,6 @@ const Home = () => {
               <Button color="primary" href="/boardroom" variant="contained" style={{ marginRight: '25px' }}>
                 Stake
               </Button>
-              {/* <Button color="primary" href="/masonry" variant="contained" style={{ marginRight: '10px' }}>
-                Stake Now
-              </Button> */}
-              {/* <Button href="/cemetery" variant="contained" style={{ marginRight: '10px' }}>
-                Farm Now
-              </Button> */}
               <Button
                 target="_blank"
                 href="https://spookyswap.finance/swap?outputCurrency=0x14def7584a6c52f470ca4f4b9671056b22f4ffde"
@@ -235,7 +228,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>FTM</h2>
+              <h2>TOMB</h2>
               <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
                   <TokenSymbol symbol="wFTM" style={{ backgroundColor: "transparent !important" }} />
@@ -370,7 +363,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>DEGEN-WFTM Spooky LP</h2>
+              <h2>DEGEN-TOMB Spooky LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TOMB-FTM-LP" />
@@ -399,7 +392,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>DSHARES-WFTM Spooky LP</h2>
+              <h2>DSHARES-TOMB Spooky LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TSHARE-FTM-LP" />
