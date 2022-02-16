@@ -1,11 +1,11 @@
 import React from 'react';
 
 //Graveyard ecosystem logos
-import tombLogo from '../../assets/img/3OMB.svg';
-import tShareLogo from '../../assets/img/3SHARES.svg';
-import tombLogoPNG from '../../assets/img/3OMB.png';
-import tShareLogoPNG from '../../assets/img/3SHARES.png';
-import tBondLogo from '../../assets/img/3BOND-01.png';
+import tombLogo from '../../assets/img/DEGEN.svg';
+import tShareLogo from '../../assets/img/DSHARES.svg';
+import tombLogoPNG from '../../assets/img/DEGEN.png';
+import tShareLogoPNG from '../../assets/img/DSHARES.png';
+import tBondLogo from '../../assets/img/DBOND-01.png';
 
 import tombFtmLpLogo from '../../assets/img/tomb_ftm_lp.png';
 import tshareFtmLpLogo from '../../assets/img/tshare_ftm_lp.png';
@@ -26,8 +26,8 @@ import TwoombTwosharesLPLogo from '../../assets/img/2OMB-2SHARES.png';
 
 import UsdcLogo from '../../assets/img/USDC.png';
 
-import ThreeombLPLogo from '../../assets/img/3OMB-WFTM.png';
-import ThreesharesLPLogo from '../../assets/img/3SHARES-WFTM.png';
+import ThreeombLPLogo from '../../assets/img/DEGEN-WFTM.png';
+import ThreesharesLPLogo from '../../assets/img/DSHARES-WFTM.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -50,8 +50,8 @@ const logosBySymbol: { [title: string]: string } = {
   '2SHARES-WFTM LP': TwosharesLPLogo,
   '2OMB-2SHARES LP': TwoombTwosharesLPLogo,
 
-  '3OMB-WFTM LP': ThreeombLPLogo,
-  '3SHARES-WFTM LP': ThreesharesLPLogo,
+  'DEGEN-WFTM LP': ThreeombLPLogo,
+  'DSHARES-WFTM LP': ThreesharesLPLogo,
 
 
   'wFTM': wftmLogo,

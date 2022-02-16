@@ -25,13 +25,13 @@ const assetList = [
     depositTokenName: '2SHARES-WFTM LP',
   },
   {
-    depositTokenName: '3OMB-WFTM LP',
+    depositTokenName: 'DEGEN-WFTM LP',
   },
   {
-    depositTokenName: '3SHARES',
+    depositTokenName: 'DSHARES',
   },
   {
-    depositTokenName: '3SHARES-WFTM LP',
+    depositTokenName: 'DSHARES-WFTM LP',
   },
 ]
 
@@ -68,7 +68,7 @@ const Cemetery = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
-  const { balance, balance_2shares_wftm, balance_3omb_wftm, balance_3shares_wftm, balance_3omb, balance_3shares, balance_2shares } = useTotalTreasuryBalance();
+  const { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshares_wftm, balance_degen, balance_dshares, balance_2shares } = useTotalTreasuryBalance();
   return (
     <Switch>
       <Page>
@@ -121,15 +121,15 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          3OMB-WFTM LP:
+                          DEGEN-WFTM LP:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_3omb_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_degen_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          3SHARES-WFTM LP:
+                          DSHARES-WFTM LP:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_3shares_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_dshares_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
@@ -143,15 +143,15 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          3OMB:
+                          DEGEN:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_3omb} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_degen} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          3SHARES:
+                          DSHARES:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_3shares} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_dshares} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
