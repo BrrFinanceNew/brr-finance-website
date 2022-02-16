@@ -197,12 +197,13 @@ const Home = () => {
             <CardContent align="center">
               {/* <h2 style={{ marginBottom: '20px' }}>Wallet Balance</h2> */}
               <Button color="primary" href="/farms" variant="contained" style={{ marginRight: '10px' }}>
-                Farms
+                Farms Now
               </Button>
-              <Button color="primary" href="/boardroom" variant="contained" style={{ marginRight: '25px' }}>
-                Stake
+              <Button color="primary" href="/boardroom" variant="contained" style={{ marginRight: '10px' }}>
+                Stake Now
               </Button>
               <Button
+                color="primary"
                 target="_blank"
                 href="https://spookyswap.finance/swap?outputCurrency=0x14def7584a6c52f470ca4f4b9671056b22f4ffde"
                 variant="contained"
@@ -211,10 +212,10 @@ const Home = () => {
               >
                 Buy DEGEN
               </Button>
-              <Button variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0x6437adac543583c4b31bf0323a0870430f5cc2e7" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button color="primary" variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0x6437adac543583c4b31bf0323a0870430f5cc2e7" style={{ marginRight: '10px' }} className={classes.button}>
                 Buy DSHARES
               </Button>
-              <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae" style={{ marginRight: '10px' }} className={classes.button}>
                 DEGEN Chart
               </Button>
               <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xd352dac95a91afefb112dbbb3463ccfa5ec15b65" className={classes.button}>

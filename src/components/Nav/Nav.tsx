@@ -128,6 +128,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
               </Link>
+              <Link color="textPrimary" to="/roadmap" className={classes.link}>
+                Clubhouse
+              </Link>
               <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
