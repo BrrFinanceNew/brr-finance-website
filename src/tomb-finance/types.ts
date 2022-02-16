@@ -4,6 +4,8 @@ export type ContractName = string;
 
 export interface BankInfo {
   name: string;
+  info: string;
+  whitelist: string;
   poolId: number;
   sectionInUI: number;
   contract: ContractName;

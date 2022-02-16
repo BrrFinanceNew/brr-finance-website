@@ -99,7 +99,7 @@ const Cemetery = () => {
           {!!account ? (
             <>
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '40px' }}>
-                DAO - Treasury * Still under Mantance 70% done *
+               Treasury
               </Typography>
               <Box mt={2}>
                 <Grid container justify="center" spacing={3}>

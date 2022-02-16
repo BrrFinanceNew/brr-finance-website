@@ -29,19 +29,26 @@ const CemeteryCard = ({ bank }) => {
             <Typography variant="h5" component="h2">
               {bank.depositTokenName}
             </Typography>
+            <Typography variant="h5" component="h2">
+            Whitelist Only: {bank.whitelist}
+            <Typography color="textSecondary">
+              Deposit Fee: {bank.info}
+            </Typography>
             <Typography color="textSecondary">
               {/* {bank.name} */}
               Deposit {bank.depositTokenName.toUpperCase()} Earn {` ${bank.earnTokenName}`}
             </Typography>
-            <Typography color="textSecondary">
+{/*             <Typography color="textSecondary">
               Multiplier: {bank.multiplier}
+            </Typography> */}
+
             </Typography>
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
-        <Button color="primary" size="small" variant="contained" target="_blank" href={`${bank.site}`}>
+{/*         <Button color="primary" size="small" variant="contained" target="_blank" href={`${bank.site}`}>
           ↗
-        </Button>
+        </Button> */}
         <Button color="primary" size="small" variant="contained" target="_blank" href={`${bank.buyLink}`}>
             Buy
           </Button>

@@ -5053,7 +5053,7 @@
       }
     ]
   },
-  "Tomb2ShareRewardPool": {
+  "USDCRewardPool": {
     "address": "0xcb0b0419e6a1f46be89c1c1eeeaf9172b7125b29",
     "abi": [
       {
@@ -5539,7 +5539,7 @@
       }
     ]
   },
-  "Tomb2ombRewardPool": {
+  "TombRewardPool": {
     "address": "0xcb0b0419e6a1f46be89c1c1eeeaf9172b7125b29",
     "abi": [
       {
@@ -6025,7 +6025,7 @@
       }
     ]
   },
-  "Tomb2ShareRewardPool": {
+  "USDCRewardPool": {
     "address": "0xcb0b0419e6a1f46be89c1c1eeeaf9172b7125b29",
     "abi": [
       {
