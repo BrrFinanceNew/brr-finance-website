@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Page from '../../components/Page';
-import HomeImage from '../../assets/img/home.png';
+import HomeImage from '../../assets/img/3.jpg';
 import CashImage from '../../assets/img/DEGEN.svg';
 import Image from 'material-ui-image';
 import styled from 'styled-components';
@@ -30,8 +30,9 @@ import useTombFinance from '../../hooks/useTombFinance';
 
 const BackgroundImage = createGlobalStyle`
   body {
+    background: url(${HomeImage}) no-repeat !important;
+    background-size: cover !important;
     background-color: var(--black);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='32' viewBox='0 0 16 32'%3E%3Cg fill='%231D1E1F' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 24h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -156,10 +157,10 @@ const Home = () => {
             <Box p={4}>
               <h2>Welcome to Degen Finance!</h2>
               <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 TOMB</p>
-              <p>Degen utilizes multiple bonding mechanisms at the <StyledLink href="/">DAO</StyledLink> as well as seigniorage.</p>
+              <p>Degen utilizes multiple bonding mechanisms at the <StyledLink href="/rebates">DAO</StyledLink> as well as seigniorage.</p>
               <p>
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARES rewards.
-                Then stake your earned DSHARES in the <StyledLink href="/">Mortuary</StyledLink> to maximize profits!
+                Then stake your earned DSHARES in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
             </Box>
           </Paper>
@@ -167,7 +168,7 @@ const Home = () => {
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
             <Alert variant="filled" severity="warning">
-                Do your own research before investing. Investing is risky and may result in monetary loss. degen is beta software and may contain bugs. By using degen, you agree that the 2omb and degen team is not responsible for any financial losses from investing in 2omb or degen.
+                Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>
         </Grid>
@@ -197,7 +198,7 @@ const Home = () => {
             <CardContent align="center">
               {/* <h2 style={{ marginBottom: '20px' }}>Wallet Balance</h2> */}
               <Button color="primary" href="/farms" variant="contained" style={{ marginRight: '10px' }}>
-                Farms Now
+                Farm Now
               </Button>
               <Button color="primary" href="/boardroom" variant="contained" style={{ marginRight: '10px' }}>
                 Stake Now
@@ -234,9 +235,7 @@ const Home = () => {
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
                   <TokenSymbol symbol="wFTM" style={{ backgroundColor: "transparent !important" }} />
                 </CardIcon>
-              </Box>
-              Current Price
-              <Box>
+      
                 <span style={{ fontSize: '30px' }}>${ftmPrice ? ftmPrice : '-.----'} USD</span>
               </Box>
               <span style={{ fontSize: '12px' }}>
@@ -267,12 +266,10 @@ const Home = () => {
               </Button> */}
               <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
-                  <TokenSymbol symbol="TOMB" style={{ backgroundColor: "transparent !important" }} />
+                  <TokenSymbol symbol="DEGEN" style={{ backgroundColor: "transparent !important" }} />
                 </CardIcon>
-              </Box>
-              Current Price
-              <Box>
-                <span style={{ fontSize: '30px' }}>{tombPriceInFTM ? tombPriceInFTM : '-.----'} FTM</span>
+    
+                <span style={{ fontSize: '30px' }}>{tombPriceInFTM ? tombPriceInFTM : '-.----'} TOMB</span>
               </Box>
               <Box>
                 <span style={{ fontSize: '16px', alignContent: 'flex-start' }}>
@@ -308,10 +305,8 @@ const Home = () => {
                 <CardIcon>
                   <TokenSymbol symbol="TSHARE" />
                 </CardIcon>
-              </Box>
-              Current Price
-              <Box>
-                <span style={{ fontSize: '30px' }}>{tSharePriceInFTM ? tSharePriceInFTM : '-.----'} FTM</span>
+  
+                <span style={{ fontSize: '30px' }}>{tSharePriceInFTM ? tSharePriceInFTM : '-.----'} TOMB</span>
               </Box>
               <Box>
                 <span style={{ fontSize: '16px' }}>${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}</span>
@@ -345,10 +340,8 @@ const Home = () => {
                 <CardIcon>
                   <TokenSymbol symbol="TBOND" />
                 </CardIcon>
-              </Box>
-              Current Price
-              <Box>
-                <span style={{ fontSize: '30px' }}>{tBondPriceInFTM ? tBondPriceInFTM : '-.----'} FTM</span>
+     
+                <span style={{ fontSize: '30px' }}>{tBondPriceInFTM ? tBondPriceInFTM : '-.----'} TOMB</span>
               </Box>
               <Box>
                 <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'}</span>
@@ -364,7 +357,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>DEGEN-TOMB Spooky LP</h2>
+              <h2>DEGEN-TOMB LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TOMB-FTM-LP" />
@@ -379,7 +372,7 @@ const Home = () => {
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} DEGEN /{' '}
-                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} FTM
+                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} TOMB
                 </span>
               </Box>
               <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
@@ -393,7 +386,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>DSHARES-TOMB Spooky LP</h2>
+              <h2>DSHARES-USDC LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TSHARE-FTM-LP" />
@@ -406,8 +399,8 @@ const Home = () => {
             </Box>*/}
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} 3SHARE /{' '}
-                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} FTM
+                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} DSHARE /{' '}
+                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} USDC
                 </span>
               </Box>
               <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>

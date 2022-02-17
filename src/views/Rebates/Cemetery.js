@@ -18,19 +18,22 @@ import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
 import useTombStats from '../../hooks/useTombStats';
+import daoImg from '../../assets/img/3.jpg';
 
 const web3 = new Web3()
 const BN = n => new web3.utils.BN(n)
 
+
+
 const BackgroundImage = createGlobalStyle`
   body {
+    background: url(${daoImg}) no-repeat !important;
+    background-size: cover !important;
     background-color: var(--black);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='32' viewBox='0 0 16 32'%3E%3Cg fill='%231D1E1F' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 24h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
     border-radius: 0 !important;
-    box-shadow: none !important;
 }
 `;
 
@@ -109,7 +112,7 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           DEGEN Price <small>(TWAP)</small>
                         </Typography>
-                        <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} FTM</Typography>
+                        <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} TOMB</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
@@ -130,7 +133,7 @@ const Cemetery = () => {
                     Bondable Assets
                   </Typography>
                 <Alert variant="filled" severity="warning" style={{ marginBottom: '30px '}}>
-                    This page is under active maintenance - We have set the bond Rate to 0 This means you can send money but will get nothing in return.!!!
+                    Treasury rebates note yet open!
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks

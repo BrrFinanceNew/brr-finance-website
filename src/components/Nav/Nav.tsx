@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     color: 'var(--white)',
-    'background-color': '#ff494922',
+    'background-color': '#00000022',
     'backdrop-filter': "blur(2px)",
     // borderBottom: `1px solid ${theme.palette.divider}`,
     padding: '0 10px',
@@ -128,28 +128,13 @@ const Nav = () => {
               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
               </Link>
-              <Link color="textPrimary" to="/roadmap" className={classes.link}>
-                Clubhouse
-              </Link>
               <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
-              {/* <Link color="textPrimary" to="/treasury" className={classes.link}>
-                Treasury
-              </Link>
-              <a href="/" target="_blank" className={classes.link}>
-                Vaults
-              </a> */}
-              {/* <Link color="textPrimary" to="/sbs" className={classes.link}>
-                SBS
-              </Link>
-              <Link color="textPrimary" to="/liquidity" className={classes.link}>
-                Liquidity
-              </Link>
-              <Link color="textPrimary" to="/regulations" className={classes.link}>
-                Regulations
-              </Link> */}
-              <a href="https://gedeon-crypto.gitbook.io/degen.finance/" target="_blank" className={classes.link}>
+              <a href="#" target="_blank" className={classes.link}>
+                Clubhouse
+              </a>
+              <a href="https://degenfi.gitbook.io/degen-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>
             </Box>
@@ -196,12 +181,10 @@ const Nav = () => {
                 <ListItemLink primary="Treasury" to="/treasury" />
                 <ListItemLink primary="Roadmap" to="/roadmap" />
                 <ListItemLink primary="Tutorials" to="/tutorials" />
-                {/* <ListItemLink primary="Masonry" to="/masonry" />
-                <ListItemLink primary="Pit" to="/pit" />
-                <ListItemLink primary="SBS" to="/sbs" />
-                <ListItemLink primary="Liquidity" to="/liquidity" />
-                <ListItemLink primary="Regulations" to="/regulations" /> */}
-                <ListItem button component="a" href="https://gedeon-crypto.gitbook.io/degen.finance/">
+                <ListItem button component="a" href="#">
+                  <ListItemText>Clubhouse</ListItemText>
+                </ListItem>
+                <ListItem button component="a" href="https://degenfi.gitbook.io/degen-finance/">
                   <ListItemText>Docs</ListItemText>
                 </ListItem>
                 <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

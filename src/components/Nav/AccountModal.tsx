@@ -38,7 +38,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <TokenSymbol symbol="TSHARE" />
           <StyledBalance>
             <StyledValue>{displayTshareBalance}</StyledValue>
-            <Label text="3SHARE Available" variant="primary" />
+            <Label text="DSHARE Available" variant="primary" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
