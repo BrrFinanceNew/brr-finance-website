@@ -25,6 +25,10 @@ export interface Bank extends BankInfo {
   earnToken: ERC20;
 }
 
+export type Whitelist = {
+  whitelist: string;
+};
+
 export type PoolStats = {
   dailyAPR: string;
   yearlyAPR: string;

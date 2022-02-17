@@ -134,6 +134,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/aboutUs" className={classes.link}>
                 AboutUs
               </Link>
+              <Link color="textPrimary" to="/whitelist" className={classes.link}>
+                Whitelist
+              </Link>
               <a href="#" target="_blank" className={classes.link}>
                 Clubhouse
               </a>            

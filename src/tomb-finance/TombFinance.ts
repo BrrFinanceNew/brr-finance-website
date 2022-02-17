@@ -2,7 +2,7 @@
 import { Fetcher as FetcherSpirit, Token as TokenSpirit } from '@spiritswap/sdk';
 import { Fetcher, Route, Token } from '@spookyswap/sdk';
 import { Configuration } from './config';
-import { ContractName, TokenStat, AllocationTime, LPStat, Bank, PoolStats, TShareSwapperStat } from './types';
+import { ContractName, TokenStat, AllocationTime, LPStat, Bank, PoolStats, TShareSwapperStat , Whitelist } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
 import { TransactionResponse } from '@ethersproject/providers';
@@ -167,6 +167,22 @@ export class TombFinance {
       priceInDollars: priceOfTBondInDollars,
       totalSupply: supply,
       circulatingSupply: supply,
+    };
+  }
+
+  async getWhitelistStat(account: string): Promise<Whitelist> {
+    
+    const { Whitelist } = this.contracts;
+    
+    let whitelisted = await Whitelist.verifyUser(account);
+
+    if(whitelisted == true){
+      whitelisted = 'Your address is whitelisted'
+    }else{
+      whitelisted = 'Your address is not whitelisted'
+    }
+    return {
+      whitelist: whitelisted,
     };
   }
 
