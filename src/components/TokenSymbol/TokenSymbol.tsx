@@ -10,7 +10,7 @@ import tBondLogo from '../../assets/img/DBOND-01.png';
 import tshares from '../../assets/img/tshares.png';
 import degenDshare from '../../assets/img/degen-dshare.png';
 import tombFtmLpLogo from '../../assets/img/tomb_ftm_lp.png';
-import tshareFtmLpLogo from '../../assets/img/DSHARES-TOMB.png';
+import tshareFtmLpLogo from '../../assets/img/DSHARES-USDC.png';
 
 import wftmLogo from '../../assets/img/fantom-ftm-logo.png';
 import booLogo from '../../assets/img/spooky.png';
@@ -29,7 +29,7 @@ import TwoombTwosharesLPLogo from '../../assets/img/TOMB-TSHARES.png';
 import UsdcLogo from '../../assets/img/USDC.png';
 
 import ThreeombLPLogo from '../../assets/img/DEGEN-TOMB.png';
-import ThreesharesLPLogo from '../../assets/img/DSHARES-TOMB.png';
+import ThreesharesLPLogo from '../../assets/img/DSHARES-USDC.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -57,7 +57,7 @@ const logosBySymbol: { [title: string]: string } = {
   'TOMB-TSHARES LP': TwoombTwosharesLPLogo,
   'DEGEN-DSHARE LP': degenDshare,
   'DEGEN-TOMB LP': ThreeombLPLogo,
-  'DSHARES-TOMB LP': ThreesharesLPLogo,
+  'DSHARES-USDC LP': ThreesharesLPLogo,
 
 
   'wFTM': wftmLogo,
@@ -72,11 +72,14 @@ type LogoProps = {
   size?: number;
 };
 
-const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 115 }) => {
-  if(symbol === 'TOMB' || symbol === 'TOMBPNG' || symbol === '2OMB'){
-    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={70} height={70} />;
-  }else{
+const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 130 }) => {
+  if(symbol === 'TOMB' || symbol === 'TOMBPNG' || symbol === '2OMB' || symbol === 'TSHARES'){
+    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={75} height={75} />;
+  }else if(symbol === 'DSHARES-USDC LP' || symbol === 'DEGEN-DSHARE LP' || symbol === 'DEGEN-TOMB LP' || symbol === 'TSHARES'){
     return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
+  } else {
+    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
+
   }
 
 };

@@ -162,6 +162,8 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARES rewards.
                 Then stake your earned DSHARES in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
+              <h2>Website under development <br/>do NOT buy any token YET !</h2>
+
             </Box>
           </Paper>
 				</Grid>
@@ -187,8 +189,8 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-              <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
-            </CardContent>
+{/*               <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
+ */}            </CardContent>
           </Card>
         </Grid>
 
@@ -206,20 +208,20 @@ const Home = () => {
               <Button
                 color="primary"
                 target="_blank"
-                href="https://spookyswap.finance/swap?outputCurrency=0x14def7584a6c52f470ca4f4b9671056b22f4ffde"
+                href="#"
                 variant="contained"
                 style={{ marginRight: '10px' }}
                 className={classes.button}
               >
                 Buy DEGEN
               </Button>
-              <Button color="primary" variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0x6437adac543583c4b31bf0323a0870430f5cc2e7" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button color="primary" variant="contained" target="_blank" href="#" style={{ marginRight: '10px' }} className={classes.button}>
                 Buy DSHARES
               </Button>
-              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="#" style={{ marginRight: '10px' }} className={classes.button}>
                 DEGEN Chart
               </Button>
-              <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xd352dac95a91afefb112dbbb3463ccfa5ec15b65" className={classes.button}>
+              <Button variant="contained" target="_blank" href="#" className={classes.button}>
                 DSHARES Chart
               </Button>
             </CardContent>

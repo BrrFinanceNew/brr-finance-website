@@ -30,7 +30,7 @@ import ProgressCountdown from './components/ProgressCountdown';
 
 import { createGlobalStyle } from 'styled-components';
 
-import mortuaryImg from '../../assets/img/3.jpg';
+import mortuaryImg from '../../assets/img/masonry.jpg';
 
 const BackgroundImage = createGlobalStyle`
   body {

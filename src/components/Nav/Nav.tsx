@@ -131,9 +131,12 @@ const Nav = () => {
               <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
+              <Link color="textPrimary" to="/aboutUs" className={classes.link}>
+                AboutUs
+              </Link>
               <a href="#" target="_blank" className={classes.link}>
                 Clubhouse
-              </a>
+              </a>            
               <a href="https://degenfi.gitbook.io/degen-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>

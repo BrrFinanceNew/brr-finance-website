@@ -13,7 +13,7 @@ import CemeteryCard from './CemeteryCard';
 import { createGlobalStyle } from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
-import cemetaryImg from '../../assets/img/3.jpg';
+import cemetaryImg from '../../assets/img/cemetery.jpg';
 
 const BackgroundImage = createGlobalStyle`
   body {
