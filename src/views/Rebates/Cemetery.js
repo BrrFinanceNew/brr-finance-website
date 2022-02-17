@@ -18,7 +18,7 @@ import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
 import useTombStats from '../../hooks/useTombStats';
-import daoImg from '../../assets/img/3.jpg';
+import daoImg from '../../assets/img/1.jpg';
 
 const web3 = new Web3()
 const BN = n => new web3.utils.BN(n)
@@ -102,7 +102,7 @@ const Cemetery = () => {
           {!!account ? (
             <>
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '40px' }}>
-               Treasury
+               Rebates
               </Typography>
               <Box mt={2}>
                 <Grid container justify="center" spacing={3}>

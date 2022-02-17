@@ -16,7 +16,7 @@ import CemeteryCard from './CemeteryCard';
 import { createGlobalStyle } from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
-import treasuryImg from '../../assets/img/3.jpg';
+import treasuryImg from '../../assets/img/5.jpg';
 
 
 const assetList = [

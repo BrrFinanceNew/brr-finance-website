@@ -19,7 +19,7 @@ import useBondsPurchasable from '../../hooks/useBondsPurchasable';
 import { getDisplayBalance } from '../../utils/formatBalance';
 import { BOND_REDEEM_PRICE, BOND_REDEEM_PRICE_BN } from '../../tomb-finance/constants';
 import { Typography } from '@material-ui/core';
-import bondImg from '../../assets/img/3.jpg';
+import bondImg from '../../assets/img/2.jpg';
 
 const BackgroundImage = createGlobalStyle`
   body {

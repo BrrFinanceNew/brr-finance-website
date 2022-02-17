@@ -8,7 +8,7 @@ import PageHeader from '../../components/PageHeader';
 import styled from 'styled-components';
 import Spacer from '../../components/Spacer';
 
-import daoImg from '../../assets/img/3.jpg';
+import daoImg from '../../assets/img/regulations_bg.png';
 import { Grid , Box, Container, Card, Typography } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import asgard from '../../assets/img/asgard.jpg';
