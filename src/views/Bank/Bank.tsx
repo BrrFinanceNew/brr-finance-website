@@ -21,6 +21,7 @@ import StyledCardAccent from '../../components/StyledCardAccent';
 const useStyles = makeStyles((theme) => ({
   gridItem: {
     height: '100%',
+
     [theme.breakpoints.up('md')]: {
       height: '90px',
     },
@@ -62,8 +63,9 @@ const Bank: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
-            <Card className={classes.gridItem}>
-              <CardContent style={{ textAlign: 'center' }}>
+          
+            <Card className={classes.gridItem}>  
+              <CardContent style={{ textAlign: 'center' }}>        
                 <Typography>TVL</Typography>
                 <Typography>${statsOnPool?.TVL}</Typography>
               </CardContent>
