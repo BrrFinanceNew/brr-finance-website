@@ -17,6 +17,7 @@ import useStatsForPool from '../../hooks/useStatsForPool';
 import useRedeem from '../../hooks/useRedeem';
 import { Bank as BankEntity } from '../../tomb-finance';
 import useTombFinance from '../../hooks/useTombFinance';
+import StyledCardAccent from '../../components/StyledCardAccent';
 const useStyles = makeStyles((theme) => ({
   gridItem: {
     height: '100%',
@@ -74,10 +75,14 @@ const Bank: React.FC = () => {
         <StyledBank>
           <StyledCardsWrapper>
             <StyledCardWrapper>
+            <StyledCardAccent />
               <Harvest bank={bank} />
             </StyledCardWrapper>
             <Spacer />
-            <StyledCardWrapper>{<Stake bank={bank} />}</StyledCardWrapper>
+            <StyledCardWrapper>
+            <StyledCardAccent />
+              <Stake bank={bank} />
+            </StyledCardWrapper>
           </StyledCardsWrapper>
           <Spacer size="lg" />
           {/* {bank.depositTokenName.includes('LP') && <LPTokenHelpText bank={bank} />} */}
@@ -147,6 +152,7 @@ const StyledLink = styled.a`
 `;
 
 const StyledCardsWrapper = styled.div`
+ 
   display: flex;
   width: 600px;
   @media (max-width: 768px) {
@@ -157,6 +163,7 @@ const StyledCardsWrapper = styled.div`
 `;
 
 const StyledCardWrapper = styled.div`
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;

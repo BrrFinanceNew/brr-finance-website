@@ -14,7 +14,7 @@ import useHarvestFromMasonry from '../../../hooks/useHarvestFromMasonry';
 import useEarningsOnMasonry from '../../../hooks/useEarningsOnMasonry';
 import useTombStats from '../../../hooks/useTombStats';
 import { getDisplayBalance } from '../../../utils/formatBalance';
-
+import StyledCardAccent from '../../../components/StyledCardAccent';
 const Harvest: React.FC = () => {
   const tombStats = useTombStats();
   const { onReward } = useHarvestFromMasonry();
@@ -31,8 +31,9 @@ const Harvest: React.FC = () => {
   const { from, to } = useClaimRewardTimerMasonry();
 
   return (
-    <Box>
-      <Card>
+    <Box position='relative'>
+    <StyledCardAccent />
+    <Card >
         <CardContent>
           <StyledCardContentInner>
             <StyledCardHeader>
@@ -55,8 +56,9 @@ const Harvest: React.FC = () => {
             </StyledCardActions>
           </StyledCardContentInner>
         </CardContent>
+    
       </Card>
-      <Box mt={2} style={{ color: '#FFF' }}>
+      <Box mt={canClaimReward? 0: 2} style={{color: '#FFF'}}>
         {canClaimReward ? (
           ''
         ) : (

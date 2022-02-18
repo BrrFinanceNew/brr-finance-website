@@ -7,7 +7,7 @@ import Harvest from './components/Harvest';
 import Stake from './components/Stake';
 import { makeStyles } from '@material-ui/core/styles';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
-
+import StyledCardAccent from '../../components/StyledCardAccent';
 import { Box, Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
@@ -135,7 +135,9 @@ const Masonry = () => {
               <StyledBoardroom>
                 <StyledCardsWrapper>
                   <StyledCardWrapper>
+                
                     <Harvest />
+                  
                   </StyledCardWrapper>
                   <Spacer />
                   <StyledCardWrapper>
@@ -206,6 +208,7 @@ const StyledBoardroom = styled.div`
 `;
 
 const StyledCardsWrapper = styled.div`
+  position: relative;
   display: flex;
   width: 600px;
   @media (max-width: 768px) {
