@@ -312,16 +312,18 @@ export class TombFinance {
       const startDateTime = new Date(poolStartTime.toNumber() * 1000);
       const FOUR_DAYS = 4 * 24 * 60 * 60 * 1000;
       if (Date.now() - startDateTime.getTime() > FOUR_DAYS) {
+   
         return await poolContract.epochTombPerSecond(1);
       }
+      
       return await poolContract.epochTombPerSecond(0);
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
       return rewardPerSecond.mul(35500).div(89500);
-    } else if (depositTokenName.startsWith('2OMB')) {
+    } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(15000).div(89500);
-    } else if (depositTokenName.startsWith('2SHARE')) {
+    } else if (depositTokenName.startsWith('TSHARE')) {
       return rewardPerSecond.mul(15000).div(89500);
     } else {
       return rewardPerSecond.mul(24000).div(89500);

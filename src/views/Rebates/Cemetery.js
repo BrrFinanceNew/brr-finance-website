@@ -132,7 +132,7 @@ const Cemetery = () => {
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '35px', marginBottom: '30px' }}>
                     Bondable Assets
                   </Typography>
-                <Alert variant="filled" severity="warning" style={{ marginBottom: '30px '}}>
+                <Alert variant="filled" severity="info" style={{ marginBottom: '30px '}}>
                     Treasury rebates not yet open!
                 </Alert>
                   <Grid container spacing={3}>

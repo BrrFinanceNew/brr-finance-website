@@ -125,7 +125,7 @@ const Masonry = () => {
 
             <Grid container justify="center">
               <Box mt={3} style={{ width: '525px' }}>
-                <Alert variant="transparent" severity="info">
+                <Alert variant="filled" severity="info">
                   Staked DSHARES can only be withdrawn after 3 epochs since deposit.
                 </Alert>
               </Box>

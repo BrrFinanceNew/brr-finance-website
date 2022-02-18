@@ -40,14 +40,14 @@ body {
 
 .MuiPaper-elevation1 {
     box-shadow: none !important;
-    background-color: #08002a !important;
+    background-color: #000000d1 !important;
     backdrop-filter: blur(5px);
     border-radius: 10px !important;
-    border: 1px solid var(--white);
+    border: 1px solid #ccc;
 }
 
 .MuiCard-root {
-    background-color: #08002a !important;
+    background-color: #000000d1 !important;
     backdrop-filter: blur(5px);
     border-radius: 10px !important;
     
@@ -112,7 +112,7 @@ code {
     color: #757ce8 !important;
 }
 .MuiAlert-filledWarning{
-    background-color: #342B7C !important;
+    /*background-color: #342B7C !important;*/
 }
 
 @media (max-width: 600px) {

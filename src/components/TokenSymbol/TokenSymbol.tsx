@@ -25,6 +25,7 @@ import bloomLogo from '../../assets/img/BLOOM.jpg';
 import TwoombLPLogo from '../../assets/img/tomb_ftm.png';
 import TwosharesLPLogo from '../../assets/img/tomb_ftm.png';
 import TwoombTwosharesLPLogo from '../../assets/img/TOMB-TSHARES.png';
+import tshareftm from '../../assets/img/tshare_ftm.png';
 
 import UsdcLogo from '../../assets/img/USDC.png';
 
@@ -35,38 +36,30 @@ const logosBySymbol: { [title: string]: string } = {
   //Real tokens
   //=====================
   TOMB: tomb,
+  TOMBHOME: tomb,
+  TSHARES: tshares,
   DEGEN: tombLogo,
   DBOND: tBondLogo,
+  DSHARE: tShareLogoPNG,
   DSHARES: tShareLogoPNG,
-  TOMBPNG: tombLogoPNG,
-  TSHAREPNG: tShareLogoPNG,
-  TSHARE: tShareLogo,
-  TSHARES: tshares,
-  TBOND: tBondLogo,
   WFTM: wftmLogo,
-  BOO: booLogo,
-  SHIBA: shibaLogo,
-  ZOO: zooLogo,
-  BELUGA: belugaLogo,
-  BIFI: bifiLogo,
-  MIM: mimLogo,
   USDC: UsdcLogo,
-  BLOOM: bloomLogo,
   'TOMB-WFTM LP': TwoombLPLogo,
   'TSHARES-WFTM LP': TwosharesLPLogo,
-  'TOMB-TSHARES LP': TwoombTwosharesLPLogo,
   'DEGEN-DSHARE LP': degenDshare,
-  'DEGEN-TOMB LP': ThreeombLPLogo,
-  'DSHARES-USDC LP': ThreesharesLPLogo,
 
+  'DEGEN-TOMB LP': ThreeombLPLogo,
+  'DEGEN-TOMB HOME': ThreeombLPLogo,
+
+  'DSHARES-USDC LP': ThreesharesLPLogo,
+  'DSHARES-USDC HOME': ThreesharesLPLogo,
 
   'wFTM': wftmLogo,
   '2OMB': twoombLogo,
   '2SHARES': twoshareLogo,
-  'TOMB-FTM-LP': tombFtmLpLogo,
-  'TSHARES-FTM-LP': tshareFtmLpLogo,
-  'TOMB-FTM LP': tombFtmLpLogo,
-  'TSHARES-FTM LP': tshareFtmLpLogo,
+  'TOMB-FTM LP': TwoombLPLogo,
+  'TSHARES-FTM LP': tshareftm,
+
 };
 
 type LogoProps = {
@@ -74,14 +67,11 @@ type LogoProps = {
   size?: number;
 };
 
-const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 130 }) => {
-  if(symbol === 'TOMB' || symbol === 'TOMBPNG' || symbol === '2OMB' || symbol === 'TSHARES'){
-    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={75} height={75} />;
-  }else if(symbol === 'DSHARES-USDC LP' || symbol === 'DEGEN-DSHARE LP' || symbol === 'DEGEN-TOMB LP' || symbol === 'TSHARES'){
+const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 100 }) => {
+  if(symbol ==='DSHARES-USDC HOME' || symbol === 'DEGEN-TOMB HOME' || symbol === 'TOMBHOME'){
+    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={110} height={110} />;
+  }else{
     return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
-  } else {
-    return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
-
   }
 
 };

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { Box, Button, Card, CardActions, CardContent, Typography, Grid } from '@material-ui/core';
 
 import TokenSymbol from '../../components/TokenSymbol';
+import useStatsForPool from '../../hooks/useStatsForPool';
 
 const CemeteryCard = ({ bank }) => {
+  const statsOnPool = useStatsForPool(bank);
   return (
     <Grid item xs={12} md={4} lg={4}>
       <Card variant="outlined" style={{ border: '1px solid var(--white)' }}>
@@ -24,19 +26,24 @@ const CemeteryCard = ({ bank }) => {
                 justifyContent: 'center',
               }}
             >
-              <TokenSymbol size={64} symbol={bank.depositTokenName} />
+               {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={55} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={70} symbol={bank.depositToken.symbol} />}
+         
             </Box>
             <Typography variant="h5" component="h2">
               {bank.depositTokenName}
             </Typography>
-            <Typography variant="h5" component="h2">
+            <Typography variant="h6" component="h2">
             Whitelist Only: {bank.whitelist}
             <Typography color="textSecondary">
               Deposit Fee: {bank.info}
             </Typography>
             <Typography color="textSecondary">
+     
+              {/*Deposit {bank.depositTokenName.toUpperCase()}*/} Earn {` ${bank.earnTokenName}`}
+            </Typography>
+            <Typography color="#322f32">
               {/* {bank.name} */}
-              Deposit {bank.depositTokenName.toUpperCase()} Earn {` ${bank.earnTokenName}`}
+              Daily APR: {bank.closedForStaking ? '0.00' : statsOnPool?.dailyAPR}%
             </Typography>
 {/*             <Typography color="textSecondary">
               Multiplier: {bank.multiplier}

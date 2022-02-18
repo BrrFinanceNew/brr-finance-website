@@ -169,7 +169,7 @@ const Home = () => {
 				</Grid>
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
-            <Alert variant="filled" severity="warning">
+            <Alert variant="filled" severity="info">
                 Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>
@@ -235,7 +235,7 @@ const Home = () => {
               <h2>TOMB</h2>
               <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
-                  <TokenSymbol symbol="wFTM" style={{ backgroundColor: "transparent !important" }} />
+                  <TokenSymbol symbol="TOMBHOME" style={{ backgroundColor: "transparent !important"}} />
                 </CardIcon>
       
                 <span style={{ fontSize: '30px' }}>${ftmPrice ? ftmPrice : '-.----'} USD</span>
@@ -305,7 +305,7 @@ const Home = () => {
               </Button> */}
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="TSHARE" />
+                  <TokenSymbol symbol="DSHARE" />
                 </CardIcon>
   
                 <span style={{ fontSize: '30px' }}>{tSharePriceInFTM ? tSharePriceInFTM : '-.----'} TOMB</span>
@@ -340,7 +340,7 @@ const Home = () => {
               </Button> */}
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="TBOND" />
+                  <TokenSymbol symbol="DBOND" />
                 </CardIcon>
      
                 <span style={{ fontSize: '30px' }}>{tBondPriceInFTM ? tBondPriceInFTM : '-.----'} TOMB</span>
@@ -362,7 +362,7 @@ const Home = () => {
               <h2>DEGEN-TOMB LP</h2>
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="TOMB-FTM-LP" />
+                  <TokenSymbol symbol="DEGEN-TOMB HOME" />
                 </CardIcon>
               </Box>
               {/*
@@ -391,7 +391,7 @@ const Home = () => {
               <h2>DSHARES-USDC LP</h2>
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="DSHARES-USDC LP" />
+                  <TokenSymbol symbol="DSHARES-USDC HOME" />
                 </CardIcon>
               </Box>
               {/*<Box mt={2}>

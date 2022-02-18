@@ -96,7 +96,7 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>
-              <TokenSymbol symbol={bank.depositToken.symbol} size={54} />
+              {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={80} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={110} symbol={bank.depositToken.symbol} />}
             </CardIcon>
             <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />
             <Label text={`≈ $${earnedInDollars}`} />
