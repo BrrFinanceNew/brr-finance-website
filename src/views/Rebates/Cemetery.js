@@ -133,7 +133,7 @@ const Cemetery = () => {
                     Bondable Assets
                   </Typography>
                 <Alert variant="filled" severity="warning" style={{ marginBottom: '30px '}}>
-                    Treasury rebates note yet open!
+                    Treasury rebates not yet open!
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks

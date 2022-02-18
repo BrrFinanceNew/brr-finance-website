@@ -13,6 +13,8 @@ const configurations: { [env: string]: Configuration } = {
     externalTokens: {
       WFTM: ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       USDC: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6],
+      TSHARES: ['0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37', 18],
+      TOMB: ['0x6c021ae822bea943b2e66552bde1d2696a53fbb7', 18],
 //      BOO: ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', 18],
 //      ZOO: ['0x09e145a1d53c0045f41aeef25d8ff982ae74dd56', 0],
 //      SHIBA: ['0x9ba3e4f84a34df4e08c112e1a0ff148b81655615', 9],
@@ -30,8 +32,9 @@ const configurations: { [env: string]: Configuration } = {
       'DSHARES-USDC LP': ['0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65',18],
       'DSHARES': ['0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7', 18],
 //      'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
-      'TOMB-FTM-LP': ['0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae', 18],
-      'TSHARE-FTM-LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
+      'TOMB-FTM LP': ['0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae', 18],
+      'TSHARES-FTM LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
+      'DEGEN-DSHARE LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
     },
     baseLaunchDate: new Date('2021-06-02 13:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -55,8 +58,8 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   finished: will disable the pool on the UI if set to true
   sort: the order of the pool
   */
-  USDCRewardPool: {
-    name: 'Earn asd DEGEN by staking 2SHARES',
+  USDCRewardPool: {/*USDC no whitelist*/
+    name: 'Earn DEGEN by staking USDC',
     info: '1%',
     whitelist: 'No',
     poolId: 0,
@@ -69,9 +72,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "https://2omb.finance",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae',
     sort: 0,
-    closedForStaking: true,
+    closedForStaking: false,
   },
-  TombRewardPool: {
+  TombRewardPool: { /*TOMB no whitelist*/
     name: 'Earn DEGEN by staking TOMB',
     info: '1%',
     whitelist: 'No',
@@ -87,8 +90,8 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 1,
     closedForStaking: true,
   },
-  tsharesRewardPool: {
-    name: 'Earn DEGEN by staking 2SHARES',
+  tsharesRewardPool: { /*TSHARES no whitelist*/
+    name: 'Earn DEGEN by staking TSHARES',
     poolId: 2,
     whitelist: 'No',
     sectionInUI: 0,
@@ -102,9 +105,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae',
     sort: 2,
     closedForStaking: true,
-  },
-  Whitelist2sharesRewardPool: {
-    name: 'Earn DEGEN by staking 2SHARES',
+  }, 
+  Whitelist2sharesRewardPool: { /*TSHARES whitelist*/
+    name: 'Earn DEGEN by staking TSHARES',
     poolId: 3,
     whitelist: 'Yes',
     sectionInUI: 0,
@@ -119,8 +122,8 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 5,
     closedForStaking: true,
   },
-  WhitelistUSDCRewardPool: {
-    name: 'Earn asd DEGEN by staking 2SHARES',
+  WhitelistUSDCRewardPool: {/*USDC whitelist*/
+    name: 'Earn DEGEN by staking USDC',
     info: '0%',
     whitelist: 'Yes',
     poolId: 4,
@@ -135,7 +138,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 3,
     closedForStaking: true,
   },
-  WhitelistTombRewardPool: {
+  WhitelistTombRewardPool: { /*TOMB whitelist*/
     name: 'Earn DEGEN by staking TOMB',
     info: '0%',
     whitelist: 'Yes',
@@ -151,25 +154,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 4,
     closedForStaking: true,
   },
-  // LP's start here
-  TombFtmLPTombRewardPoolOld: {
-    name: 'Earn TOMB by TOMB-FTM LP',
-    info: '0%',
-    whitelist: 'No',
-    poolId: 0,
-    sectionInUI: 1,
-    contract: 'TombFtmLpTombRewardPoolOld',
-    depositTokenName: 'TOMB-FTM-LP',
-    earnTokenName: 'TOMB',
-    finished: true,
-    multiplier: '0',
-    buyLink: '',
-    site: '',
-    sort: 1,
-    closedForStaking: true,
-  },
+  // DSHARE STAKING starts here
   TombFtmLPTShareRewardPool: {
-    name: 'Earn DSHARES by DEGEN-TOMB LP',
+    name: 'Earn DSHARE by DEGEN-TOMB LP',
     info: '0%',
     whitelist: 'No',
     poolId: 1,
@@ -185,7 +172,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
   TshareFtmLPTShareRewardPool: {
-    name: 'Earn DSHARES by DSHARES-USDC LP',
+    name: 'Earn DSHARE by DSHARES-USDC LP',
     info: '0%',
     whitelist: 'No',
     poolId: 2,
@@ -201,13 +188,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
   TwoshareFtmLPTShareRewardPool: {
-    name: 'Earn DSHARES by TSHARES-WFTM LP',
+    name: 'Earn DSHARE by TSHARES-FTM LP',
     info: '0%',
     whitelist: 'No',
     poolId: 3,
     sectionInUI: 2,
     contract: 'TwoshareFtmLPTShareRewardPool',
-    depositTokenName: 'TSHARES-WFTM LP',
+    depositTokenName: 'TSHARES-FTM LP',
     earnTokenName: 'DSHARES',
     finished: false,
     multiplier: '15000x',
@@ -217,13 +204,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
   TwoombFtmLPTShareRewardPool: {
-    name: 'Earn DSHARES by TOMB-WFTM LP',
+    name: 'Earn DSHARE by TOMB-FTM LP',
     info: '0%',
     whitelist: 'No',
     poolId: 4,
     sectionInUI: 2,
     contract: 'TwoombFtmLPTShareRewardPool',
-    depositTokenName: 'TOMB-WFTM LP',
+    depositTokenName: 'TOMB-FTM LP',
     earnTokenName: 'DSHARES',
     finished: false,
     multiplier: '15000x',
@@ -233,15 +220,15 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
   DegenDshareLPDshareRewardPool: {
-    name: 'Earn DSHARES by Degen-Dshare LP',
+    name: 'Earn DSHARE by DEGEN-DSHARE LP',
     info: '0%',
     whitelist: 'No',
     poolId: 5,
     sectionInUI: 2,
-    contract: 'TwoombFtmLPTShareRewardPool',
+    contract: 'TombFtmRewardPool',
     depositTokenName: 'DEGEN-DSHARE LP',
     earnTokenName: 'DSHARES',
-    finished: true,
+    finished: false,
     multiplier: '15000x',
     buyLink: 'https://spookyswap.finance/add/FTM/0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae',
     site: 'https://2omb.finance',

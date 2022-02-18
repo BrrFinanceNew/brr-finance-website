@@ -132,7 +132,7 @@ const Nav = () => {
                 Tutorials
               </Link>
               <Link color="textPrimary" to="/aboutUs" className={classes.link}>
-                AboutUs
+                About Us
               </Link>
               <Link color="textPrimary" to="/whitelist" className={classes.link}>
                 Whitelist
@@ -187,6 +187,8 @@ const Nav = () => {
                 <ListItemLink primary="Treasury" to="/treasury" />
                 <ListItemLink primary="Roadmap" to="/roadmap" />
                 <ListItemLink primary="Tutorials" to="/tutorials" />
+                <ListItemLink primary="About Us" to="/aboutUs" />
+                <ListItemLink primary="Whitelist" to="/whitelist" />
                 <ListItem button component="a" href="#">
                   <ListItemText>Clubhouse</ListItemText>
                 </ListItem>

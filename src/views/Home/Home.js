@@ -391,7 +391,7 @@ const Home = () => {
               <h2>DSHARES-USDC LP</h2>
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="TSHARE-FTM-LP" />
+                  <TokenSymbol symbol="DSHARES-USDC LP" />
                 </CardIcon>
               </Box>
               {/*<Box mt={2}>

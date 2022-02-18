@@ -64,7 +64,9 @@ const logosBySymbol: { [title: string]: string } = {
   '2OMB': twoombLogo,
   '2SHARES': twoshareLogo,
   'TOMB-FTM-LP': tombFtmLpLogo,
-  'TSHARE-FTM-LP': tshareFtmLpLogo,
+  'TSHARES-FTM-LP': tshareFtmLpLogo,
+  'TOMB-FTM LP': tombFtmLpLogo,
+  'TSHARES-FTM LP': tshareFtmLpLogo,
 };
 
 type LogoProps = {

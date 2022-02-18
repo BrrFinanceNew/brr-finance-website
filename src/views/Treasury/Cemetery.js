@@ -21,19 +21,19 @@ import treasuryImg from '../../assets/img/5.jpg';
 
 const assetList = [
   {
-    depositTokenName: '2SHARES',
+    depositTokenName: 'TSHARES',
   },
   {
     depositTokenName: 'TSHARES-WFTM LP',
   },
   {
-    depositTokenName: 'DEGEN-TOMB LP',
+    depositTokenName: 'WFTM',
   },
   {
-    depositTokenName: 'DSHARES',
+    depositTokenName: 'DSHARE',
   },
   {
-    depositTokenName: 'DSHARES-TOMB LP',
+    depositTokenName: 'DSHARE-USDC LP',
   },
 ]
 
@@ -117,13 +117,13 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DEGEN-TOMB LP:
+                          TOMB-WFTM LP:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_degen_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DSHARES-TOMB LP:
+                          DSHARE-USDC LP:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_dshares_wftm} separator="," prefix="$" />
                       </CardContent>
@@ -139,19 +139,19 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DEGEN:
+                          WFTM:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_degen} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DSHARES:
+                          DSHARE:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_dshares} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          2SHARES:
+                          TSHARES:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_2shares} separator="," prefix="$" />
                       </CardContent>
