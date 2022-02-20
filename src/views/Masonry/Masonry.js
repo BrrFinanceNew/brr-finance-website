@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useWallet } from 'use-wallet';
 import moment from 'moment';
-import styled from 'styled-components';
 import Spacer from '../../components/Spacer';
 import Harvest from './components/Harvest';
 import Stake from './components/Stake';
@@ -20,6 +19,7 @@ import useStakedBalanceOnMasonry from '../../hooks/useStakedBalanceOnMasonry';
 import { getDisplayBalance } from '../../utils/formatBalance';
 import useCurrentEpoch from '../../hooks/useCurrentEpoch';
 import useFetchMasonryAPR from '../../hooks/useFetchMasonryAPR';
+import styled from 'styled-components';
 
 import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP';
 import useTreasuryAllocationTimes from '../../hooks/useTreasuryAllocationTimes';
@@ -44,6 +44,11 @@ const BackgroundImage = createGlobalStyle`
 }
 `;
 
+const StyledLink = styled.a`
+font-weight: 700;
+text-decoration: none;
+color: var(--accent-light);
+`;
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -125,8 +130,11 @@ const Masonry = () => {
 
             <Grid container justify="center">
               <Box mt={3} style={{ width: '525px' }}>
-                <Alert variant="filled" severity="info">
-                  Staked DSHARES can only be withdrawn after 3 epochs since deposit.
+              <Alert style={{ backgroundColor:"black" , color:"white" , width:"100%" , marginLeft:"0%"}}variant="filled" severity="warning">
+                Upon stake, the funds will be locked for 4 epochs. Rewards can be claimed after 2 epochs after deposit.<br/> 
+                Any time the user claims rewards or stakes more funds or unstakes partially, both lock and reward counter will be reset.                </Alert>
+                <Alert style={{ backgroundColor:"black" , color:"white" , width:"100%" , marginLeft:"0%"}}variant="filled" severity="warning">
+                Strategy: For the health of the protocol, we recommend you to take 20% profits and re-invest your the rest of DEGEN back in DEGEN-TOMB LP and earn more DSHARE on the <StyledLink href="/boardroom">Mortuary</StyledLink> page.
                 </Alert>
               </Box>
             </Grid>

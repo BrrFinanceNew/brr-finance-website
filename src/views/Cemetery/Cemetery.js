@@ -11,6 +11,7 @@ import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
 import cemetaryImg from '../../assets/img/cemetery.jpg';
@@ -31,6 +32,13 @@ const Cemetery = () => {
   const [banks] = useBanks();
   const { path } = useRouteMatch();
   const { account } = useWallet();
+  
+  const StyledLink = styled.a`
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--accent-light);
+  `;
+
   const activeBanks = banks.filter((bank) => !bank.finished);
   return (
     <Switch>
@@ -42,7 +50,12 @@ const Cemetery = () => {
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
                 Graveyard
               </Typography>
-
+              {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+              <b>Strategy:<br/>
+              For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
+               1) Re-invest a portion of earned DSHARE in DSHARE-USDC LP in the <StyledLink href="/farms">Graveyard</StyledLink> to farm more DEGEN! <br/>
+               2) Re-invest a portion of  earned DSHARE in <StyledLink href="/boardroom">Mortuary</StyledLink> page to farm more DEGEN!</b>
+            </Alert> } 
               <Box mt={5}>
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom>

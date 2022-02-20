@@ -19,6 +19,7 @@ import useTotalValueLocked from '../../hooks/useTotalValueLocked';
 import useFantomPrice from '../../hooks/useFantomPrice';
 import { tomb as tombTesting, tShare as tShareTesting } from '../../tomb-finance/deployments/deployments.testing.json';
 import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deployments/deployments.mainnet.json';
+import LaunchCountdown from '../../components/LaunchCountdown';
 
 import useTotalTreasuryBalance from '../../hooks/useTotalTreasuryBalance.js';
 
@@ -70,9 +71,9 @@ const Home = () => {
     tomb = tombProd;
     tShare = tShareProd;
   }
-
-  const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=' + tomb.address;
-  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=' + tShare.address;
+  
+  const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7';
+  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
@@ -111,6 +112,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
+  const date = new Date('2022-2-22 22:30:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -163,7 +165,6 @@ const Home = () => {
                 Then stake your earned DSHARES in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
               <h2>Launch details coming soon !</h2>
-
             </Box>
           </Paper>
 				</Grid>
@@ -173,6 +174,8 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>
+            { <LaunchCountdown deadline={date} description={'Raffle ends in'} descriptionLink={''}></LaunchCountdown> }
+
         </Grid>
 
         {/* <Grid container spacing={3}>
@@ -218,10 +221,10 @@ const Home = () => {
               <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
                 Buy DSHARES
               </Button>
-              <Button  variant="contained" target="_blank" href="#" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xf6b99c9b6e6bdbfd1b2de21f908189b49f43b9e3" style={{ marginRight: '10px' }} className={classes.button}>
                 DEGEN Chart
               </Button>
-              <Button variant="contained" target="_blank" href="#" className={classes.button}>
+              <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x6ce65e05902630b8a4455376c3969aebd4c6c245" className={classes.button}>
                 DSHARES Chart
               </Button>
             </CardContent>

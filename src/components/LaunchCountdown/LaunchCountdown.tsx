@@ -28,32 +28,27 @@ const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ deadline, description
   };
   return (
     <StyledCard>
-      <Dial value={percentage}>
         <StyledCountdownWrapper>
-          <StyledCountdownTitle>Starting In...</StyledCountdownTitle>
+          <StyledCountdownTitle>Whitelist Genesis starts in...</StyledCountdownTitle>
           <Countdown date={deadline} renderer={countdownRenderer} />
         </StyledCountdownWrapper>
-      </Dial>
-      <StyledDescriptionButton>
-        <StyledExternalLink href={descriptionLink} target="_blank">
-          {description}
-        </StyledExternalLink>
-      </StyledDescriptionButton>
     </StyledCard>
   );
 };
 
 const StyledCard = styled.div`
-  width: 400px;
-  background-color: #271c20;
-  border: 1px solid ${(props) => props.theme.color.grey[900]};
+  width: 20%;
+  background-color: #000000;
+  border: 1px solid ${(props) => props.theme.color.white[900]};
   box-sizing: border-box;
-  padding: 36px;
   border-radius: 48px;
   box-shadow: 0px 3px 30px #d5d5d5a0;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-left:1%;
+  margin-bottom:1%;
+  margin-top:1%;
 `;
 
 const StyledCountdownWrapper = styled.div`
@@ -66,11 +61,12 @@ const StyledCountdownTitle = styled.p`
   font-size: 20px;
   color: ${(props) => props.theme.color.grey[700]};
   margin: 0;
+  color:white;
 `;
 
 const StyledCountdown = styled.p`
   font-size: 40px;
-  color: #d8325e;
+  color: #ffffff;
   margin: 0;
 `;
 
