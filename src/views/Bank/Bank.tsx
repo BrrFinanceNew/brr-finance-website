@@ -116,7 +116,7 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
     pairName = 'DEGEN-TOMB pair';
     uniswapUrl = 'https://spookyswap.finance/add/FTM/' + tombAddr;
   } else {
-    pairName = '3SHARE-WFTM pair';
+    pairName = 'DSHARE-WFTM pair';
     uniswapUrl = 'https://spookyswap.finance/add/FTM/' + tshareAddr;
   }
   return (

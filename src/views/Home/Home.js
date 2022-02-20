@@ -20,6 +20,7 @@ import useFantomPrice from '../../hooks/useFantomPrice';
 import { tomb as tombTesting, tShare as tShareTesting } from '../../tomb-finance/deployments/deployments.testing.json';
 import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deployments/deployments.mainnet.json';
 import LaunchCountdown from '../../components/LaunchCountdown';
+import MetamaskFox from '../../assets/img/metamask-fox.svg';
 
 import useTotalTreasuryBalance from '../../hooks/useTotalTreasuryBalance.js';
 
@@ -258,7 +259,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>DEGEN</h2>
-              {/* <Button
+              { <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TOMB');
                 }}
@@ -268,7 +269,7 @@ const Home = () => {
               >
                 +&nbsp;
                 <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> */}
+              </Button> }
               <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
                   <TokenSymbol symbol="DEGEN" style={{ backgroundColor: "transparent !important" }} />
@@ -295,7 +296,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>DSHARES</h2>
-              {/* <Button
+              { <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TSHARE');
                 }}
@@ -305,7 +306,7 @@ const Home = () => {
               >
                 +&nbsp;
                 <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> */}
+              </Button> }
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="DSHARE" />
@@ -330,7 +331,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>DBOND</h2>
-              {/* <Button
+              { <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TBOND');
                 }}
@@ -340,7 +341,7 @@ const Home = () => {
               >
                 +&nbsp;
                 <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> */}
+              </Button> }
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="DBOND" />

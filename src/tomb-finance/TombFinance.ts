@@ -47,7 +47,7 @@ export class TombFinance {
       this.externalTokens[symbol] = new ERC20(address, provider, symbol, decimal);
     }
     this.TOMB = new ERC20(deployments.tomb.address, provider, 'DEGEN');
-    this.TSHARE = new ERC20(deployments.tShare.address, provider, '3SHARE');
+    this.TSHARE = new ERC20(deployments.tShare.address, provider, 'DSHARE');
     this.TBOND = new ERC20(deployments.tBond.address, provider, 'DBOND');
     this.FTM = this.externalTokens['WFTM'];
 
@@ -825,13 +825,13 @@ async get2ShareStatFake(): Promise<TokenStat> {
       let assetUrl;
       if (assetName === 'TOMB') {
         asset = this.TOMB;
-        assetUrl = 'https://tomb.finance/presskit/tomb_icon_noBG.png';
+        assetUrl = 'https://i.imgur.com/9YKsiKf.png';
       } else if (assetName === 'TSHARE') {
         asset = this.TSHARE;
-        assetUrl = 'https://tomb.finance/presskit/tshare_icon_noBG.png';
+        assetUrl = 'https://i.imgur.com/qfhBNNG.png';
       } else if (assetName === 'TBOND') {
         asset = this.TBOND;
-        assetUrl = 'https://tomb.finance/presskit/tbond_icon_noBG.png';
+        assetUrl = 'https://i.imgur.com/2IGi3na.png';
       }
       await ethereum.request({
         method: 'wallet_watchAsset',
