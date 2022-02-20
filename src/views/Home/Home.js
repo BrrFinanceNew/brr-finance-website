@@ -162,7 +162,7 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARES rewards.
                 Then stake your earned DSHARES in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
-              <h2>Website under development <br/>do NOT buy any token YET !</h2>
+              <h2>Launch details coming soon !</h2>
 
             </Box>
           </Paper>
@@ -208,14 +208,14 @@ const Home = () => {
               <Button
                 color="primary"
                 target="_blank"
-                href="#"
+                href={buyTombAddress}
                 variant="contained"
                 style={{ marginRight: '10px' }}
                 className={classes.button}
               >
                 Buy DEGEN
               </Button>
-              <Button color="primary" variant="contained" target="_blank" href="#" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
                 Buy DSHARES
               </Button>
               <Button  variant="contained" target="_blank" href="#" style={{ marginRight: '10px' }} className={classes.button}>

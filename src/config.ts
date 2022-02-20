@@ -15,6 +15,9 @@ const configurations: { [env: string]: Configuration } = {
       USDC: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6],
       TSHARES: ['0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37', 18],
       TOMB: ['0x6c021ae822bea943b2e66552bde1d2696a53fbb7', 18],
+      DEGEN: ['0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5', 18],
+      DSHARE: ['0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140', 18],
+      DBOND: ['0x6B9bD1806b0641218Ae1b63F23329C127a8Ea8f1', 18],
 //      BOO: ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', 18],
 //      ZOO: ['0x09e145a1d53c0045f41aeef25d8ff982ae74dd56', 0],
 //      SHIBA: ['0x9ba3e4f84a34df4e08c112e1a0ff148b81655615', 9],
@@ -72,7 +75,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: '#',
     sort: 0,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TombRewardPool: { /*TOMB no whitelist*/
     name: 'Earn DEGEN by staking TOMB',
@@ -106,7 +109,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 2,
     closedForStaking: true,
   }, 
-  Whitelist2sharesRewardPool: { /*TSHARES whitelist*/
+  WhitelistTsharesRewardPool: { /*TSHARES whitelist*/
     name: 'Earn DEGEN by staking TSHARES',
     poolId: 3,
     whitelist: 'Yes',
@@ -169,7 +172,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '#',
     site: '#',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TshareFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DSHARES-USDC LP',
@@ -185,7 +188,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '#',
     site: '#',
     sort: 3,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TwoshareFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by TSHARES-FTM LP',
@@ -201,7 +204,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '#',
     site: '#',
     sort: 6,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TwoombFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by TOMB-FTM LP',
@@ -217,7 +220,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '#',
     site: '#',
     sort: 5,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   DegenDshareLPDshareRewardPool: {
     name: 'Earn DSHARE by DEGEN-DSHARE LP',
@@ -247,7 +250,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   buyLink: '',
   //   site: '',
   //   sort: 12,
-  //   closedForStaking: false,
+  //   closedForStaking: true,
   // },
 /*   Tomb2SHARESRebates: {
     name: 'Bond 2SHARES, earn DEGEN',
@@ -261,7 +264,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '',
     site: '',
     sort: 5,
-    closedForStaking: false,
+    closedForStaking: true,
   }, */
     USDCRebates: {
      name: 'Bond USDC, earn DEGEN',
@@ -277,7 +280,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
      buyLink: '',
      site: '',
      sort: 6,
-     closedForStaking: false,
+     closedForStaking: true,
   },
   Tomb2SHARESFTMRebates: {
     name: 'Bond TSHARES-WFTM LP, earn DEGEN',
@@ -293,7 +296,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '',
     site: '',
     sort: 4,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   // TombDEGENFTMRebates: {
   //   name: 'Bond DEGEN-TOMB LP, earn DEGEN',
@@ -307,7 +310,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   buyLink: '',
   //   site: '',
   //   sort: 1,
-  //   closedForStaking: false,
+  //   closedForStaking: true,
   // },
   TombDSHARESRebates: {
     name: 'Bond DSHARES, earn DEGEN',
@@ -323,7 +326,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '',
     site: '',
     sort: 3,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   //TombDSHARESFTMRebates: {
    // name: 'Bond DSHARES-USDC LP, earn DEGEN',
@@ -337,7 +340,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //  buyLink: '',
  //   site: '',
  //   sort: 2,
- //   closedForStaking: false,
+ //   closedForStaking: true,
  // },
 };
 
