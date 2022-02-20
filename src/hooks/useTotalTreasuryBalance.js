@@ -13,8 +13,8 @@ const treasuryAddress = "0x8f555E00ea0FAc871b3Aa70C015915dB094E7f88"
 //     "0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca", // 2shares
 //     "0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52", // 2shares/FTM LP
 //     "0x83A52eff2E9D112E9B022399A9fD22a9DB7d33Ae", // degen/wftm
-//     "0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7", // dshares
-//     "0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65", // dshares/wftm
+//     "0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7", // dshare
+//     "0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65", // dshare/wftm
 // ]
 
 // const contracts = assetList.map(asset => new web3.eth.Contract(ERC20ABI, asset))
@@ -42,9 +42,9 @@ function useTotalTreasuryBalance() {
     const [balance, setBalance] = useState(0)
     const [balance_2shares_wftm, setBalance_2shares_wftm] = useState(0)
     const [balance_degen_wftm, setBalance_degen_wftm] = useState(0)
-    const [balance_dshares_wftm, setBalance_dshares_wftm] = useState(0)
+    const [balance_dshare_wftm, setBalance_dshare_wftm] = useState(0)
     const [balance_degen, setBalance_degen] = useState(0)
-    const [balance_dshares, setBalance_dshares] = useState(0)
+    const [balance_dshare, setBalance_dshare] = useState(0)
     const [balance_2shares, setBalance_2shares] = useState(0)
 
     useEffect(() => {
@@ -57,7 +57,7 @@ function useTotalTreasuryBalance() {
         }
     }, [])
 
-    return { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshares_wftm, balance_degen, balance_dshares, balance_2shares }
+    return { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshare_wftm, balance_degen, balance_dshare, balance_2shares }
 
     async function getBalance() {
         // const { data2omb } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=2omb-fi')
@@ -65,22 +65,22 @@ function useTotalTreasuryBalance() {
         // const { datadegen } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=30mb-token')
         
         const { data } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=3shares')
-        const dSharesBalance = web3.utils.fromWei(await ThreeShares.methods.balanceOf(treasuryAddress).call())
-        const valuedshares = dSharesBalance * data[0].current_price
+        const dShareBalance = web3.utils.fromWei(await ThreeShares.methods.balanceOf(treasuryAddress).call())
+        const valuedshare = dShareBalance * data[0].current_price
 
         const data2sharesAnddegen = await axios('https://openapi.debank.com/v1/user/chain_balance?id=0x8f555E00ea0FAc871b3Aa70C015915dB094E7f88&chain_id=ftm')
 
-        console.log(`DShares USD: $${valuedshares}`)
+        console.log(`DShare USD: $${valuedshare}`)
         console.log(`2Shares + degen: $${data2sharesAnddegen.data.usd_value}`)
         const LP_2shares_wftm = await getLPPrice('0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52', '0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca')
         const LP_degen_wftm = await getLPPrice('0x83A52eff2E9D112E9B022399A9fD22a9DB7d33Ae', '0x14def7584a6c52f470ca4f4b9671056b22f4ffde')
-        const LP_dshares_wftm = await getLPPrice('0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65', '0x6437adac543583c4b31bf0323a0870430f5cc2e7')
-        setBalance(data2sharesAnddegen.data.usd_value + valuedshares + LP_2shares_wftm + LP_degen_wftm + LP_dshares_wftm)
+        const LP_dshare_wftm = await getLPPrice('0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65', '0x6437adac543583c4b31bf0323a0870430f5cc2e7')
+        setBalance(data2sharesAnddegen.data.usd_value + valuedshare + LP_2shares_wftm + LP_degen_wftm + LP_dshare_wftm)
         setBalance_2shares_wftm(LP_2shares_wftm)
         setBalance_degen_wftm(LP_degen_wftm)
-        setBalance_dshares_wftm(LP_dshares_wftm)
+        setBalance_dshare_wftm(LP_dshare_wftm)
         setBalance_degen(await getdegenBalance())
-        setBalance_dshares(await getdsharesBalance())
+        setBalance_dshare(await getdshareBalance())
         setBalance_2shares(await get2sharesBalance())
     }
 
@@ -92,10 +92,10 @@ function useTotalTreasuryBalance() {
         return usdValue
     }
 
-    async function getdsharesBalance() {
-        const tokendshares = new web3.eth.Contract(ERC20ABI, '0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7')
+    async function getdshareBalance() {
+        const tokendshare = new web3.eth.Contract(ERC20ABI, '0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7')
         const { data } = await axios(`https://fantom.api.0x.org/swap/v1/quote?buyToken=USDC&sellToken=0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7&sellAmount=100000000000000000`)
-        const usdValue = Number(web3.utils.fromWei(await tokendshares.methods.balanceOf(treasuryAddress).call())) * Number(data.price)
+        const usdValue = Number(web3.utils.fromWei(await tokendshare.methods.balanceOf(treasuryAddress).call())) * Number(data.price)
 
         return usdValue
     }

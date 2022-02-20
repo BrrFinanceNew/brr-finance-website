@@ -64,7 +64,7 @@ const Cemetery = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
-  const { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshares_wftm, balance_degen, balance_dshares, balance_2shares } = useTotalTreasuryBalance();
+  const { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshare_wftm, balance_degen, balance_dshare, balance_2shares } = useTotalTreasuryBalance();
   return (
     <Switch>
       <Page>
@@ -125,7 +125,7 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           DSHARE-USDC LP:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_dshares_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_dshare_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
@@ -147,7 +147,7 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           DSHARE:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_dshares} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_dshare} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">

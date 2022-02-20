@@ -3,14 +3,14 @@ import React from 'react';
 //Graveyard ecosystem logos
 import tombLogo from '../../assets/img/DEGEN.svg';
 import tomb from '../../assets/img/fantom-ftm-logo.png';
-import tShareLogo from '../../assets/img/DSHARES.svg';
+import tShareLogo from '../../assets/img/DSHARE.svg';
 import tombLogoPNG from '../../assets/img/DEGEN.png';
-import tShareLogoPNG from '../../assets/img/DSHARES.png';
+import tShareLogoPNG from '../../assets/img/DSHARE.png';
 import tBondLogo from '../../assets/img/DBOND-01.png';
 import tshares from '../../assets/img/tshares.png';
 import degenDshare from '../../assets/img/degen-dshare.png';
 import tombFtmLpLogo from '../../assets/img/tomb_ftm_lp.png';
-import tshareFtmLpLogo from '../../assets/img/DSHARES-USDC.png';
+import tshareFtmLpLogo from '../../assets/img/DSHARE-USDC.png';
 
 import wftmLogo from '../../assets/img/fantom-ftm-logo.png';
 import booLogo from '../../assets/img/spooky.png';
@@ -30,7 +30,7 @@ import tshareftm from '../../assets/img/tshare_ftm.png';
 import UsdcLogo from '../../assets/img/USDC.png';
 
 import ThreeombLPLogo from '../../assets/img/DEGEN-TOMB.png';
-import ThreesharesLPLogo from '../../assets/img/DSHARES-USDC.png';
+import ThreesharesLPLogo from '../../assets/img/DSHARE-USDC.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -41,7 +41,6 @@ const logosBySymbol: { [title: string]: string } = {
   DEGEN: tombLogo,
   DBOND: tBondLogo,
   DSHARE: tShareLogoPNG,
-  DSHARES: tShareLogoPNG,
   WFTM: wftmLogo,
   USDC: UsdcLogo,
   'TOMB-WFTM LP': TwoombLPLogo,
@@ -51,8 +50,8 @@ const logosBySymbol: { [title: string]: string } = {
   'DEGEN-TOMB LP': ThreeombLPLogo,
   'DEGEN-TOMB HOME': ThreeombLPLogo,
 
-  'DSHARES-USDC LP': ThreesharesLPLogo,
-  'DSHARES-USDC HOME': ThreesharesLPLogo,
+  'DSHARE-USDC LP': ThreesharesLPLogo,
+  'DSHARE-USDC HOME': ThreesharesLPLogo,
 
   'wFTM': wftmLogo,
   '2OMB': twoombLogo,
@@ -68,7 +67,7 @@ type LogoProps = {
 };
 
 const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 100 }) => {
-  if(symbol ==='DSHARES-USDC HOME' || symbol === 'DEGEN-TOMB HOME' || symbol === 'TOMBHOME'){
+  if(symbol ==='DSHARE-USDC HOME' || symbol === 'DEGEN-TOMB HOME' || symbol === 'TOMBHOME'){
     return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={110} height={110} />;
   }else{
     return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;

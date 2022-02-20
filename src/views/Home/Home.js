@@ -162,8 +162,8 @@ const Home = () => {
               <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 TOMB</p>
               <p>Degen utilizes multiple bonding mechanisms at the <StyledLink href="/rebates">DAO</StyledLink> as well as seigniorage.</p>
               <p>
-                Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARES rewards.
-                Then stake your earned DSHARES in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
+                Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
+                Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
               <h2>Launch details coming soon !</h2>
             </Box>
@@ -220,13 +220,13 @@ const Home = () => {
                 Buy DEGEN
               </Button>
               <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
-                Buy DSHARES
+                Buy DSHARE
               </Button>
               <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xf6b99c9b6e6bdbfd1b2de21f908189b49f43b9e3" style={{ marginRight: '10px' }} className={classes.button}>
                 DEGEN Chart
               </Button>
               <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x6ce65e05902630b8a4455376c3969aebd4c6c245" className={classes.button}>
-                DSHARES Chart
+                DSHARE Chart
               </Button>
             </CardContent>
           </Card>
@@ -295,7 +295,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>DSHARES</h2>
+              <h2>DSHARE</h2>
               { <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TSHARE');
@@ -392,10 +392,10 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>DSHARES-USDC LP</h2>
+              <h2>DSHARE-USDC LP</h2>
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="DSHARES-USDC HOME" />
+                  <TokenSymbol symbol="DSHARE-USDC HOME" />
                 </CardIcon>
               </Box>
               {/*<Box mt={2}>

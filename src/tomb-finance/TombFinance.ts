@@ -347,7 +347,7 @@ export class TombFinance {
       console.log("token name:", tokenName)
       if (tokenName === 'DEGEN-TOMB LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
-      } else if (tokenName === 'DSHARES-TOMB LP') {
+      } else if (tokenName === 'DSHARE-TOMB LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
@@ -685,7 +685,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
   async canUserUnstakeFromMasonry(): Promise<boolean> {
     const Masonry = this.currentMasonry();
     const canWithdraw = await Masonry.canWithdraw(this.myAccount);
-    const stakedAmount = await this.getStakedSharesOnMasonry();
+    const stakedAmount = await this.getStakedShareOnMasonry();
     const notStaked = Number(getDisplayBalance(stakedAmount, this.TSHARE.decimal)) === 0;
     const result = notStaked ? true : canWithdraw;
     return result;
@@ -710,7 +710,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     return await Masonry.stake(decimalToBalance(amount));
   }
 
-  async getStakedSharesOnMasonry(): Promise<BigNumber> {
+  async getStakedShareOnMasonry(): Promise<BigNumber> {
     const Masonry = this.currentMasonry();
     if (this.masonryVersionOfUser === 'v1') {
       return await Masonry.getShareOf(this.myAccount);
@@ -802,7 +802,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const withdrawLockupEpochs = await Masonry.withdrawLockupEpochs();
     const fromDate = new Date(Date.now());
     const targetEpochForClaimUnlock = Number(startTimeEpoch) + Number(withdrawLockupEpochs);
-    const stakedAmount = await this.getStakedSharesOnMasonry();
+    const stakedAmount = await this.getStakedShareOnMasonry();
     if (currentEpoch <= targetEpochForClaimUnlock && Number(stakedAmount) === 0) {
       return { from: fromDate, to: fromDate };
     } else if (targetEpochForClaimUnlock - currentEpoch === 1) {
