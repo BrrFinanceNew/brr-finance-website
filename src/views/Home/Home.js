@@ -170,7 +170,7 @@ const Home = () => {
 				</Grid>
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
-            <Alert variant="filled" severity="info">
+            <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                 Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>

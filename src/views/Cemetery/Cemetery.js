@@ -76,7 +76,7 @@ const Cemetery = () => {
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
                     Earn TOMB by staking LP
                   </Typography>
-                  <Alert variant="filled" severity="warning">
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                     All below pools have ended. Please unstake and collect your rewards.
                   </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
@@ -95,7 +95,7 @@ const Cemetery = () => {
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '40px', marginBottom: '20px' }}>
                     Genesis Pools
-                    {/*<Alert variant="filled" severity="info" style={{ marginTop: '20px' }}>
+                    {/*<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                   All below pools have ended. Please unstake and collect your rewards.
               </Alert>*/}
                   </Typography>
