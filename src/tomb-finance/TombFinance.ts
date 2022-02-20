@@ -288,12 +288,12 @@ export class TombFinance {
   ) {
     if (earnTokenName === 'DEGEN') {
       if (!contractName.endsWith('TombRewardPool')) {
-        const rewardPerSecond = await poolContract.tombPerSecond();
-        if (depositTokenName === '2SHARES') {
+        const rewardPerSecond = await poolContract.degenPerSecond();
+        if (depositTokenName === 'TSHARES') {
           return rewardPerSecond.mul(7500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === '2OMB') {
+        } else if (depositTokenName === 'TOMB') {
           return rewardPerSecond.mul(5000).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'BELUGA') {
+        } else if (depositTokenName === 'USDC') {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
         } else if (depositTokenName === 'BIFI') {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
@@ -311,12 +311,12 @@ export class TombFinance {
       const poolStartTime = await poolContract.poolStartTime();
       const startDateTime = new Date(poolStartTime.toNumber() * 1000);
       const FOUR_DAYS = 4 * 24 * 60 * 60 * 1000;
-      if (Date.now() - startDateTime.getTime() > FOUR_DAYS) {
+/*       if (Date.now() - startDateTime.getTime() > FOUR_DAYS) {
    
         return await poolContract.epochTombPerSecond(1);
       }
       
-      return await poolContract.epochTombPerSecond(0);
+      return await poolContract.epochTombPerSecond(0); */
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
@@ -350,13 +350,15 @@ export class TombFinance {
       } else if (tokenName === 'DSHARES-TOMB LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "TSHARES-WFTM LP") {
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
       } else if (tokenName === "TOMB-WFTM LP") {
         console.log("getting the LP token price here")
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB"), true, true);
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
         console.log("my token price:", tokenPrice)
-      } else if (tokenName === 'BLOOM') {
-        tokenPrice = await this.getTokenPriceFromSpiritswap(token);
+      } else if (tokenName === 'USDC') {
+        tokenPrice = 1; 
+      } else if (tokenName === 'TOMB') {
+        tokenPrice = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tomb").then(res => res.json())
       } else if (tokenName === "BELUGA") {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=beluga-fi&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["beluga-fi"].usd

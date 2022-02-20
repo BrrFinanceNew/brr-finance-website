@@ -75,7 +75,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: '#',
     sort: 0,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TombRewardPool: { /*TOMB no whitelist*/
     name: 'Earn DEGEN by staking TOMB',
@@ -91,7 +91,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '#',
     buyLink: '#',
     sort: 1,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   tsharesRewardPool: { /*TSHARES no whitelist*/
     name: 'Earn DEGEN by staking TSHARES',
@@ -107,7 +107,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: '#',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   WhitelistTsharesRewardPool: { /*TSHARES whitelist*/
     name: 'Earn DEGEN by staking TSHARES',
