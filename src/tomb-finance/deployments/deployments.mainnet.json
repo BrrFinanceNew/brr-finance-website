@@ -5570,7 +5570,7 @@
   },
 
   "TombFtmRewardPool": {
-    "address": "0xcb0b0419e6a1f46be89c1c1eeeaf9172b7125b29",
+    "address": "0x800a0EB28283FdF4783Db4bF717b52c495a4a70f",
     "abi": [
       {
         "inputs": [
@@ -11416,7 +11416,7 @@
     ]
   },
   "TombFtmLPTShareRewardPool": {
-    "address": "0x1040085D268253e8D4f932399a8019f527e58d04",
+    "address": "0xD6E13acA71E6199ef415D2f6B9D7Cbf25c074E3D",
     "abi": [
       {
         "inputs": [
@@ -11902,7 +11902,7 @@
     ]
   },
   "TwoombTwoshareFtmLPTShareRewardPool": {
-    "address": "0x1040085D268253e8D4f932399a8019f527e58d04",
+    "address": "0xD6E13acA71E6199ef415D2f6B9D7Cbf25c074E3D",
     "abi": [
       {
         "inputs": [
@@ -12874,7 +12874,7 @@
     ]
   },
   "TshareFtmLPTShareRewardPool": {
-    "address": "0x1040085D268253e8D4f932399a8019f527e58d04",
+    "address": "0xD6E13acA71E6199ef415D2f6B9D7Cbf25c074E3D",
     "abi": [
       {
         "inputs": [
@@ -13360,7 +13360,7 @@
     ]
   },
   "TwoombFtmLPTShareRewardPool": {
-    "address": "0x1040085D268253e8D4f932399a8019f527e58d04",
+    "address": "0xD6E13acA71E6199ef415D2f6B9D7Cbf25c074E3D",
     "abi": [
       {
         "inputs": [

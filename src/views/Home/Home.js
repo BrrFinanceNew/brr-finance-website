@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
   const TVL = useTotalValueLocked();
-  const tombFtmLpStats = useLpStats('TOMB-FTM-LP');
-  const tShareFtmLpStats = useLpStats('TSHARE-FTM-LP');
+  const tombFtmLpStats = useLpStats('DEGEN-TOMB LP');
+  const tShareFtmLpStats = useLpStats('DSHARE-USDC LP');
   const tombStats = useTombStats();
   const tShareStats = usetShareStats();
   const tBondStats = useBondStats();
@@ -77,21 +77,22 @@ const Home = () => {
   const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
+  
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
   const tombPriceInDollars = useMemo(
     () => (tombStats ? Number(tombStats.priceInDollars).toFixed(2) : null),
     [tombStats],
   );
-  const tombPriceInFTM = useMemo(() => (tombStats ? Number(tombStats.tokenInFtm).toFixed(4) : null), [tombStats]);
+  const tombPriceInFTM = useMemo(() => (tombStats ? Number(tombStats.tokenInFtm).toFixed(2) : null), [tombStats]);
   const tombCirculatingSupply = useMemo(() => (tombStats ? String(tombStats.circulatingSupply) : null), [tombStats]);
-  const tombTotalSupply = useMemo(() => (tombStats ? String(tombStats.totalSupply) : null), [tombStats]);
+  const tombTotalSupply = useMemo(() => (tombStats ? String(tombStats.totalSupply-40000) : null), [tombStats]);
 
   const tSharePriceInDollars = useMemo(
     () => (tShareStats ? Number(tShareStats.priceInDollars).toFixed(2) : null),
     [tShareStats],
   );
   const tSharePriceInFTM = useMemo(
-    () => (tShareStats ? Number(tShareStats.tokenInFtm).toFixed(4) : null),
+    () => (tShareStats ? Number(tShareStats.tokenInFtm).toFixed(2) : null),
     [tShareStats],
   );
   const tShareCirculatingSupply = useMemo(
@@ -104,7 +105,7 @@ const Home = () => {
     () => (tBondStats ? Number(tBondStats.priceInDollars).toFixed(2) : null),
     [tBondStats],
   );
-  const tBondPriceInFTM = useMemo(() => (tBondStats ? Number(tBondStats.tokenInFtm).toFixed(4) : null), [tBondStats]);
+  const tBondPriceInFTM = useMemo(() => (tBondStats ? Number(tBondStats.tokenInFtm).toFixed(2) : null), [tBondStats]);
   const tBondCirculatingSupply = useMemo(
     () => (tBondStats ? String(tBondStats.circulatingSupply) : null),
     [tBondStats],
@@ -193,8 +194,8 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-{/*               <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
- */}            </CardContent>
+               <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
+            </CardContent>
           </Card>
         </Grid>
 
