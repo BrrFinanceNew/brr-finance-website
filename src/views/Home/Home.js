@@ -194,7 +194,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-               <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
+              {/* <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />*/}
             </CardContent>
           </Card>
         </Grid>
