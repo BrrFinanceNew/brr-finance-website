@@ -31,13 +31,13 @@ const configurations: { [env: string]: Configuration } = {
 //      'TOMB-WFTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478',18],
 //      'TSHARES-WFTM LP': ['0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52',18],
 //      '2SHARES': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
-      'DEGEN-TOMB LP': ['0xF6b99c9B6E6bDbFd1B2De21F908189b49F43B9E3',18],
-      'DSHARE-USDC LP': ['0x6ce65E05902630B8a4455376c3969aeBD4c6c245',18],
+      'DEGEN-TOMB LP': ['0x83A52eff2E9D112E9B022399A9fD22a9DB7d33Ae',18],
+      'DSHARE-USDC LP': ['0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65',18],
 //      'DSHARE': ['0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7', 18],
-      'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
-      'TOMB-FTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478', 18],
+//      'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
+      'TOMB-FTM LP': ['0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae', 18],
       'TSHARES-FTM LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
-      //'DEGEN-DSHARE LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
+      'DEGEN-DSHARE LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
     },
     baseLaunchDate: new Date('2021-06-02 13:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -70,7 +70,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'USDCRewardPool',
     depositTokenName: 'USDC',
     earnTokenName: 'DEGEN',
-    finished: false,
+    finished: true,
     multiplier: '7500x',
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
@@ -86,7 +86,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombRewardPool',
     depositTokenName: 'TOMB',
     earnTokenName: 'DEGEN',
-    finished: false,
+    finished: true,
     multiplier: '5000x',
     site: '#',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
@@ -101,7 +101,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'tsharesRewardPool',
     depositTokenName: 'TSHARES',
     earnTokenName: 'DEGEN',
-    finished: false,
+    finished: true,
     info: '1%',
     multiplier: '7500x',
     site: "#",
@@ -157,7 +157,6 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 4,
     closedForStaking: true,
   },
-  
   // DSHARE STAKING starts here
   TombFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DEGEN-TOMB LP',
@@ -168,7 +167,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmLPTShareRewardPool',
     depositTokenName: 'DEGEN-TOMB LP',
     earnTokenName: 'DSHARE',
-    finished: false,
+    finished: true,
     multiplier: '35500x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
@@ -184,13 +183,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TshareFtmLPTShareRewardPool',
     depositTokenName: 'DSHARE-USDC LP',
     earnTokenName: 'DSHARE',
-    finished: false,
+    finished: true,
     multiplier: '24000x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     site: '#',
     sort: 3,
     closedForStaking: true,
-  },/*
+  },
   TwoshareFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by TSHARES-FTM LP',
     info: '0.2%',
@@ -238,7 +237,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '#',
     sort: 4,
     closedForStaking: true,
-  },*/
+  },
   // TwoombTwosharesLPTShareRewardPool: {
   //   name: 'Earn DSHARE by TOMB-TSHARES LP',
   //   poolId: 4,
@@ -253,7 +252,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   sort: 12,
   //   closedForStaking: true,
   // },
- /* Tomb2SHARESRebates: {
+/*   Tomb2SHARESRebates: {
     name: 'Bond 2SHARES, earn DEGEN',
     poolId: 0,
     sectionInUI: 3,
@@ -266,7 +265,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '',
     sort: 5,
     closedForStaking: true,
-  }, 
+  }, */
     USDCRebates: {
      name: 'Bond USDC, earn DEGEN',
      info: '0%',
@@ -298,7 +297,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '',
     sort: 4,
     closedForStaking: true,
-  },*/
+  },
   // TombDEGENFTMRebates: {
   //   name: 'Bond DEGEN-TOMB LP, earn DEGEN',
   //   poolId: 3,
@@ -313,7 +312,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   sort: 1,
   //   closedForStaking: true,
   // },
- /* TombDSHARERebates: {
+  TombDSHARERebates: {
     name: 'Bond DSHARE, earn DEGEN',
     info: '0%',
     whitelist: 'No',
@@ -328,7 +327,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '',
     sort: 3,
     closedForStaking: true,
-  },*/
+  },
   //TombDSHAREFTMRebates: {
    // name: 'Bond DSHARE-USDC LP, earn DEGEN',
    // poolId: 5,
