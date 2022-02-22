@@ -85,7 +85,7 @@ const Home = () => {
   );
   const tombPriceInFTM = useMemo(() => (tombStats ? Number(tombStats.tokenInFtm).toFixed(2) : null), [tombStats]);
   const tombCirculatingSupply = useMemo(() => (tombStats ? String(tombStats.circulatingSupply) : null), [tombStats]);
-  const tombTotalSupply = useMemo(() => (tombStats ? String(tombStats.totalSupply-40000) : null), [tombStats]);
+  const tombTotalSupply = useMemo(() => (tombStats ? String(tombStats.totalSupply-30000) : null), [tombStats]);
 
   const tSharePriceInDollars = useMemo(
     () => (tShareStats ? Number(tShareStats.priceInDollars).toFixed(2) : null),
@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-2-22 16:00:00Z');
+  const date = new Date('2022-2-23 17:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
