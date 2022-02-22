@@ -166,7 +166,7 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
-              <h2>Whitelist genesis launching soon !</h2>
+              <h2>Public genesis launching soon !</h2>
             </Box>
           </Paper>
 				</Grid>
