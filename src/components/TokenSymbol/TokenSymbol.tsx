@@ -2,7 +2,7 @@ import React from 'react';
 
 //Graveyard ecosystem logos
 import tombLogo from '../../assets/img/DEGEN.svg';
-import tomb from '../../assets/img/fantom-ftm-logo.png';
+import tomb from '../../assets/img/tomb.png';
 import tShareLogo from '../../assets/img/DSHARE.svg';
 import tombLogoPNG from '../../assets/img/DEGEN.png';
 import tShareLogoPNG from '../../assets/img/DSHARE.png';

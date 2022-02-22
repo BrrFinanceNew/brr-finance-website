@@ -306,22 +306,14 @@ export class TombFinance {
       if (!contractName.endsWith('ShareRewardPool')) {
         const rewardPerSecond = await poolContract.degenPerSecond();
         if (depositTokenName === 'TSHARES') {
-          return rewardPerSecond.mul(7500).div(25000).div(24).mul(20);
+          return rewardPerSecond.mul(3500).div(20000).div(24);
         } else if (depositTokenName === 'TOMB') {
-          return rewardPerSecond.mul(5000).div(25000).div(24).mul(20);
+          return rewardPerSecond.mul(3500).div(20000).div(24);
         } else if (depositTokenName === 'USDC') {
-          return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'BIFI') {
-          return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'WFTM') {
-          return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'TOMB-WFTM LP') {
-          return rewardPerSecond.mul(6000).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'TSHARES-WFTM LP') {
-          return rewardPerSecond.mul(6000).div(25000).div(24).mul(20);
-        } else if (depositTokenName === 'BLOOM') {
-          return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
-        }
+          return rewardPerSecond.mul(1500).div(20000).div(24);
+        }  else if (depositTokenName === 'WFTM') {
+          return rewardPerSecond.mul(1500).div(20000).div(24);
+        } 
         return rewardPerSecond.div(24);
       }
       const poolStartTime = await poolContract.poolStartTime();
@@ -527,7 +519,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const pool = this.contracts[poolName];
     try {
       if (earnTokenName === 'DEGEN') {
-        return await pool.pendingTOMB(poolId, account);
+        return await pool.pendingDEGEN(poolId, account);
       } else {
         return await pool.pendingShare(poolId, account);
       }
