@@ -166,7 +166,7 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
-              <h2>Launch details coming soon !</h2>
+              <h2>Whitelist genesis launching soon !</h2>
             </Box>
           </Paper>
 				</Grid>
@@ -194,7 +194,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-              {/* <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />*/}
+              { <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />}
             </CardContent>
           </Card>
         </Grid>
