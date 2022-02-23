@@ -6,7 +6,7 @@ import Bank from '../Bank';
 import { Box, Container, Typography, Grid } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
-
+import LaunchCountdown from '../../components/LaunchCountdown';
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 import CemeteryCard from './CemeteryCard';
@@ -27,7 +27,7 @@ const BackgroundImage = createGlobalStyle`
     border-radius: 0 !important;
 }
 `;
-
+const date = new Date('2022-2-23 17:00:00Z');
 const Cemetery = () => {
   const [banks] = useBanks();
   const { path } = useRouteMatch();
@@ -71,13 +71,15 @@ const Cemetery = () => {
                       ))}
                   </Grid>
                 </div>
-
-                {/* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
+                <Grid container justify="center">
+                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
+                </Grid>
+                <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-                    Earn TOMB by staking LP
+                    Public Genesis Pools (No Whitelist)
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                    All below pools have ended. Please unstake and collect your rewards.
+                    Make sure you unstake from the whitelist genesis pools and restake in the public pools to continue to earn Degen
                   </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
@@ -88,18 +90,20 @@ const Cemetery = () => {
                         </React.Fragment>
                       ))}
                   </Grid>
-                </div> */}
+                </div> 
                 
               
 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '40px', marginBottom: '20px' }}>
-                  Genesis Pools - PUBLIC Pools can be Staked
+                  Whitelist Genesis Pools
                     {/*<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                   All below pools have ended. Please unstake and collect your rewards.
               </Alert>*/}
                   </Typography>
-                
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+                    Whitelist pools will end soon please make sure to unstake from below pools and restake in the pools above to continue to earn Degen
+                  </Alert>
                   <Grid container spacing={3}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 0)
