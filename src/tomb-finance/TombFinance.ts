@@ -306,13 +306,13 @@ export class TombFinance {
       if (!contractName.endsWith('ShareRewardPool')) {
         const rewardPerSecond = await poolContract.degenPerSecond();
         if (depositTokenName === 'TSHARES') {
-          return rewardPerSecond.mul(6000).div(1500).div(24);
+          return rewardPerSecond.mul(6000).div(20000);
         } else if (depositTokenName === 'TOMB') {
-          return rewardPerSecond.mul(6000).div(1200).div(24);
+          return rewardPerSecond.mul(6000).div(20000);
         } else if (depositTokenName === 'USDC') {
-          return rewardPerSecond.mul(2000).div(1000).div(24);
+          return rewardPerSecond.mul(2000).div(20000);
         }  else if (depositTokenName === 'WFTM') {
-          return rewardPerSecond.mul(6000).div(850).div(24);
+          return rewardPerSecond.mul(6000).div(20000);
         } 
         return rewardPerSecond.div(24);
       }
