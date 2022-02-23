@@ -166,8 +166,8 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
-              <h2>Public genesis Staking is Opened ! <br/>
-              Whitelist pool STOPS 1 hour BEFORE the Public one starts, to give time to re-stake!</h2>
+              <h2>
+              Whitelist Genesis has ENDED you can <br/>Withdraw + Re-stak in PUBLIC Genesis.</h2>
             </Box>
           </Paper>
 				</Grid>
