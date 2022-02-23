@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-2-23 17:00:00Z');
+  const date = new Date('2022-2-24 17:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -166,8 +166,8 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
-              <h2>
-              Whitelist Genesis has ENDED you can <br/>Withdraw + Re-stake in PUBLIC Genesis.</h2>
+              <h2> Public Genesis is LIVE !
+              </h2>
             </Box>
           </Paper>
 				</Grid>
