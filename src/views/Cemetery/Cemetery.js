@@ -27,7 +27,7 @@ const BackgroundImage = createGlobalStyle`
     border-radius: 0 !important;
 }
 `;
-const date = new Date('2022-2-23 17:00:00Z');
+const date = new Date('2022-2-24 17:00:00Z');
 const Cemetery = () => {
   const [banks] = useBanks();
   const { path } = useRouteMatch();
