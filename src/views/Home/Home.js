@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
               <h2>Public genesis Staking is Opened ! <br/>
-              Whitelist pool STOPS 1 hour BEFORE the Public one starts to give time to re-stake!</h2>
+              Whitelist pool STOPS 1 hour BEFORE the Public one starts, to give time to re-stake!</h2>
             </Box>
           </Paper>
 				</Grid>
