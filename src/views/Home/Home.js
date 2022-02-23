@@ -96,10 +96,10 @@ const Home = () => {
     [tShareStats],
   );
   const tShareCirculatingSupply = useMemo(
-    () => (tShareStats ? String(tShareStats.circulatingSupply-375) : null),
+    () => (tShareStats ? String(tShareStats.circulatingSupply-379) : null),
     [tShareStats],
   );
-  const tShareTotalSupply = useMemo(() => (tShareStats ? String(tShareStats.totalSupply-375) : null), [tShareStats]);
+  const tShareTotalSupply = useMemo(() => (tShareStats ? String(tShareStats.totalSupply-379) : null), [tShareStats]);
 
   const tBondPriceInDollars = useMemo(
     () => (tBondStats ? Number(tBondStats.priceInDollars).toFixed(2) : null),
