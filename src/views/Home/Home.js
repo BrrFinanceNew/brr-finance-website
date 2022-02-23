@@ -223,7 +223,7 @@ const Home = () => {
               <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
                 Buy DSHARE
               </Button>
-              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x414b5d30b8073c1fc7f219223f7f818ec13a4d0c" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xf6b99c9b6e6bdbfd1b2de21f908189b49f43b9e3" style={{ marginRight: '10px' }} className={classes.button}>
                 DEGEN Chart
               </Button>
               <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x6ce65e05902630b8a4455376c3969aebd4c6c245" className={classes.button}>
