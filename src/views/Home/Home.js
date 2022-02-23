@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p>
               <h2>
-              Whitelist Genesis has ENDED you can <br/>Withdraw + Re-stak in PUBLIC Genesis.</h2>
+              Whitelist Genesis has ENDED you can <br/>Withdraw + Re-stake in PUBLIC Genesis.</h2>
             </Box>
           </Paper>
 				</Grid>
