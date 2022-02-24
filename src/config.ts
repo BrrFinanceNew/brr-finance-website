@@ -1,4 +1,4 @@
-// import { ChainId } from '@pancakeswap-libs/sdk';
+
 import { ChainId } from '@spookyswap/sdk';
 import { Configuration } from './tomb-finance/config';
 import { BankInfo } from './tomb-finance';
@@ -200,12 +200,12 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'TombFtmLPTShareRewardPool',
     depositTokenName: 'DEGEN-TOMB LP',
     earnTokenName: 'DSHARE',
-    finished: true,
+    finished: false,
     multiplier: '35500x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
     sort: 2,
-    closedForStaking: true,
+    closedForStaking: false,
   },
   TshareFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DSHARE-USDC LP',

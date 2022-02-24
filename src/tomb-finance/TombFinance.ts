@@ -217,7 +217,7 @@ export class TombFinance {
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
     
     const priceOfSharesInDollars = (Number(priceInFTM) * Number(priceOfOneFTM)).toFixed(2);
-    
+
     return {
       tokenInFtm: priceInFTM,
       priceInDollars: priceOfSharesInDollars,
@@ -363,9 +363,7 @@ export class TombFinance {
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
       } else if (tokenName === "TOMB-WFTM LP") {
-        console.log("getting the LP token price here")
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
-        console.log("my token price:", tokenPrice)
       } else if (tokenName === 'USDC') {
         tokenPrice = 1; 
       } else if (tokenName === 'TOMB') {

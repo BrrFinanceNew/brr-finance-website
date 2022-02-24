@@ -165,9 +165,9 @@ const Home = () => {
               <p>
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
-              </p>
-              <h2> Public Genesis is LIVE !
-              </h2>
+              </p><h2>
+              Degen-Tomb LP staking is open! <br/>
+DSHARE rewards will start 1 Hour AFTER the Public Genesis ends</h2>
             </Box>
           </Paper>
 				</Grid>
