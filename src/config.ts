@@ -75,7 +75,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     sort: 0,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   TombRewardPool: { /*TOMB no whitelist*/
     name: 'Earn DEGEN by staking TOMB',
@@ -91,7 +91,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '#',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     sort: 1,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   tsharesRewardPool: { /*TSHARES no whitelist*/
     name: 'Earn DEGEN by staking TSHARES',
@@ -107,7 +107,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   wftmRewardPool: { /*WFTM no whitelist*/
     name: 'Earn DEGEN by staking WFTM',
@@ -123,7 +123,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   WhitelistTsharesRewardPool: { /*TSHARES whitelist*/
     name: 'Earn DEGEN by staking TSHARES',

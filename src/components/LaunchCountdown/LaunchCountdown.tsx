@@ -29,7 +29,7 @@ const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ deadline, description
   return (
     <StyledCard>
         <StyledCountdownWrapper>
-          <StyledCountdownTitle>Public Genesis ends in...</StyledCountdownTitle>
+          <StyledCountdownTitle>DEGEN-TOMB starts in...</StyledCountdownTitle>
           <Countdown date={deadline} renderer={countdownRenderer} />
         </StyledCountdownWrapper>
     </StyledCard>
