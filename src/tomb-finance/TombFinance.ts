@@ -210,8 +210,9 @@ export class TombFinance {
     const supply = await this.TSHARE.totalSupply();
 
     const priceInFTM = await this.getTokenPriceFromPancakeswapUSDC(this.TSHARE);
-
+    
     const tombRewardPoolSupply = await this.TSHARE.balanceOf(TombFtmLPTShareRewardPool.address);
+    
     const tShareCirculatingSupply = supply.sub(tombRewardPoolSupply);
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
     
@@ -326,7 +327,7 @@ export class TombFinance {
       
       return await poolContract.epochTombPerSecond(0); */
     }
-    const rewardPerSecond = await poolContract.tSharePerSecond();
+    const rewardPerSecond = await poolContract.dsharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
       return rewardPerSecond.mul(20000).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
@@ -354,10 +355,10 @@ export class TombFinance {
     if (tokenName === 'wFTM') {
       tokenPrice = priceOfOneFtmInDollars;
     } else {
-      console.log("token name:", tokenName)
+
       if (tokenName === 'DEGEN-TOMB LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
-      } else if (tokenName === 'DSHARE-TOMB LP') {
+      } else if (tokenName === 'DSHARE-USDC LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
@@ -372,7 +373,7 @@ export class TombFinance {
       } else if (tokenName === "BELUGA") {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=beluga-fi&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["beluga-fi"].usd
-      } else {
+      }else {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
         tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();
       }
