@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-2-24 18:00:00Z');
+  const date = new Date('2022-2-25 18:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
               Public Genesis has Ended <br/>
-             The Degen-Tomb LP starting soon ! <br/>To buy DEGEN you need TOMB first.</h2>
+             DEGEN-TOMB LP is LIVE in the Graveyard !</h2>
             </Box>
           </Paper>
 				</Grid>
