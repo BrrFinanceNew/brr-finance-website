@@ -205,7 +205,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   },
 /*degen-tomb 2*/
   TombFtmLPT2ShareRewardPool: {
