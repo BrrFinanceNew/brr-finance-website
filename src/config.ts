@@ -208,13 +208,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
 /*degen-tomb 2*/
-  TombFtmLPTShareRewardPool2: {
+  TombFtmLPT2ShareRewardPool2: {
     name: 'Earn DSHARE by DEGEN-TOMB LP (NEW POOL)',
     info: '0%',
     whitelist: 'NEW POOL',
     poolId: 0,
     sectionInUI: 2,
-    contract: 'TombFtmLPTShareRewardPool2',
+    contract: 'TombFtmLPT2ShareRewardPool',
     depositTokenName: 'DEGEN-TOMB LP',
     earnTokenName: 'DSHARE',
     finished: false,
