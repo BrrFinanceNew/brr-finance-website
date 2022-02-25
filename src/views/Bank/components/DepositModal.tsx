@@ -6,7 +6,7 @@ import Modal, { ModalProps } from '../../../components/Modal';
 import ModalActions from '../../../components/ModalActions';
 import ModalTitle from '../../../components/ModalTitle';
 import TokenInput from '../../../components/TokenInput';
-
+import { getFullDisplayBalance1 } from '../../../utils/formatBalance1';
 import { getFullDisplayBalance } from '../../../utils/formatBalance';
 import { BigNumber } from 'ethers';
 
@@ -21,7 +21,11 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, decimals, onConfirm, o
   const [val, setVal] = useState('');
 
   const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(max, decimals, false);
+    if(tokenName === 'DSHARE-USDC LP'){
+      return getFullDisplayBalance1(max, decimals, false);
+    }else{
+      return getFullDisplayBalance(max, decimals, false);
+    }
   }, [max, decimals]);
 
   const handleChange = useCallback(

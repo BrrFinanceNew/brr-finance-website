@@ -87,7 +87,7 @@ const Bank: React.FC = () => {
             </StyledCardWrapper>
           </StyledCardsWrapper>
           <Spacer size="lg" />
-          {/* {bank.depositTokenName.includes('LP') && <LPTokenHelpText bank={bank} />} */}
+           {bank.depositTokenName.includes('LP') && <LPTokenHelpText bank={bank} />} 
           <Spacer size="lg" />
           <div>
             <Button onClick={onRedeem} color="primary" variant="contained">
@@ -114,10 +114,10 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
   let uniswapUrl: string;
   if (bank.depositTokenName.includes('DEGEN')) {
     pairName = 'DEGEN-TOMB pair';
-    uniswapUrl = 'https://spookyswap.finance/add/FTM/' + tombAddr;
+    uniswapUrl = 'https://spookyswap.finance/add/0x6c021ae822bea943b2e66552bde1d2696a53fbb7/' + tombAddr;
   } else {
-    pairName = 'DSHARE-WFTM pair';
-    uniswapUrl = 'https://spookyswap.finance/add/FTM/' + tshareAddr;
+    pairName = 'DSHARE-USDC pair';
+    uniswapUrl = 'https://spookyswap.finance/add/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75/' + tshareAddr;
   }
   return (
     <Card>
