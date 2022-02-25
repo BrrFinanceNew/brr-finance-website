@@ -29,7 +29,7 @@ const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ deadline, description
   return (
     <StyledCard>
         <StyledCountdownWrapper>
-          <StyledCountdownTitle>DSHARE-USDC starts in...</StyledCountdownTitle>
+          <StyledCountdownTitle>DEGEN-TOMB NEW POOL starts in...</StyledCountdownTitle>
           <Countdown date={deadline} renderer={countdownRenderer} />
         </StyledCountdownWrapper>
     </StyledCard>
@@ -37,7 +37,7 @@ const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ deadline, description
 };
 
 const StyledCard = styled.div`
-  width: 20%;
+  width: 30%;
   background-color: #000000;
   border: 1px solid ${(props) => props.theme.color.white[900]};
   box-sizing: border-box;

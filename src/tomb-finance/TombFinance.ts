@@ -143,9 +143,10 @@ export class TombFinance {
     const ftmAmount = lpToken.symbol === "DEGEN-TOMB LP" ? getDisplayBalance(ftmAmountBN, 18) : getDisplayBalance(ftmAmountBN, 6);
     
     const tokenAmountInOneLP = Number(tokenAmount) / Number(lpTokenSupply);
-
+    
     const ftmAmountInOneLP = Number(ftmAmount) / Number(lpTokenSupply);
     const lpTokenPrice = await this.getLPTokenPrice(lpToken, token0, isTomb, false);
+    
     const lpTokenPriceFixed = Number(lpTokenPrice).toFixed(4).toString();
     const liquidity = (Number(lpTokenSupply) * Number(lpTokenPrice)).toFixed(4).toString();
     return {
@@ -444,6 +445,7 @@ export class TombFinance {
    */
   async getLPTokenPrice(lpToken: ERC20, token: ERC20, isTomb: boolean, isFake: boolean): Promise<string> {
     const totalSupply = getFullDisplayBalance(await lpToken.totalSupply(), lpToken.decimal);
+    console.log(totalSupply);
     //Get amount of tokenA
     const tokenSupply = getFullDisplayBalance(await token.balanceOf(lpToken.address), token.decimal);
     const stat = isFake === true ? isTomb === true ? await this.get2ombStatFake() : await this.get2ShareStatFake() : isTomb === true ? await this.getTombStat() : await this.getShareStat();

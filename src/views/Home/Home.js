@@ -166,8 +166,8 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
-              Public Genesis has Ended <br/>
-             DEGEN-TOMB LP is LIVE in the Graveyard !</h2>
+              
+             PLEASE unstake from the OLD DEGEN-TOMB pool & restake in the NEW DEGEN TOMB pool!</h2>
             </Box>
           </Paper>
 				</Grid>

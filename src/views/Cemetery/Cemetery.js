@@ -50,6 +50,9 @@ const Cemetery = () => {
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
                 Graveyard
               </Typography>
+              <Grid container justify="center">
+                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
+                </Grid>
               {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
               <b>Strategy:<br/>
               For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
@@ -61,6 +64,9 @@ const Cemetery = () => {
                   <Typography color="textPrimary" variant="h4" gutterBottom>
                     Earn DSHARE by staking LP Tokens
                   </Typography>
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+                  PLEASE unstake from the OLD DEGEN-TOMB LP pool & restake in the NEW DEGEN TOMB LP pool!
+                </Alert>
                   <Grid container spacing={3}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 2)
@@ -71,12 +77,10 @@ const Cemetery = () => {
                       ))}
                   </Grid>
                 </div>
-                <Grid container justify="center">
-                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
-                </Grid>
+                
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-                    Public Genesis Pool Has ended , yuu can withdraw your funds.
+                    Public Genesis Pool Has ended, you can withdraw your funds
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                     Make sure you unstake from the whitelist genesis pools and restake in the public pools to continue to earn Degen
@@ -96,7 +100,7 @@ const Cemetery = () => {
 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '40px', marginBottom: '20px' }}>
-                  Whitelist Genesis Pools - ENDED , Unstake funds and Stake them in the Public Pools Above
+                  Whitelist Genesis Pools - ENDED, Unstake funds and Stake them in the Public Pools Above
                     {/*<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
                   All below pools have ended. Please unstake and collect your rewards.
               </Alert>*/}
