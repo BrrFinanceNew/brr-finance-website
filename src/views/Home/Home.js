@@ -74,7 +74,7 @@ const Home = () => {
   }
   
   const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7';
-  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
+  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140&inputCurrency=0x6E209329A33a63C463dbb65AE2d6655Fe5C98411';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   
@@ -96,10 +96,10 @@ const Home = () => {
     [tShareStats],
   );
   const tShareCirculatingSupply = useMemo(
-    () => (tShareStats ? String(tShareStats.circulatingSupply-562) : null),
+    () => (tShareStats ? String(tShareStats.circulatingSupply) : null),
     [tShareStats],
   );
-  const tShareTotalSupply = useMemo(() => (tShareStats ? String(tShareStats.totalSupply-562) : null), [tShareStats]);
+  const tShareTotalSupply = useMemo(() => (tShareStats ? String(tShareStats.totalSupply) : null), [tShareStats]);
 
   const tBondPriceInDollars = useMemo(
     () => (tBondStats ? Number(tBondStats.priceInDollars).toFixed(2) : null),

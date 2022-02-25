@@ -337,7 +337,7 @@ export class TombFinance {
     } else if (depositTokenName.startsWith('DSHARE')) {
       return rewardPerSecond.mul(0).div(80000);
     } else {
-      return rewardPerSecond.mul(24000).div(80000);
+      return rewardPerSecond.mul(0).div(80000);
     }
   }
 
