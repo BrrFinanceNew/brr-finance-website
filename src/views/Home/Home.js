@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-2-25 18:00:00Z');
+  const date = new Date('2022-2-26 18:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -321,8 +321,8 @@ const Home = () => {
               </Box>
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${(1 * tSharePriceInDollars).toFixed(2)} <br />
-                Circulating Supply: 1 <br />
-                Total Supply: 1
+                Circulating Supply: {tShareCirculatingSupply} <br />
+                Total Supply: {tShareTotalSupply}
               </span>
             </CardContent>
           </Card>
