@@ -192,9 +192,9 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   
   // DSHARE STAKING starts here
   TombFtmLPTShareRewardPool: {
-    name: 'Earn DSHARE by DEGEN-TOMB LP',
+    name: 'Earn DSHARE by DEGEN-TOMB LP (OLD POOL)',
     info: '0%',
-    whitelist: 'No',
+    whitelist: 'OLD POOL',
     poolId: 0,
     sectionInUI: 2,
     contract: 'TombFtmLPTShareRewardPool',
@@ -207,6 +207,24 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 2,
     closedForStaking: false,
   },
+/*degen-tomb 2*/
+  TombFtmLPTShareRewardPool2: {
+    name: 'Earn DSHARE by DEGEN-TOMB LP (NEW POOL)',
+    info: '0%',
+    whitelist: 'NEW POOL',
+    poolId: 0,
+    sectionInUI: 2,
+    contract: 'TombFtmLPTShareRewardPool2',
+    depositTokenName: 'DEGEN-TOMB LP',
+    earnTokenName: 'DSHARE',
+    finished: false,
+    multiplier: '35500x',
+    buyLink: '#',
+    site: '#',
+    sort: 2,
+    closedForStaking: false,
+  },
+
   TshareFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DSHARE-USDC LP',
     info: '0%',

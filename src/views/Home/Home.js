@@ -74,7 +74,7 @@ const Home = () => {
   }
   
   const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7';
-  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
+  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0x6E209329A33a63C463dbb65AE2d6655Fe5C98411&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   
@@ -166,8 +166,8 @@ const Home = () => {
                 Stake your DEGEN-TOMB LP in the <StyledLink href="/farms">Graveyard</StyledLink> to earn DSHARE rewards.
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
-              Public Genesis has Ended <br/>
-             DEGEN-TOMB LP is LIVE in the Graveyard !</h2>
+              
+             PLEASE unstake from the OLD DEGEN-TOMB pool & restake in the NEW DEGEN TOMB pool!</h2>
             </Box>
           </Paper>
 				</Grid>
