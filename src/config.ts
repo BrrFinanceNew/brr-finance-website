@@ -194,7 +194,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   TombFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DEGEN-TOMB LP (OLD POOL)',
     info: '0%',
-    whitelist: 'OLD POOL',
+    whitelist: 'OLD POOL PLEASE UNSTAKE',
     poolId: 0,
     sectionInUI: 2,
     contract: 'TombFtmLPTShareRewardPool',
@@ -219,7 +219,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'DSHARE',
     finished: false,
     multiplier: '35500x',
-    buyLink: '#',
+    buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
     sort: 2,
     closedForStaking: false,

@@ -33,7 +33,7 @@ const CemeteryCard = ({ bank }) => {
               {bank.depositTokenName}
             </Typography>
             <Typography variant="h6" component="h2">
-            Whitelist Only: {bank.whitelist}
+            {bank.whitelist == 'No' || bank.whitelist == 'Yes' ? <Typography variant="h6" component="h2"> Whitelist Only: {bank.whitelist}</Typography> : <Typography variant="h6" component="h2"> {bank.whitelist}</Typography>}
             <Typography color="textSecondary">
               Deposit Fee: {bank.info}
             </Typography>
