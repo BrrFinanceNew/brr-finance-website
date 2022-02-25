@@ -321,8 +321,8 @@ const Home = () => {
               </Box>
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${(1 * tSharePriceInDollars).toFixed(2)} <br />
-                Circulating Supply: {tShareCirculatingSupply} <br />
-                Total Supply: {tShareTotalSupply}
+                Circulating Supply: 1 <br />
+                Total Supply: 1
               </span>
             </CardContent>
           </Card>
