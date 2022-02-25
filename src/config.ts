@@ -16,7 +16,7 @@ const configurations: { [env: string]: Configuration } = {
       TSHARES: ['0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37', 18],
       TOMB: ['0x6c021ae822bea943b2e66552bde1d2696a53fbb7', 18],
       DEGEN: ['0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5', 18],
-      DSHARE: ['0xeddF0Dc0772D69572C0b9fFFaFF335ceBC1B6140', 18],
+      DSHARE: ['0x6E209329A33a63C463dbb65AE2d6655Fe5C98411', 18],
       DBOND: ['0x6B9bD1806b0641218Ae1b63F23329C127a8Ea8f1', 18],
 //      BOO: ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', 18],
 //      ZOO: ['0x09e145a1d53c0045f41aeef25d8ff982ae74dd56', 0],
