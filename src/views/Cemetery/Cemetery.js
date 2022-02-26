@@ -51,8 +51,8 @@ const Cemetery = () => {
                 Graveyard
               </Typography>
               <Grid container justify="center">
-                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
-                </Grid>
+{/*                 <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
+ */}                </Grid>
               {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
               <b>Strategy:<br/>
               For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
