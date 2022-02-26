@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
               
-             PLEASE unstake from the OLD DEGEN-TOMB pool & restake in the NEW DEGEN TOMB pool!</h2>
+             Stake your DSHARE-USDC LPs, Rewards start soon!</h2>
             </Box>
           </Paper>
 				</Grid>

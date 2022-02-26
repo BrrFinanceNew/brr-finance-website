@@ -206,34 +206,40 @@ export class TombFinance {
    * CirculatingSupply (always equal to total supply for bonds)
    */
   async getShareStat(): Promise<TokenStat> {
-    const { TombFtmLPT2ShareRewardPool } = this.contracts;
-
+    const { DEGENTOMBShareRewardPool } = this.contracts;
+    
     const supply = await this.TSHARE.totalSupply();
-
+    
     const priceInFTM = await this.getTokenPriceFromPancakeswapUSDC(this.TSHARE);
     
-    const tombRewardPoolSupply = await this.TSHARE.balanceOf(TombFtmLPT2ShareRewardPool.address);
+    const tombRewardPoolSupply = await this.TSHARE.balanceOf(DEGENTOMBShareRewardPool.address);
     
     const tShareCirculatingSupply = supply.sub(tombRewardPoolSupply);
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
     
-    const priceOfSharesInDollars = (Number(priceInFTM) * Number(priceOfOneFTM)).toFixed(2);
+    const priceOfSharesInDollars = (Number(priceInFTM) / Number(priceOfOneFTM)).toFixed(2);
 
     return {
-      tokenInFtm: priceInFTM,
-      priceInDollars: priceOfSharesInDollars,
+      tokenInFtm: priceOfSharesInDollars,
+      priceInDollars: priceInFTM,
       totalSupply: getDisplayBalance(supply, this.TSHARE.decimal, 0),
       circulatingSupply: getDisplayBalance(tShareCirculatingSupply, this.TSHARE.decimal, 0),
     };
   }
 
   async getTombStatInEstimatedTWAP(): Promise<TokenStat> {
-    const { SeigniorageOracle, TombFtmRewardPool } = this.contracts;
+    const { SeigniorageOracle, WhitelistTombRewardPool, TombRewardPool } = this.contracts;
     const expectedPrice = await SeigniorageOracle.twap(this.TOMB.address, ethers.utils.parseEther('1'));
-
+    
     const supply = await this.TOMB.totalSupply();
-    const tombRewardPoolSupply = await this.TOMB.balanceOf(TombFtmRewardPool.address);
-    const tombCirculatingSupply = supply.sub(tombRewardPoolSupply);
+    const tombRewardPoolSupply = await this.TOMB.balanceOf(WhitelistTombRewardPool.address);
+    const tombRewardPoolSupply2 = await this.TOMB.balanceOf(TombRewardPool.address);
+    const tombRewardPoolSupplyOld = await this.TOMB.balanceOf('0xb75f7A4446A07ACD145891dfCe4fAbb934285456');
+    const tombCirculatingSupply = supply
+      .sub(tombRewardPoolSupply)
+      .sub(tombRewardPoolSupply2)
+      .sub(tombRewardPoolSupplyOld);
+    console.log(getDisplayBalance(expectedPrice));
     return {
       tokenInFtm: getDisplayBalance(expectedPrice),
       priceInDollars: getDisplayBalance(expectedPrice),
@@ -268,7 +274,7 @@ export class TombFinance {
     const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
     
     const stat = bank.earnTokenName === 'DEGEN' ? await this.getTombStat() : await this.getShareStat();
-    console.log("deposit token price:", TVL)
+    
     const tokenPerSecond = await this.getTokenPerSecond(
       bank.earnTokenName,
       bank.contract,
@@ -330,13 +336,13 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.dsharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
-      return rewardPerSecond.mul(20000).div(80000);
+      return rewardPerSecond.mul(30000).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('TSHARE')) {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('DSHARE')) {
-      return rewardPerSecond.mul(0).div(80000);
+      return rewardPerSecond.mul(30000).div(80000);
     } else {
       return rewardPerSecond.mul(0).div(80000);
     }
@@ -369,7 +375,11 @@ export class TombFinance {
         tokenPrice = 1; 
       } else if (tokenName === 'TOMB') {
         tokenPrice = await this.getWFTMPriceFromPancakeswap();
-      } else if (tokenName === "BELUGA") {
+      }else if (tokenName === 'DSHARE') {
+         const shareprice = await this.getShareStat();
+        
+        tokenPrice = shareprice.priceInDollars;
+      }else if (tokenName === "BELUGA") {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=beluga-fi&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["beluga-fi"].usd
       }else {
@@ -588,9 +598,6 @@ async get2ShareStatFake(): Promise<TokenStat> {
   }
 
   currentMasonry(): Contract {
-    if (!this.masonryVersionOfUser) {
-      //throw new Error('you must unlock the wallet to continue.');
-    }
     return this.contracts.Masonry;
   }
 
@@ -690,19 +697,24 @@ async get2ShareStatFake(): Promise<TokenStat> {
   async getMasonryAPR() {
     const Masonry = this.currentMasonry();
     const latestSnapshotIndex = await Masonry.latestSnapshotIndex();
-    const lastHistory = await Masonry.masonryHistory(latestSnapshotIndex);
-
+    const lastHistory = await Masonry.boardroomHistory(latestSnapshotIndex);
+    
     const lastRewardsReceived = lastHistory[1];
-
+    
     const TSHAREPrice = (await this.getShareStat()).priceInDollars;
+ 
     const TOMBPrice = (await this.getTombStat()).priceInDollars;
+    
     const epochRewardsPerShare = lastRewardsReceived / 1e18;
-
+    
     //Mgod formula
     const amountOfRewardsPerDay = epochRewardsPerShare * Number(TOMBPrice) * 4;
     const masonrytShareBalanceOf = await this.TSHARE.balanceOf(Masonry.address);
+    
     const masonryTVL = Number(getDisplayBalance(masonrytShareBalanceOf, this.TSHARE.decimal)) * Number(TSHAREPrice);
+
     const realAPR = ((amountOfRewardsPerDay * 100) / masonryTVL) * 365;
+  
     return realAPR;
   }
 
@@ -799,7 +811,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const { Masonry, Treasury } = this.contracts;
     const nextEpochTimestamp = await Masonry.nextEpochPoint(); //in unix timestamp
     const currentEpoch = await Masonry.epoch();
-    const mason = await Masonry.masons(this.myAccount);
+    const mason = await Masonry.members(this.myAccount);
     const startTimeEpoch = mason.epochTimerStart;
     const period = await Treasury.PERIOD();
     const periodInHours = period / 60 / 60; // 6 hours, period is displayed in seconds which is 21600
@@ -832,7 +844,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const { Masonry, Treasury } = this.contracts;
     const nextEpochTimestamp = await Masonry.nextEpochPoint();
     const currentEpoch = await Masonry.epoch();
-    const mason = await Masonry.masons(this.myAccount);
+    const mason = await Masonry.members(this.myAccount);
     const startTimeEpoch = mason.epochTimerStart;
     const period = await Treasury.PERIOD();
     const PeriodInHours = period / 60 / 60;

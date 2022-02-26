@@ -32,7 +32,7 @@ const configurations: { [env: string]: Configuration } = {
 //      'TSHARES-WFTM LP': ['0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52',18],
 //      '2SHARES': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
       'DEGEN-TOMB LP': ['0xF6b99c9B6E6bDbFd1B2De21F908189b49F43B9E3',18],
-      'DSHARE-USDC LP': ['0x6ce65E05902630B8a4455376c3969aeBD4c6c245',18],
+      'DSHARE-USDC LP': ['0x1b622bB79d25f67e90BD189B5d116e0923Eb4ECB',18],
 //      'DSHARE': ['0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7', 18],
       'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
       'TOMB-FTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478', 18],
@@ -208,13 +208,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: true,
   },
 /*degen-tomb 2*/
-  TombFtmLPT2ShareRewardPool: {
+DEGENTOMBShareRewardPool: {
     name: 'Earn DSHARE by DEGEN-TOMB LP (NEW POOL)',
     info: '0%',
     whitelist: 'NEW POOL',
     poolId: 0,
     sectionInUI: 2,
-    contract: 'TombFtmLPT2ShareRewardPool',
+    contract: 'DEGENTOMBShareRewardPool',
     depositTokenName: 'DEGEN-TOMB LP',
     earnTokenName: 'DSHARE',
     finished: false,
@@ -225,21 +225,21 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: false,
   },
 
-  TshareFtmLPTShareRewardPool: {
+  DSHAREUSDCShareRewardPool: {
     name: 'Earn DSHARE by DSHARE-USDC LP',
     info: '0%',
     whitelist: 'No',
     poolId: 1,
     sectionInUI: 2,
-    contract: 'TshareFtmLPTShareRewardPool',
+    contract: 'DSHAREUSDCShareRewardPool',
     depositTokenName: 'DSHARE-USDC LP',
     earnTokenName: 'DSHARE',
-    finished: true,
+    finished: false,
     multiplier: '24000x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     site: '#',
     sort: 3,
-    closedForStaking: true,
+    closedForStaking: false,
   },
   TwoombFtmLPTShareRewardPool: {
     name: 'Earn DSHARE by DEGEN-TOMB LP',

@@ -72,7 +72,7 @@ const Masonry = () => {
   const canWithdraw = useWithdrawCheck();
   const scalingFactor = useMemo(() => (cashStat ? Number(cashStat.priceInDollars).toFixed(4) : null), [cashStat]);
   const { to } = useTreasuryAllocationTimes();
-  const rebateStats = useRebateTreasury()
+  //const rebateStats = useRebateTreasury()
 
   return (
     <Page>
@@ -106,7 +106,7 @@ const Masonry = () => {
                     <Typography>
                       DEGEN Price<small> (TWAP)</small>
                     </Typography>
-                    <Typography>{rebateStats.tombPrice.toFixed(4)} FTM</Typography>
+                    <Typography>{scalingFactor} TOMB</Typography>
                   </CardContent>
                 </Card>
               </Grid>

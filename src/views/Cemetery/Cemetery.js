@@ -65,7 +65,7 @@ const Cemetery = () => {
                     Earn DSHARE by staking LP Tokens
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                  PLEASE unstake from the OLD DEGEN-TOMB LP pool & restake in the NEW DEGEN TOMB LP pool!
+                  Stake your LPs in the farms below to earn DSHARE
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks
