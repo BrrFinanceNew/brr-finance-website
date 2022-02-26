@@ -367,6 +367,7 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
       } else if (tokenName === 'DSHARE-USDC LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
+       
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
       } else if (tokenName === "TOMB-WFTM LP") {
