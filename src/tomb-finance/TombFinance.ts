@@ -340,7 +340,7 @@ export class TombFinance {
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('TBOND')) {
-      return rewardPerSecond.mul(300).div(80000);
+      return rewardPerSecond.mul(100).div(80000);
     } else if (depositTokenName.startsWith('DSHARE')) {
       return rewardPerSecond.mul(13500).div(80000);
     }else if (depositTokenName.startsWith('USDC')) {
