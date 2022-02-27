@@ -26,7 +26,7 @@ import TwoombLPLogo from '../../assets/img/tomb_ftm.png';
 import TwosharesLPLogo from '../../assets/img/tomb_ftm.png';
 import TwoombTwosharesLPLogo from '../../assets/img/TOMB-TSHARES.png';
 import tshareftm from '../../assets/img/tshare_ftm.png';
-
+import tbond from '../../assets/img/tbond.png';
 import UsdcLogo from '../../assets/img/USDC.png';
 
 import ThreeombLPLogo from '../../assets/img/DEGEN-TOMB.png';
@@ -36,6 +36,7 @@ const logosBySymbol: { [title: string]: string } = {
   //Real tokens
   //=====================
   TOMB: tomb,
+  TBOND: tbond,
   TOMBHOME: tomb,
   TSHARES: tshares,
   DEGEN: tombLogo,

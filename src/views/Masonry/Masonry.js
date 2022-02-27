@@ -13,14 +13,14 @@ import { Alert } from '@material-ui/lab';
 
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
-
+import useTombFinance from '../../hooks/useTombFinance';
 import useRedeemOnMasonry from '../../hooks/useRedeemOnMasonry';
 import useStakedBalanceOnMasonry from '../../hooks/useStakedBalanceOnMasonry';
 import { getDisplayBalance } from '../../utils/formatBalance';
 import useCurrentEpoch from '../../hooks/useCurrentEpoch';
 import useFetchMasonryAPR from '../../hooks/useFetchMasonryAPR';
 import styled from 'styled-components';
-
+import useStakedTokenPriceInDollars from '../../hooks/useStakedTokenPriceInDollars';
 import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP';
 import useTreasuryAllocationTimes from '../../hooks/useTreasuryAllocationTimes';
 import useTotalStakedOnMasonry from '../../hooks/useTotalStakedOnMasonry';
@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Masonry = () => {
+  const tombFinance = useTombFinance();
   const classes = useStyles();
   const { account } = useWallet();
   const { onRedeem } = useRedeemOnMasonry();
@@ -73,6 +74,16 @@ const Masonry = () => {
   const scalingFactor = useMemo(() => (cashStat ? Number(cashStat.priceInDollars).toFixed(4) : null), [cashStat]);
   const { to } = useTreasuryAllocationTimes();
   //const rebateStats = useRebateTreasury()
+
+  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('DSHARE', tombFinance.TSHARE);
+  const tokenPriceInDollars = useMemo(
+    () =>
+      stakedTokenPriceInDollars
+        ? (Number(stakedTokenPriceInDollars) * Number(getDisplayBalance(stakedBalance))).toFixed(2).toString()
+        : null,
+    [stakedTokenPriceInDollars, stakedBalance],
+  );
+  const rewards = ((masonryAPR.toFixed(2)/365)/100)*tokenPriceInDollars;
 
   return (
     <Page>
@@ -113,8 +124,8 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>APR</Typography>
-                    <Typography>{masonryAPR.toFixed(2)}%</Typography>
+                    <Typography>APR / DAILY</Typography>
+                    <Typography>{masonryAPR.toFixed(2)}% / {(masonryAPR/365).toFixed(2)}%</Typography>
                   </CardContent>
                 </Card>
               </Grid>
@@ -123,6 +134,14 @@ const Masonry = () => {
                   <CardContent align="center">
                     <Typography>DSHARE Staked</Typography>
                     <Typography>{getDisplayBalance(totalStaked)}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={2} lg={2}>
+                <Card className={classes.gridItem}>
+                  <CardContent align="center">
+                    <Typography style={{textTransform: 'uppercase', color: '#930993'}}>Est Reward/Day</Typography>
+                    <Typography>~${rewards.toFixed(2)}</Typography>
                   </CardContent>
                 </Card>
               </Grid>

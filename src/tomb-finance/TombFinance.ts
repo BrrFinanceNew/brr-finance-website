@@ -336,14 +336,16 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.dsharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
-      return rewardPerSecond.mul(20000).div(80000);
+      return rewardPerSecond.mul(13500).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
-    } else if (depositTokenName.startsWith('TSHARE')) {
-      return rewardPerSecond.mul(0).div(80000);
+    } else if (depositTokenName.startsWith('TBOND')) {
+      return rewardPerSecond.mul(1000).div(80000);
     } else if (depositTokenName.startsWith('DSHARE')) {
-      return rewardPerSecond.mul(20000).div(80000);
-    } else {
+      return rewardPerSecond.mul(13500).div(80000);
+    }else if (depositTokenName.startsWith('USDC')) {
+      return rewardPerSecond.mul(0).div(80000);
+    }else {
       return rewardPerSecond.mul(0).div(80000);
     }
   }
@@ -374,15 +376,12 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
       } else if (tokenName === 'USDC') {
         tokenPrice = 1; 
-      } else if (tokenName === 'TOMB') {
-        tokenPrice = await this.getWFTMPriceFromPancakeswap();
+      } else if (tokenName === 'TOMB' || tokenName === 'TBOND') {
+        const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=TOMB&vs_currencies=usd").then(res => res.json())
+        tokenPrice = data["tomb"].usd
       }else if (tokenName === 'DSHARE') {
-         const shareprice = await this.getShareStat();
-        
-        tokenPrice = shareprice.priceInDollars;
-      }else if (tokenName === "BELUGA") {
-        const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=beluga-fi&vs_currencies=usd").then(res => res.json())
-        tokenPrice = data["beluga-fi"].usd
+         const shareprice = await this.getShareStat();   
+         tokenPrice = shareprice.priceInDollars;
       }else {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
         tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();

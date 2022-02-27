@@ -27,7 +27,7 @@ const BackgroundImage = createGlobalStyle`
     border-radius: 0 !important;
 }
 `;
-const date = new Date('2022-2-26 18:00:00Z');
+const date = new Date('2022-2-27 22:30:00Z');
 const Cemetery = () => {
   const [banks] = useBanks();
   const { path } = useRouteMatch();
@@ -51,8 +51,8 @@ const Cemetery = () => {
                 Graveyard
               </Typography>
               <Grid container justify="center">
-{/*                 <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
- */}                </Grid>
+                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
+                </Grid>
               {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
               <b>Strategy:<br/>
               For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
@@ -79,7 +79,7 @@ const Cemetery = () => {
                 </div>
                 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
+                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '100px' }}>
                     Public Genesis Pool Has ended, you can withdraw your funds
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">

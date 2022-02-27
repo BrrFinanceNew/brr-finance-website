@@ -29,7 +29,7 @@ const LaunchCountdown: React.FC<LaunchCountdownProps> = ({ deadline, description
   return (
     <StyledCard>
         <StyledCountdownWrapper>
-          <StyledCountdownTitle>DSHARE-USDC starts in...</StyledCountdownTitle>
+          <StyledCountdownTitle>TBOND staking starts in...</StyledCountdownTitle>
           <Countdown date={deadline} renderer={countdownRenderer} />
         </StyledCountdownWrapper>
     </StyledCard>
