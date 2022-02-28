@@ -51,13 +51,13 @@ const Cemetery = () => {
                 Graveyard
               </Typography>
               <Grid container justify="center">
-                <LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> 
+                {/*<LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> */}
                 </Grid>
               {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
               <b>Strategy:<br/>
               For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
-               1) Re-invest a portion of earned DSHARE in DSHARE-USDC LP in the <StyledLink href="/farms">Graveyard</StyledLink> to farm more DEGEN! <br/>
-               2) Re-invest a portion of  earned DSHARE in <StyledLink href="/boardroom">Mortuary</StyledLink> page to farm more DEGEN!</b>
+               1) Re-invest a portion of earned DSHARE in DSHARE-USDC LP in the <StyledLink href="/farms">Graveyard</StyledLink> to farm more DSHARE! <br/>
+               2) Re-invest a portion of earned DSHARE in <StyledLink href="/boardroom">Mortuary</StyledLink> page to farm more DEGEN!</b>
             </Alert> } 
               <Box mt={5}>
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
