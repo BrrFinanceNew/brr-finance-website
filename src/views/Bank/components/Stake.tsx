@@ -45,14 +45,14 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
     () => (stakedTokenPriceInDollars ? stakedTokenPriceInDollars : null),
     [stakedTokenPriceInDollars],
   );
+
   const earnedInDollars = (
-    Number(tokenPriceInDollars) * Number(getDisplayBalance(stakedBalance, bank.depositToken.decimal))
+    Number(tokenPriceInDollars) * Number(stakedBalance)
   ).toFixed(2);
 
-  const earnedInDollars1 = (
-    Number(tokenPriceInDollars) * Number(getDisplayBalance1(stakedBalance, bank.depositToken.decimal))
-  ).toFixed(2);
-  
+
+ 
+
   const { onStake } = useStake(bank);
   const { onZap } = useZap(bank);
   const { onWithdraw } = useWithdraw(bank);
@@ -103,8 +103,9 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
             <CardIcon>
               {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={80} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={110} symbol={bank.depositToken.symbol} />}
             </CardIcon>
+     
             {bank.depositTokenName === 'DSHARE-USDC LP' ? <Value value={getDisplayBalance1(stakedBalance, bank.depositToken.decimal)} />: <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />}
-            {bank.depositTokenName === 'DSHARE-USDC LP' ? <Label text={`≈ $${earnedInDollars1}`} />: <Label text={`≈ $${earnedInDollars}`} />}
+            {bank.depositTokenName === 'USDC' ?<Label text={`≈ $${(Number(earnedInDollars)/1e6).toFixed(2)}`} /> : <Label text={`≈ $${(Number(earnedInDollars)/1e18).toFixed(2)}`} />}
             <Label text={`${bank.depositTokenName} Staked`} />
           </StyledCardHeader>
           <StyledCardActions>
