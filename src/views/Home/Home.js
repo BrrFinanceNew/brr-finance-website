@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
               
-             TBOND staking starts soon!</h2>
+             TBOND staking has started!</h2>
             </Box>
           </Paper>
 				</Grid>
