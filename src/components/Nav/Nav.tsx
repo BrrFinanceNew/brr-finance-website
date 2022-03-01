@@ -137,7 +137,7 @@ const Nav = () => {
               <Link color="textPrimary" to="/whitelist" className={classes.link}>
                 Whitelist
               </Link>
-              <a href="#" target="_blank" className={classes.link}>
+              <a href="https://ethereumtowers.com/" target="_blank" className={classes.link}>
                 Clubhouse
               </a>            
               <a href="https://degenfi.gitbook.io/degen-finance/" target="_blank" className={classes.link}>
@@ -189,7 +189,7 @@ const Nav = () => {
                 <ListItemLink primary="Tutorials" to="/tutorials" />
                 <ListItemLink primary="About Us" to="/aboutUs" />
                 <ListItemLink primary="Whitelist" to="/whitelist" />
-                <ListItem button component="a" href="#">
+                <ListItem button component="a" href="https://ethereumtowers.com/">
                   <ListItemText>Clubhouse</ListItemText>
                 </ListItem>
                 <ListItem button component="a" href="https://degenfi.gitbook.io/degen-finance/">

@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-2-27 22:30:00Z');
+  const date = new Date('2022-3-01 21:30:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
               
-             TBOND staking has started!</h2>
+             USDC staking LIVE SOON!</h2>
             </Box>
           </Paper>
 				</Grid>
@@ -177,7 +177,7 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>
-           {/* <LaunchCountdown deadline={date} description={'TBOND starts in'} descriptionLink={''}></LaunchCountdown> */}
+           { <LaunchCountdown deadline={date} description={'TBOND starts in'} descriptionLink={''}></LaunchCountdown> }
  
         </Grid>
 
