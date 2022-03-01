@@ -262,7 +262,7 @@ DEGENTOMBShareRewardPool: {
   },
   /* USDC */
   USDCShareRewardPool: {
-    name: 'Earn DEGEN by staking USDC',
+    name: 'Earn DSHARE by staking USDC',
     info: '0.5%',
     whitelist: '',
     poolId: 4,
