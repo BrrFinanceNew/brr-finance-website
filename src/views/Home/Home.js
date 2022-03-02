@@ -167,7 +167,7 @@ const Home = () => {
                 Then stake your earned DSHARE in the <StyledLink href="/boardroom">Mortuary</StyledLink> to maximize profits!
               </p><h2>
               
-              DSHARE-DEGEN LP Live SOON!</h2>
+              DSHARE-DEGEN LP is LIVE!</h2>
             </Box>
           </Paper>
 				</Grid>
@@ -177,8 +177,8 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. Degen is beta software and may contain bugs. By using degen, you agree that the Degen team is not responsible for any financial losses from investing in Degen.
             </Alert>
             </Box>
-           { <LaunchCountdown deadline={date} description={'DSHARE-DEGEN starts in'} descriptionLink={''}></LaunchCountdown> }
- 
+{/*            { <LaunchCountdown deadline={date} description={'DSHARE-DEGEN starts in'} descriptionLink={''}></LaunchCountdown> }
+ */} 
         </Grid>
 
         {/* <Grid container spacing={3}>
