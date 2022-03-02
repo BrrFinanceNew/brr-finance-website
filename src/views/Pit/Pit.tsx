@@ -40,10 +40,12 @@ const Pit: React.FC = () => {
   const addTransaction = useTransactionAdder();
   const bondStat = useBondStats();
   const cashPrice = useCashPriceInLastTWAP();
+
   const bondsPurchasable = useBondsPurchasable();
 
   const bondBalance = useTokenBalance(tombFinance?.TBOND);
 
+  
   const handleBuyBonds = useCallback(
     async (amount: string) => {
       const tx = await tombFinance.buyBonds(amount);
@@ -97,7 +99,7 @@ const Pit: React.FC = () => {
                 <ExchangeStat
                   tokenName="DEGEN"
                   description="Last-Hour TWAP Price"
-                  price={getDisplayBalance(cashPrice, 18, 4)}
+                  price={getDisplayBalance(cashPrice)}
                 />
                 <Spacer size="md" />
                 <ExchangeStat

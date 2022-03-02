@@ -128,12 +128,12 @@ const Nav = () => {
               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
               </Link>
-              <Link color="textPrimary" to="/tutorials" className={classes.link}>
+             {/* <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
               <Link color="textPrimary" to="/aboutUs" className={classes.link}>
                 About Us
-              </Link>
+        </Link>*/}
               <Link color="textPrimary" to="/whitelist" className={classes.link}>
                 Whitelist
               </Link>
@@ -186,8 +186,8 @@ const Nav = () => {
                 <ListItemLink primary="DAO" to="/rebates" />
                 <ListItemLink primary="Treasury" to="/treasury" />
                 <ListItemLink primary="Roadmap" to="/roadmap" />
-                <ListItemLink primary="Tutorials" to="/tutorials" />
-                <ListItemLink primary="About Us" to="/aboutUs" />
+                 {/*<ListItemLink primary="Tutorials" to="/tutorials" />*/} 
+                {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}                
                 <ListItemLink primary="Whitelist" to="/whitelist" />
                 <ListItem button component="a" href="https://ethereumtowers.com/">
                   <ListItemText>Clubhouse</ListItemText>

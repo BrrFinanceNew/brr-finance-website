@@ -26,8 +26,9 @@ const CemeteryCard = ({ bank }) => {
                 justifyContent: 'center',
               }}
             >
-               {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={55} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={70} symbol={bank.depositToken.symbol} />}
-         
+
+               {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={55} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={70} symbol={bank.depositToken.symbol} />}     
+                  
             </Box>
             <Typography variant="h5" component="h2">
               {bank.depositTokenName}
@@ -44,6 +45,10 @@ const CemeteryCard = ({ bank }) => {
             <Typography color="#322f32">
               {/* {bank.name} */}
               Daily APR: {bank.closedForStaking ? '0.00' : statsOnPool?.dailyAPR}%
+            </Typography>
+            <Typography color="#322f32">
+              {/* {bank.name} */}
+              Yearly APR: {bank.closedForStaking ? '0.00' : statsOnPool?.yearlyAPR}%
             </Typography>
 {/*             <Typography color="textSecondary">
               Multiplier: {bank.multiplier}
