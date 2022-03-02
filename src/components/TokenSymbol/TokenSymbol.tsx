@@ -46,13 +46,15 @@ const logosBySymbol: { [title: string]: string } = {
   USDC: UsdcLogo,
   'TOMB-WFTM LP': TwoombLPLogo,
   'TSHARES-WFTM LP': TwosharesLPLogo,
-  'DEGEN-DSHARE LP': degenDshare,
 
   'DEGEN-TOMB LP': ThreeombLPLogo,
   'DEGEN-TOMB HOME': ThreeombLPLogo,
 
   'DSHARE-USDC LP': ThreesharesLPLogo,
   'DSHARE-USDC HOME': ThreesharesLPLogo,
+
+  'DSHARE-DEGEN LP': ThreesharesLPLogo,
+  'DSHARE-DEGEN HOME': ThreesharesLPLogo,
 
   'wFTM': wftmLogo,
   '2OMB': twoombLogo,

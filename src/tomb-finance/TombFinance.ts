@@ -341,11 +341,14 @@ export class TombFinance {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('TBOND')) {
       return rewardPerSecond.mul(100).div(80000);
-    } else if (depositTokenName.startsWith('DSHARE')) {
+    } else if (depositTokenName.startsWith('DSHARE-USDC')) {
       return rewardPerSecond.mul(13500).div(80000);
+    } else if (depositTokenName.startsWith('DSHARE-DEGEN')) {
+      return rewardPerSecond.mul(5000).div(80000);
     }else if (depositTokenName.startsWith('USDC')) {
       return rewardPerSecond.mul(500).div(80000);
-    }else {
+    }
+    else {
       return rewardPerSecond.mul(0).div(80000);
     }
   }
@@ -369,7 +372,8 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
       } else if (tokenName === 'DSHARE-USDC LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
-       
+      } else if (tokenName === 'DSHARE-DEGEN LP') {
+        tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
       } else if (tokenName === "TOMB-WFTM LP") {

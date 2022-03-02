@@ -33,6 +33,8 @@ const configurations: { [env: string]: Configuration } = {
 //      '2SHARES': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
       'DEGEN-TOMB LP': ['0xF6b99c9B6E6bDbFd1B2De21F908189b49F43B9E3',18],
       'DSHARE-USDC LP': ['0x1b622bB79d25f67e90BD189B5d116e0923Eb4ECB',18],
+      'DSHARE-DEGEN LP': ['0xF01a23fFa6Ec1d45A607F598ad8421a74522a1e1',18],
+
 //      'DSHARE': ['0x6437ADAC543583C4b31Bf0323A0870430F5CC2e7', 18],
       'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
       'TOMB-FTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478', 18],
@@ -277,7 +279,23 @@ DEGENTOMBShareRewardPool: {
     sort: 3,
     closedForStaking: false,
   },
-  
+  /*DSHARE DEGEN LP*/
+  DSHAREDEGENShareRewardPool: {
+    name: 'Earn DSHARE by DSHARE-USDC LP',
+    info: '0%',
+    whitelist: '',
+    poolId: 5,
+    sectionInUI: 2,
+    contract: 'DSHAREDEGENShareRewardPool',
+    depositTokenName: 'DSHARE-DEGEN LP',
+    earnTokenName: 'DSHARE',
+    finished: false,
+    multiplier: '24000x',
+    buyLink: '',
+    site: '#',
+    sort: 1,
+    closedForStaking: false,
+  }
   /*
  ,
   DegenDshareLPDshareRewardPool: {
