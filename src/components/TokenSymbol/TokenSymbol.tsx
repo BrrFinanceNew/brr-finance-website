@@ -28,7 +28,7 @@ import TwoombTwosharesLPLogo from '../../assets/img/TOMB-TSHARES.png';
 import tshareftm from '../../assets/img/tshare_ftm.png';
 import tbond from '../../assets/img/tbond.png';
 import UsdcLogo from '../../assets/img/USDC.png';
-
+import degendshare from '../../assets/img/dshare-degen.png';
 import ThreeombLPLogo from '../../assets/img/DEGEN-TOMB.png';
 import ThreesharesLPLogo from '../../assets/img/DSHARE-USDC.png';
 
@@ -53,7 +53,7 @@ const logosBySymbol: { [title: string]: string } = {
   'DSHARE-USDC LP': ThreesharesLPLogo,
   'DSHARE-USDC HOME': ThreesharesLPLogo,
 
-  'DSHARE-DEGEN LP': ThreesharesLPLogo,
+  'DSHARE-DEGEN LP': degendshare,
   'DSHARE-DEGEN HOME': ThreesharesLPLogo,
 
   'wFTM': wftmLogo,
