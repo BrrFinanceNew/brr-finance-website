@@ -281,7 +281,7 @@ DEGENTOMBShareRewardPool: {
   },
   /*DSHARE DEGEN LP*/
   DSHAREDEGENShareRewardPool: {
-    name: 'Earn DSHARE by DSHARE-USDC LP',
+    name: 'Earn DSHARE by DSHARE-DEGEN LP',
     info: '0%',
     whitelist: '',
     poolId: 5,
