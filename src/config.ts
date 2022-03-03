@@ -120,7 +120,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'wftmRewardPool',
     depositTokenName: 'WFTM',
     earnTokenName: 'DEGEN',
-    finished: true,
+    finished: false,
     info: '1%',
     multiplier: '7500x',
     site: "#",
