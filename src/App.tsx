@@ -28,7 +28,7 @@ const Tutorials = lazy(() => import('./views/Tutorials'));
 const Roadmap = lazy(() => import('./views/Roadmap'));
 const AboutUs = lazy(() => import('./views/AboutUs'));
 const Whitelist = lazy(() => import('./views/Whitelist'));
-
+const Raffle = lazy(() => import('./views/Raffle'));
 
 // const SBS = lazy(() => import('./views/Sbs'));
 // const Liquidity = lazy(() => import('./views/Liquidity'));
@@ -83,6 +83,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/whitelist">
               <Whitelist />
+            </Route>
+            <Route path="/raffle">
+              <Raffle />
             </Route>
             {/* <Route path="/sbs">
               <SBS />

@@ -38,6 +38,10 @@ body {
     color: var(--white) !important;
 }
 
+.shinyButton{
+    background-color: #a17c2a !important;
+}
+
 .MuiPaper-elevation1 {
     box-shadow: none !important;
     background-color: #000000d1 !important;

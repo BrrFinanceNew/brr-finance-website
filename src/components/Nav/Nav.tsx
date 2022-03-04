@@ -128,6 +128,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
               </Link>
+              <Link color="textPrimary" to="/raffle" className={classes.link}>
+                Raffle
+              </Link>
              {/* <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
@@ -186,6 +189,7 @@ const Nav = () => {
                 <ListItemLink primary="DAO" to="/rebates" />
                 <ListItemLink primary="Treasury" to="/treasury" />
                 <ListItemLink primary="Roadmap" to="/roadmap" />
+                <ListItemLink primary="Raffle" to="/raffle" />
                  {/*<ListItemLink primary="Tutorials" to="/tutorials" />*/} 
                 {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}                
                 <ListItemLink primary="Whitelist" to="/whitelist" />
