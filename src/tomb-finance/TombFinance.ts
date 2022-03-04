@@ -336,13 +336,13 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.dsharePerSecond();
     if (depositTokenName.startsWith('DEGEN')) {
-      return rewardPerSecond.mul(13500).div(80000);
+      return rewardPerSecond.mul(10000).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('TBOND')) {
       return rewardPerSecond.mul(100).div(80000);
     } else if (depositTokenName.startsWith('DSHARE-USDC')) {
-      return rewardPerSecond.mul(13500).div(80000);
+      return rewardPerSecond.mul(10000).div(80000);
     } else if (depositTokenName.startsWith('DSHARE-DEGEN')) {
       return rewardPerSecond.mul(5000).div(80000);
     }else if (depositTokenName.startsWith('USDC')) {
