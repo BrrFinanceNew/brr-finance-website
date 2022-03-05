@@ -8,7 +8,7 @@ import PageHeader from '../../components/PageHeader';
 import styled from 'styled-components';
 import Spacer from '../../components/Spacer';
 
-import daoImg from '../../assets/img/regulations_bg.png';
+import daoImg from '../../assets/img/1.jpg';
 import { Grid , Box, Container, Card, Typography } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import asgard from '../../assets/img/asgard.jpg';
@@ -68,7 +68,7 @@ const Bond: React.FC = () => {
   );
 };
 
-const StyledBond = styled.div`
+const StylecBond = styled.div`
   display: flex;
   @media (max-width: 768px) {
     width: 100%;

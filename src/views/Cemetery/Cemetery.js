@@ -14,7 +14,7 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
-import cemetaryImg from '../../assets/img/cemetery.jpg';
+import cemetaryImg from '../../assets/img/1.jpg';
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -48,24 +48,24 @@ const Cemetery = () => {
           {!!account ? (
             <Container maxWidth="lg">
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-                Graveyard
+                Farm
               </Typography>
               <Grid container justify="center">
                 {/*<LaunchCountdown deadline={date} description={'Public Genesis Starts In'} descriptionLink={''}></LaunchCountdown> */}
                 </Grid>
-              {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+{/*               {<Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
               <b>Strategy:<br/>
               For the health and longevity of the protocol, a good strategy is to take 20% profits and then:<br/>
-               1) Re-invest a portion of earned DSHARE in DSHARE-USDC LP in the <StyledLink href="/farms">Graveyard</StyledLink> to farm more DSHARE! <br/>
-               2) Re-invest a portion of earned DSHARE in <StyledLink href="/boardroom">Mortuary</StyledLink> page to farm more DEGEN!</b>
-            </Alert> } 
+               1) Re-invest a portion of earned PRINTER in PRINTER-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to farm more PRINTER! <br/>
+               2) Re-invest a portion of earned PRINTER in <StyledLink href="/boardroom">Boardroom</StyledLink> page to farm more CASH!</b>
+            </Alert> } */} 
               <Box mt={5}>
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom>
-                    Earn DSHARE by staking LP Tokens
+                    Earn PRINTER by staking LP Tokens
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                  Stake your LPs in the farms below to earn DSHARE
+                  Stake your LPs in the farms below to earn PRINTER
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks
@@ -79,11 +79,11 @@ const Cemetery = () => {
                 </div>
                 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '100px' }}>
+{/*                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '100px' }}>
                     Public Genesis Pool Has ended, you can withdraw your funds
-                  </Typography>
+                  </Typography> */}
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                    Make sure you unstake from the whitelist genesis pools and restake in the public pools to continue to earn Degen
+                    The genesis pools are subject to a 1% Deposit FEE !
                   </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
@@ -106,7 +106,7 @@ const Cemetery = () => {
               </Alert>*/}
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                    Whitelist pools will end soon please make sure to unstake from below pools and restake in the pools above to continue to earn Degen
+                    Whitelist pools will end soon please make sure to unstake from below pools and restake in the pools above to continue to earn Cash
                   </Alert>
                   <Grid container spacing={3}>
                     {activeBanks

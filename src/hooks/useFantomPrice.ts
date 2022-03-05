@@ -19,9 +19,11 @@ const useFantomPrice = () => {
     
     async function getPrice() {
         const { data } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tomb');
-        setPrice(data[0].current_price);
+        setPrice(1);
         setMarketCap(data[0].market_cap);
         setPriceChange(data[0].price_change_percentage_24h);
+
+        // Check this shit before rebate treasury
     }
 }
 export default useFantomPrice;

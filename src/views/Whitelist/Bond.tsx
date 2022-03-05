@@ -4,7 +4,7 @@ import {createGlobalStyle} from 'styled-components';
 import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import {useWallet} from 'use-wallet';
 import UnlockWallet from '../../components/UnlockWallet';
-import HomeImage from '../../assets/img/regulations_bg.png';
+import HomeImage from '../../assets/img/1.jpg';
 import styled from 'styled-components';
 
 import useWhitelist from '../../hooks/useWhitelist';
@@ -76,7 +76,7 @@ const Bond: React.FC = () => {
     
      <Grid item xs={12} md={12} lg={12} >     
      <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-                Degen Whitelist Checker
+                Cash Whitelist Checker
               </Typography>
         
         
@@ -102,7 +102,7 @@ const Bond: React.FC = () => {
   );
 };
 
-const StyledBond = styled.div`
+const StylecBond = styled.div`
   display: flex;
   @media (max-width: 768px) {
     width: 100%;

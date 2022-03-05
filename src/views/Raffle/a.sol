@@ -990,16 +990,16 @@ contract Treasury is ContractGuard {
     uint256 public mintingFactorForPayingDebt; // print extra TOMB during debt phase
 
     address public daoFund;
-    uint256 public daoFundSharedPercent;
+    uint256 public daoFunpRinterdPercent;
 
     address public devFund;
-    uint256 public devFundSharedPercent;
+    uint256 public devFunpRinterdPercent;
 
     /* =================== Events =================== */
 
     event Initialized(address indexed executor, uint256 at);
-    event BurnedBonds(address indexed from, uint256 bondAmount);
-    event RedeemedBonds(address indexed from, uint256 tombAmount, uint256 bondAmount);
+    event BurnecBonds(address indexed from, uint256 bondAmount);
+    event RedeemecBonds(address indexed from, uint256 tombAmount, uint256 bondAmount);
     event BoughtBonds(address indexed from, uint256 tombAmount, uint256 bondAmount);
     event TreasuryFunded(uint256 timestamp, uint256 seigniorage);
     event MasonryFunded(uint256 timestamp, uint256 seigniorage);
@@ -1252,18 +1252,18 @@ contract Treasury is ContractGuard {
 
     function setExtraFunds(
         address _daoFund,
-        uint256 _daoFundSharedPercent,
+        uint256 _daoFunpRinterdPercent,
         address _devFund,
-        uint256 _devFundSharedPercent
+        uint256 _devFunpRinterdPercent
     ) external onlyOperator {
         require(_daoFund != address(0), "zero");
-        require(_daoFundSharedPercent <= 3000, "out of range"); // <= 30%
+        require(_daoFunpRinterdPercent <= 3000, "out of range"); // <= 30%
         require(_devFund != address(0), "zero");
-        require(_devFundSharedPercent <= 1000, "out of range"); // <= 10%
+        require(_devFunpRinterdPercent <= 1000, "out of range"); // <= 10%
         daoFund = _daoFund;
-        daoFundSharedPercent = _daoFundSharedPercent;
+        daoFunpRinterdPercent = _daoFunpRinterdPercent;
         devFund = _devFund;
-        devFundSharedPercent = _devFundSharedPercent;
+        devFunpRinterdPercent = _devFunpRinterdPercent;
     }
 
     function setMaxDiscountRate(uint256 _maxDiscountRate) external onlyOperator {
@@ -1363,27 +1363,27 @@ contract Treasury is ContractGuard {
 
         _updateTombPrice();
 
-        emit RedeemedBonds(msg.sender, _tombAmount, _bondAmount);
+        emit RedeemecBonds(msg.sender, _tombAmount, _bondAmount);
     }
 
     function _sendToMasonry(uint256 _amount) internal {
         IBasisAsset(tomb).mint(address(this), _amount);
 
-        uint256 _daoFundSharedAmount = 0;
-        if (daoFundSharedPercent > 0) {
-            _daoFundSharedAmount = _amount.mul(daoFundSharedPercent).div(10000);
-            IERC20(tomb).transfer(daoFund, _daoFundSharedAmount);
-            emit DaoFundFunded(now, _daoFundSharedAmount);
+        uint256 _daoFunpRinterdAmount = 0;
+        if (daoFunpRinterdPercent > 0) {
+            _daoFunpRinterdAmount = _amount.mul(daoFunpRinterdPercent).div(10000);
+            IERC20(tomb).transfer(daoFund, _daoFunpRinterdAmount);
+            emit DaoFundFunded(now, _daoFunpRinterdAmount);
         }
 
-        uint256 _devFundSharedAmount = 0;
-        if (devFundSharedPercent > 0) {
-            _devFundSharedAmount = _amount.mul(devFundSharedPercent).div(10000);
-            IERC20(tomb).transfer(devFund, _devFundSharedAmount);
-            emit DevFundFunded(now, _devFundSharedAmount);
+        uint256 _devFunpRinterdAmount = 0;
+        if (devFunpRinterdPercent > 0) {
+            _devFunpRinterdAmount = _amount.mul(devFunpRinterdPercent).div(10000);
+            IERC20(tomb).transfer(devFund, _devFunpRinterdAmount);
+            emit DevFundFunded(now, _devFunpRinterdAmount);
         }
 
-        _amount = _amount.sub(_daoFundSharedAmount).sub(_devFundSharedAmount);
+        _amount = _amount.sub(_daoFunpRinterdAmount).sub(_devFunpRinterdAmount);
 
         IERC20(tomb).safeApprove(masonry, 0);
         IERC20(tomb).safeApprove(masonry, _amount);

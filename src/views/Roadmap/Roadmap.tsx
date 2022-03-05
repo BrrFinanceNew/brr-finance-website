@@ -72,7 +72,7 @@ const Bond: React.FC = () => {
   );
 };
 
-const StyledBond = styled.div`
+const StylecBond = styled.div`
   display: flex;
   @media (max-width: 768px) {
     width: 100%;

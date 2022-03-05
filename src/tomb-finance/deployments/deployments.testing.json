@@ -2920,7 +2920,7 @@
             "type": "uint256"
           }
         ],
-        "name": "BurnedBonds",
+        "name": "BurnecBonds",
         "type": "event"
       },
       {
@@ -3021,7 +3021,7 @@
             "type": "uint256"
           }
         ],
-        "name": "RedeemedBonds",
+        "name": "RedeemecBonds",
         "type": "event"
       },
       {
@@ -3110,7 +3110,7 @@
       },
       {
         "inputs": [],
-        "name": "daoFundSharedPercent",
+        "name": "daoFunpRinterdPercent",
         "outputs": [
           {
             "internalType": "uint256",
@@ -3136,7 +3136,7 @@
       },
       {
         "inputs": [],
-        "name": "devFundSharedPercent",
+        "name": "devFunpRinterdPercent",
         "outputs": [
           {
             "internalType": "uint256",
@@ -3783,7 +3783,7 @@
           },
           {
             "internalType": "uint256",
-            "name": "_daoFundSharedPercent",
+            "name": "_daoFunpRinterdPercent",
             "type": "uint256"
           },
           {
@@ -3793,7 +3793,7 @@
           },
           {
             "internalType": "uint256",
-            "name": "_devFundSharedPercent",
+            "name": "_devFunpRinterdPercent",
             "type": "uint256"
           }
         ],

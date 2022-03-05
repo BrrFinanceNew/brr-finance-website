@@ -112,11 +112,11 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
 
   let pairName: string;
   let uniswapUrl: string;
-  if (bank.depositTokenName.includes('DEGEN')) {
-    pairName = 'DEGEN-TOMB pair';
+  if (bank.depositTokenName.includes('CASH')) {
+    pairName = 'CASH-TOMB pair';
     uniswapUrl = 'https://spookyswap.finance/add/0x6c021ae822bea943b2e66552bde1d2696a53fbb7/' + tombAddr;
   } else {
-    pairName = 'DSHARE-USDC pair';
+    pairName = 'PRINTER-BUSD pair';
     uniswapUrl = 'https://spookyswap.finance/add/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75/' + tshareAddr;
   }
   return (

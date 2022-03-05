@@ -103,7 +103,7 @@ const Nav = () => {
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
-                Degen Finance
+                Cash Finance
               </Link>
             </Typography>
             <Box mr={5}>
@@ -111,13 +111,13 @@ const Nav = () => {
                 Home
               </Link>
               <Link color="textPrimary" to="/farms" className={classes.link}>
-                Graveyard
+                Farm
               </Link>
               <Link color="textPrimary" to="/boardroom" className={classes.link}>
-                Mortuary
+                Boardroom
               </Link>
               <Link color="textPrimary" to="/bonds" className={classes.link}>
-                dBonds
+                cBonds
               </Link>
               <Link color="textPrimary" to="/rebates" className={classes.link}>
                 DAO
@@ -125,25 +125,25 @@ const Nav = () => {
               <Link color="textPrimary" to="/treasury" className={classes.link}>
                 Treasury
               </Link>
-              <Link color="textPrimary" to="/roadmap" className={classes.link}>
+{/*               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
-              </Link>
-              <Link color="textPrimary" to="/raffle" className={classes.link}>
+              </Link> */}
+{/*               <Link color="textPrimary" to="/raffle" className={classes.link}>
                 Raffle
-              </Link>
+              </Link> */}
              {/* <Link color="textPrimary" to="/tutorials" className={classes.link}>
                 Tutorials
               </Link>
               <Link color="textPrimary" to="/aboutUs" className={classes.link}>
                 About Us
         </Link>*/}
-              <Link color="textPrimary" to="/whitelist" className={classes.link}>
+{/*               <Link color="textPrimary" to="/whitelist" className={classes.link}>
                 Whitelist
               </Link>
               <a href="https://ethereumtowers.com/" target="_blank" className={classes.link}>
                 Clubhouse
-              </a>            
-              <a href="https://degenfi.gitbook.io/degen-finance/" target="_blank" className={classes.link}>
+              </a>  */}           
+              <a href="https://cashfi.gitbook.io/cash-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>
             </Box>
@@ -161,7 +161,7 @@ const Nav = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Degen Finance
+              Cash Finance
             </Typography>
 
             <Drawer
@@ -183,20 +183,20 @@ const Nav = () => {
               <Divider />
               <List>
                 <ListItemLink primary="Home" to="/" />
-                <ListItemLink primary="Graveyard" to="/farms" />
-                <ListItemLink primary="Mortuary" to="/boardroom" />
-                <ListItemLink primary="dBonds" to="/bonds" />
+                <ListItemLink primary="Farm" to="/farms" />
+                <ListItemLink primary="Boardroom" to="/boardroom" />
+                <ListItemLink primary="cBonds" to="/bonds" />
                 <ListItemLink primary="DAO" to="/rebates" />
                 <ListItemLink primary="Treasury" to="/treasury" />
-                <ListItemLink primary="Roadmap" to="/roadmap" />
-                <ListItemLink primary="Raffle" to="/raffle" />
-                 {/*<ListItemLink primary="Tutorials" to="/tutorials" />*/} 
+{/*                 <ListItemLink primary="Roadmap" to="/roadmap" />
+ */}{/*                 <ListItemLink primary="Raffle" to="/raffle" />
+ */}                 {/*<ListItemLink primary="Tutorials" to="/tutorials" />*/} 
                 {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}                
-                <ListItemLink primary="Whitelist" to="/whitelist" />
-                <ListItem button component="a" href="https://ethereumtowers.com/">
+{/*                 <ListItemLink primary="Whitelist" to="/whitelist" />
+ */}{/*                 <ListItem button component="a" href="https://ethereumtowers.com/">
                   <ListItemText>Clubhouse</ListItemText>
-                </ListItem>
-                <ListItem button component="a" href="https://degenfi.gitbook.io/degen-finance/">
+                </ListItem> */}
+                <ListItem button component="a" href="https://cashfi.gitbook.io/cash-finance/">
                   <ListItemText>Docs</ListItemText>
                 </ListItem>
                 <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

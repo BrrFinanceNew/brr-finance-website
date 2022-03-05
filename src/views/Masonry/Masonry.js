@@ -30,7 +30,7 @@ import ProgressCountdown from './components/ProgressCountdown';
 
 import { createGlobalStyle } from 'styled-components';
 
-import mortuaryImg from '../../assets/img/masonry.jpg';
+import mortuaryImg from '../../assets/img/1.jpg';
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -75,7 +75,7 @@ const Masonry = () => {
   const { to } = useTreasuryAllocationTimes();
   //const rebateStats = useRebateTreasury()
 
-  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('DSHARE', tombFinance.TSHARE);
+  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('PRINTER', tombFinance.TSHARE);
   const tokenPriceInDollars = useMemo(
     () =>
       stakedTokenPriceInDollars
@@ -91,7 +91,7 @@ const Masonry = () => {
       {!!account ? (
         <>
           <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-            Mortuary
+            Boardroom
           </Typography>
           <Box mt={5}>
             <Grid container justify="center" spacing={3}>
@@ -115,7 +115,7 @@ const Masonry = () => {
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
                     <Typography>
-                      DEGEN Price<small> (TWAP)</small>
+                      CASH Price<small> (TWAP)</small>
                     </Typography>
                     <Typography>{scalingFactor} TOMB</Typography>
                   </CardContent>
@@ -132,7 +132,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>DSHARE Staked</Typography>
+                    <Typography>PRINTER Staked</Typography>
                     <Typography>{getDisplayBalance(totalStaked)}</Typography>
                   </CardContent>
                 </Card>
@@ -153,7 +153,7 @@ const Masonry = () => {
                 Upon stake, the funds will be locked for 4 epochs. Rewards can be claimed after 2 epochs after deposit.<br/> 
                 Any time the user claims rewards or stakes more funds or unstakes partially, both lock and reward counter will be reset.                </Alert>
                 <Alert style={{ backgroundColor:"black" , color:"white" , width:"100%" , marginLeft:"0%"}}variant="filled" severity="warning">
-                Strategy: For the health of the protocol, we recommend you to take 20% profits and re-invest your the rest of DEGEN back in DEGEN-TOMB LP and earn more DSHARE on the <StyledLink href="/boardroom">Mortuary</StyledLink> page.
+                Strategy: For the health of the protocol, we recommend you to take 20% profits and re-invest your the rest of CASH back in CASH-BUSD LP and earn more PRINTER on the <StyledLink href="/boardroom">Boardroom</StyledLink> page.
                 </Alert>
               </Box>
             </Grid>

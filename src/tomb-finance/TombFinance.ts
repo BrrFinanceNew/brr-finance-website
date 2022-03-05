@@ -1,6 +1,8 @@
 // import { Fetcher, Route, Token } from '@uniswap/sdk';
-import { Fetcher as FetcherSpirit, Token as TokenSpirit } from '@spiritswap/sdk';
-import { Fetcher, Route, Token } from '@spookyswap/sdk';
+//import { Fetcher as Fetcher, Token as TokenSpirit } from '@spiritswap/sdk';
+//import { Fetcher, Route, Token } from '@spookyswap/sdk';
+import { Fetcher, Route, Token } from '@pancakeswap/sdk';
+
 import { Configuration } from './config';
 import { ContractName, TokenStat, AllocationTime, LPStat, Bank, PoolStats, TShareSwapperStat , Whitelist } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
@@ -32,7 +34,7 @@ export class TombFinance {
   TSHARE: ERC20;
   TBOND: ERC20;
   FTM: ERC20;
-  USDC: ERC20;
+  BUSD: ERC20;
   TOMB1: ERC20; //ACTUAL TOMB
 
 
@@ -49,11 +51,11 @@ export class TombFinance {
     for (const [symbol, [address, decimal]] of Object.entries(externalTokens)) {
       this.externalTokens[symbol] = new ERC20(address, provider, symbol, decimal);
     }
-    this.TOMB = new ERC20(deployments.tomb.address, provider, 'DEGEN');
-    this.TSHARE = new ERC20(deployments.tShare.address, provider, 'DSHARE');
-    this.TBOND = new ERC20(deployments.tBond.address, provider, 'DBOND');
+    this.TOMB = new ERC20(deployments.tomb.address, provider, 'CASH');
+    this.TSHARE = new ERC20(deployments.tShare.address, provider, 'PRINTER');
+    this.TBOND = new ERC20(deployments.tBond.address, provider, 'CBOND');
     this.FTM = this.externalTokens['WFTM'];
-    this.USDC = this.externalTokens['USDC'];
+    this.BUSD = this.externalTokens['BUSD'];
     this.TOMB1 = this.externalTokens['TOMB'];
 
     // Uniswap V2 Pair
@@ -133,14 +135,14 @@ export class TombFinance {
     const lpTokenSupplyBN = await lpToken.totalSupply();
     const lpTokenSupply = getDisplayBalance(lpTokenSupplyBN, 18);
 
-    const token0 = name.startsWith('DEGEN') ? this.TOMB : this.TSHARE;
-    const isTomb = name.startsWith('DEGEN');
+    const token0 = name.startsWith('CASH') ? this.TOMB : this.TSHARE;
+    const isTomb = name.startsWith('CASH');
     const tokenAmountBN = await token0.balanceOf(lpToken.address);
     const tokenAmount = getDisplayBalance(tokenAmountBN, 18);
 
-    const ftmAmountBN = lpToken.symbol === "DEGEN-TOMB LP" ? await this.TOMB1.balanceOf(lpToken.address) : await this.USDC.balanceOf(lpToken.address);
+    const ftmAmountBN = lpToken.symbol === "CASH-BUSD LP" ? await this.TOMB1.balanceOf(lpToken.address) : await this.BUSD.balanceOf(lpToken.address);
 
-    const ftmAmount = lpToken.symbol === "DEGEN-TOMB LP" ? getDisplayBalance(ftmAmountBN, 18) : getDisplayBalance(ftmAmountBN, 6);
+    const ftmAmount = lpToken.symbol === "CASH-BUSD LP" ? getDisplayBalance(ftmAmountBN, 18) : getDisplayBalance(ftmAmountBN, 6);
     
     const tokenAmountInOneLP = Number(tokenAmount) / Number(lpTokenSupply);
     
@@ -245,13 +247,13 @@ export class TombFinance {
    * CirculatingSupply (always equal to total supply for bonds)
    */
   async getShareStat(): Promise<TokenStat> {
-    const { DEGENTOMBShareRewardPool } = this.contracts;
+    const { CashBusdShareRewardPool } = this.contracts;
     
     const supply = await this.TSHARE.totalSupply();
     
-    const priceInFTM = await this.getTokenPriceFromPancakeswapUSDC(this.TSHARE);
+    const priceInFTM = await this.getTokenPriceFromPancakeswapBUSD(this.TSHARE);
     
-    const tombRewardPoolSupply = await this.TSHARE.balanceOf(DEGENTOMBShareRewardPool.address);
+    const tombRewardPoolSupply = await this.TSHARE.balanceOf(CashBusdShareRewardPool.address);
     
     const tShareCirculatingSupply = supply.sub(tombRewardPoolSupply);
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
@@ -289,12 +291,12 @@ export class TombFinance {
 
   async getTombPriceInLastTWAP(): Promise<BigNumber> {
     const { Treasury } = this.contracts;
-    return Treasury.getDegenUpdatedPrice();
+    return Treasury.getCashUpdatedPrice();
   }
 
   async getBondsPurchasable(): Promise<BigNumber> {
     const { Treasury } = this.contracts;
-    return Treasury.getBurnableDegenLeft();
+    return Treasury.getBurnableCashLeft();
   }
 
   /**
@@ -312,7 +314,7 @@ export class TombFinance {
     
     const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
     
-    const stat = bank.earnTokenName === 'DEGEN' ? await this.getTombStat() : await this.getShareStat();
+    const stat = bank.earnTokenName === 'CASH' ? await this.getTombStat() : await this.getShareStat();
     
     const tokenPerSecond = await this.getTokenPerSecond(
       bank.earnTokenName,
@@ -349,14 +351,14 @@ export class TombFinance {
     poolContract: Contract,
     depositTokenName: string,
   ) {
-    if (earnTokenName === 'DEGEN') {
+    if (earnTokenName === 'CASH') {
       if (!contractName.endsWith('ShareRewardPool')) {
-        const rewardPerSecond = await poolContract.degenPerSecond();
+        const rewardPerSecond = await poolContract.cashPerSecond();
         if (depositTokenName === 'TSHARES') {
           return rewardPerSecond.mul(6000).div(20000);
         } else if (depositTokenName === 'TOMB') {
           return rewardPerSecond.mul(6000).div(20000);
-        } else if (depositTokenName === 'USDC') {
+        } else if (depositTokenName === 'BUSD') {
           return rewardPerSecond.mul(2000).div(20000);
         }  else if (depositTokenName === 'WFTM') {
           return rewardPerSecond.mul(6000).div(20000);
@@ -373,20 +375,20 @@ export class TombFinance {
       
       return await poolContract.epochTombPerSecond(0); */
     }
-    const rewardPerSecond = await poolContract.dsharePerSecond();
-    if (depositTokenName.startsWith('DEGEN-TOMB')) {
+    const rewardPerSecond = await poolContract.printerPerSecond();
+    if (depositTokenName.startsWith('CASH-TOMB')) {
       return rewardPerSecond.mul(10000).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
     } else if (depositTokenName.startsWith('TBOND')) {
       return rewardPerSecond.mul(100).div(80000);
-    } else if (depositTokenName.startsWith('DSHARE-USDC')) {
+    } else if (depositTokenName.startsWith('PRINTER-BUSD')) {
       return rewardPerSecond.mul(10000).div(80000);
-    } else if (depositTokenName.startsWith('DSHARE-DEGEN')) {
+    } else if (depositTokenName.startsWith('PRINTER-CASH')) {
       return rewardPerSecond.mul(5000).div(80000);
-    }else if (depositTokenName.startsWith('USDC')) {
+    }else if (depositTokenName.startsWith('BUSD')) {
       return rewardPerSecond.mul(500).div(80000);
-    }else if (depositTokenName.startsWith('DEGEN')) {
+    }else if (depositTokenName.startsWith('CASH')) {
       return rewardPerSecond.mul(1000).div(80000);
     }else {
       return rewardPerSecond.mul(0).div(80000);
@@ -408,22 +410,22 @@ export class TombFinance {
       tokenPrice = priceOfOneFtmInDollars;
     } else {
 
-      if (tokenName === 'DEGEN-TOMB LP') {
+      if (tokenName === 'CASH-BUSD LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
-      } else if (tokenName === 'DSHARE-USDC LP') {
+      } else if (tokenName === 'PRINTER-BUSD LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
-      } else if (tokenName === 'DSHARE-DEGEN LP') {
+      } else if (tokenName === 'PRINTER-CASH LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "TSHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "TSHARES"), false, true);
       } else if (tokenName === "TOMB-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
-      } else if (tokenName === 'USDC') {
+      } else if (tokenName === 'BUSD') {
         tokenPrice = 1; 
       } else if (tokenName === 'TOMB' || tokenName === 'TBOND') {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=TOMB&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["tomb"].usd
-      }else if (tokenName === 'DSHARE') {
+      }else if (tokenName === 'PRINTER') {
          const shareprice = await this.getShareStat();   
          tokenPrice = shareprice.priceInDollars;
       }else {
@@ -575,8 +577,8 @@ async get2ShareStatFake(): Promise<TokenStat> {
   ): Promise<BigNumber> {
     const pool = this.contracts[poolName];
     try {
-      if (earnTokenName === 'DEGEN') {
-        return await pool.pendingDEGEN(poolId, account);
+      if (earnTokenName === 'CASH') {
+        return await pool.pendingCASH(poolId, account);
       } else {
         return await pool.pendingShare(poolId, account);
       }
@@ -669,13 +671,13 @@ async get2ShareStatFake(): Promise<TokenStat> {
     }
   }
 
-  async getTokenPriceFromPancakeswapUSDC(tokenContract: ERC20): Promise<string> {
+  async getTokenPriceFromPancakeswapBUSD(tokenContract: ERC20): Promise<string> {
     const ready = await this.provider.ready;
     if (!ready) return;
     const { chainId } = this.config;
-    const { USDC } = this.config.externalTokens;
+    const { BUSD } = this.config.externalTokens;
     
-    const wftm = new Token(chainId, USDC[0], USDC[1]);
+    const wftm = new Token(chainId, BUSD[0], BUSD[1]);
     const token = new Token(chainId, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
     
     try {
@@ -696,10 +698,10 @@ async get2ShareStatFake(): Promise<TokenStat> {
 
     const { WFTM } = this.externalTokens;
 
-    const wftm = new TokenSpirit(chainId, WFTM.address, WFTM.decimal);
-    const token = new TokenSpirit(chainId, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
+    const wftm = new Token(chainId, WFTM.address, WFTM.decimal);
+    const token = new Token(chainId, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
     try {
-      const wftmToToken = await FetcherSpirit.fetchPairData(wftm, token, this.provider);
+      const wftmToToken = await Fetcher.fetchPairData(wftm, token, this.provider);
       const liquidityToken = wftmToToken.liquidityToken;
       let ftmBalanceInLP = await WFTM.balanceOf(liquidityToken.address);
       let ftmAmount = Number(getFullDisplayBalance(ftmBalanceInLP, WFTM.decimal));
@@ -716,17 +718,17 @@ async get2ShareStatFake(): Promise<TokenStat> {
   async getWFTMPriceFromPancakeswap(): Promise<string> {
     const ready = await this.provider.ready;
     if (!ready) return;
-    const { WFTM, USDC } = this.externalTokens;
+    const { WFTM, BUSD } = this.externalTokens;
     
     try {
       const fusdt_wftm_lp_pair = this.externalTokens['USDT-FTM-LP'];
       
       let ftm_amount_BN = await WFTM.balanceOf(fusdt_wftm_lp_pair.address);
       let ftm_amount = Number(getFullDisplayBalance(ftm_amount_BN, WFTM.decimal));
-      let USDC_amount_BN = await USDC.balanceOf(fusdt_wftm_lp_pair.address);
-      let USDC_amount = Number(getFullDisplayBalance(USDC_amount_BN, USDC.decimal));
+      let BUSD_amount_BN = await BUSD.balanceOf(fusdt_wftm_lp_pair.address);
+      let BUSD_amount = Number(getFullDisplayBalance(BUSD_amount_BN, BUSD.decimal));
  
-      return (USDC_amount / ftm_amount).toString();
+      return (BUSD_amount / ftm_amount).toString();
     } catch (err) {
       console.error(`Failed to fetch token price of WFTM: ${err}`);
     }
@@ -778,7 +780,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
   async canUserUnstakeFromMasonry(): Promise<boolean> {
     const Masonry = this.currentMasonry();
     const canWithdraw = await Masonry.canWithdraw(this.myAccount);
-    const stakedAmount = await this.getStakedShareOnMasonry();
+    const stakedAmount = await this.getStakepRinterOnMasonry();
     const notStaked = Number(getDisplayBalance(stakedAmount, this.TSHARE.decimal)) === 0;
     const result = notStaked ? true : canWithdraw;
     return result;
@@ -803,7 +805,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     return await Masonry.stake(decimalToBalance(amount));
   }
 
-  async getStakedShareOnMasonry(): Promise<BigNumber> {
+  async getStakepRinterOnMasonry(): Promise<BigNumber> {
     const Masonry = this.currentMasonry();
     if (this.masonryVersionOfUser === 'v1') {
       return await Masonry.getShareOf(this.myAccount);
@@ -895,7 +897,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const withdrawLockupEpochs = await Masonry.withdrawLockupEpochs();
     const fromDate = new Date(Date.now());
     const targetEpochForClaimUnlock = Number(startTimeEpoch) + Number(withdrawLockupEpochs);
-    const stakedAmount = await this.getStakedShareOnMasonry();
+    const stakedAmount = await this.getStakepRinterOnMasonry();
     if (currentEpoch <= targetEpochForClaimUnlock && Number(stakedAmount) === 0) {
       return { from: fromDate, to: fromDate };
     } else if (targetEpochForClaimUnlock - currentEpoch === 1) {
@@ -972,7 +974,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const treasuryDevFundedFilter = Treasury.filters.DevFundFunded();
     const treasuryMasonryFundedFilter = Treasury.filters.MasonryFunded();
     const boughtBondsFilter = Treasury.filters.BoughtBonds();
-    const redeemBondsFilter = Treasury.filters.RedeemedBonds();
+    const redeemBondsFilter = Treasury.filters.RedeemecBonds();
 
     let epochBlocksRanges: any[] = [];
     let masonryFundEvents = await Treasury.queryFilter(treasuryMasonryFundedFilter);
@@ -985,7 +987,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
           index: index,
           startBlock: value.blockNumber,
           boughBonds: 0,
-          redeemedBonds: 0,
+          redeemecBonds: 0,
         });
       }
       if (index > 0) {
@@ -993,7 +995,7 @@ async get2ShareStatFake(): Promise<TokenStat> {
           index: index,
           startBlock: value.blockNumber,
           boughBonds: 0,
-          redeemedBonds: 0,
+          redeemecBonds: 0,
         });
         epochBlocksRanges[index - 1].endBlock = value.blockNumber;
       }

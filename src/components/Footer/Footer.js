@@ -44,13 +44,13 @@ const Footer = () => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="body2" color="textPrimary" align="left">
-              {'Copyright © Degen Finance '}
+              {'Copyright © Cash Finance '}
               {new Date().getFullYear()}
             </Typography>
           </Grid>
           <Grid item xs={6} style={{ textAlign: 'right' }}>
             <a
-              href="https://twitter.com/Degenfinancee"
+              href="https://twitter.com/Cashfinancee"
               rel="noopener noreferrer"
               target="_blank"
               className={classes.link}

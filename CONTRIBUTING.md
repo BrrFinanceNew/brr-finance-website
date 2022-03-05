@@ -1,8 +1,8 @@
-# Contributing to [degen.Fiance](https://degen.finance)
+# Contributing to [cash.Fiance](https://cash.finance)
 
 🎉 First off all, thanks for taking the time to contribute! 🎉
 
-Following is a set of guidelines for contributing to the `degen.Finance` website. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+Following is a set of guidelines for contributing to the `cash.Finance` website. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## Code of Conduct
 

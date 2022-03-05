@@ -1,6 +1,6 @@
 import React, { /*useCallback, useEffect, */useMemo, useState } from 'react';
 import Page from '../../components/Page';
-import PitImage from '../../assets/img/pit.png';
+import PitImage from '../../assets/img/1.jpg';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import { useWallet } from 'use-wallet';

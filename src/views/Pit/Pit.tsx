@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import Page from '../../components/Page';
-import PitImage from '../../assets/img/pit.png';
+import PitImage from '../../assets/img/1.jpg';
 import { createGlobalStyle } from 'styled-components';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
@@ -73,23 +73,23 @@ const Pit: React.FC = () => {
         {!!account ? (
           <>
             <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-              dBonds
+              cBonds
             </Typography>
             <Route exact path={path}>
               <PageHeader icon={'🏦'} subtitle="Earn premiums upon redemption" />
             </Route>
-            <StyledBond>
+            <StylecBond>
               <StyledCardWrapper>
                 <ExchangeCard
                   action="Purchase"
                   fromToken={tombFinance.TOMB}
-                  fromTokenName="DEGEN"
+                  fromTokenName="CASH"
                   toToken={tombFinance.TBOND}
-                  toTokenName="DBOND"
+                  toTokenName="CBOND"
                   priceDesc={
                     !isBondPurchasable
-                      ? 'DEGEN is over peg'
-                      : getDisplayBalance(bondsPurchasable, 18, 4) + ' DBOND available for purchase'
+                      ? 'CASH is over peg'
+                      : getDisplayBalance(bondsPurchasable, 18, 4) + ' CBOND available for purchase'
                   }
                   onExchange={handleBuyBonds}
                   disabled={!bondStat || isBondRedeemable}
@@ -97,14 +97,14 @@ const Pit: React.FC = () => {
               </StyledCardWrapper>
               <StyledStatsWrapper>
                 <ExchangeStat
-                  tokenName="DEGEN"
+                  tokenName="CASH"
                   description="Last-Hour TWAP Price"
                   price={getDisplayBalance(cashPrice)}
                 />
                 <Spacer size="md" />
                 <ExchangeStat
-                  tokenName="DBOND"
-                  description="Current Price: (DEGEN)^2"
+                  tokenName="CBOND"
+                  description="Current Price: (CASH)^2"
                   price={Number(bondStat?.tokenInFtm).toFixed(2) || '-'}
                 />
               </StyledStatsWrapper>
@@ -112,16 +112,16 @@ const Pit: React.FC = () => {
                 <ExchangeCard
                   action="Redeem"
                   fromToken={tombFinance.TBOND}
-                  fromTokenName="DBOND"
+                  fromTokenName="CBOND"
                   toToken={tombFinance.TOMB}
-                  toTokenName="DEGEN"
-                  priceDesc={`${getDisplayBalance(bondBalance)} DBOND Available in wallet`}
+                  toTokenName="CASH"
+                  priceDesc={`${getDisplayBalance(bondBalance)} CBOND Available in wallet`}
                   onExchange={handleRedeemBonds}
                   disabled={!bondStat || bondBalance.eq(0) || !isBondRedeemable}
-                  disabledDescription={!isBondRedeemable ? `Enabled when DEGEN > ${BOND_REDEEM_PRICE}TOMB` : null}
+                  disabledDescription={!isBondRedeemable ? `Enabled when CASH > ${BOND_REDEEM_PRICE}TOMB` : null}
                 />
               </StyledCardWrapper>
-            </StyledBond>
+            </StylecBond>
           </>
         ) : (
           <UnlockWallet />
@@ -131,7 +131,7 @@ const Pit: React.FC = () => {
   );
 };
 
-const StyledBond = styled.div`
+const StylecBond = styled.div`
   display: flex;
   background: transparent;
   @media (max-width: 768px) {

@@ -11,7 +11,7 @@ const useStakedBalanceOnMasonry = () => {
   useEffect(() => {
     async function fetchBalance() {
       try {
-        setBalance(await tombFinance.getStakedShareOnMasonry());
+        setBalance(await tombFinance.getStakepRinterOnMasonry());
       } catch (e) {
         console.error(e);
       }

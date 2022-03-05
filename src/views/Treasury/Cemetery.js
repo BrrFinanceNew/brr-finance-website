@@ -30,10 +30,10 @@ const assetList = [
     depositTokenName: 'WFTM',
   },
   {
-    depositTokenName: 'DSHARE',
+    depositTokenName: 'PRINTER',
   },
   {
-    depositTokenName: 'DSHARE-USDC LP',
+    depositTokenName: 'PRINTER-BUSD LP',
   },
 ]
 
@@ -64,7 +64,7 @@ const Cemetery = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
-  const { balance, balance_2shares_wftm, balance_degen_wftm, balance_dshare_wftm, balance_degen, balance_dshare, balance_2shares } = useTotalTreasuryBalance();
+  const { balance, balance_2shares_wftm, balance_cash_wftm, balance_printer_wftm, balance_cash, balance_printer, balance_2shares } = useTotalTreasuryBalance();
   return (
     <Switch>
       <Page>
@@ -119,13 +119,13 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           TOMB-WFTM LP:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_degen_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_cash_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DSHARE-USDC LP:
+                          PRINTER-BUSD LP:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_dshare_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_printer_wftm} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
@@ -141,13 +141,13 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           WFTM:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_degen} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_cash} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DSHARE:
+                          PRINTER:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_dshare} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance_printer} separator="," prefix="$" />
                       </CardContent>
                       <CardContent align="center">
                         <Typography variant="h5">

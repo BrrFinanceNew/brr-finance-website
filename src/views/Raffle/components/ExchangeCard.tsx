@@ -59,7 +59,7 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
     <Card>
       <CardContent>
         <StyledCardContentInner>
-          <StyledCardTitle>{`Send DEGEN to enter the raffle`}</StyledCardTitle>
+          <StyledCardTitle>{`Send CASH to enter the raffle`}</StyledCardTitle>
           <StyledExchanger>
             <StyledToken>
               <StyledCardIcon>

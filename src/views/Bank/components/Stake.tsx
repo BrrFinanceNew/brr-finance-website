@@ -101,11 +101,11 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>
-              {bank.depositToken.symbol === 'USDC' ? <TokenSymbol size={80} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={110} symbol={bank.depositToken.symbol} />}
+              {bank.depositToken.symbol === 'BUSD' ? <TokenSymbol size={80} symbol={bank.depositToken.symbol} /> : <TokenSymbol size={110} symbol={bank.depositToken.symbol} />}
             </CardIcon>
      
-            {bank.depositTokenName === 'DSHARE-USDC LP' ? <Value value={getDisplayBalance1(stakedBalance, bank.depositToken.decimal)} />: <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />}
-            {bank.depositTokenName === 'USDC' ?<Label text={`≈ $${(Number(earnedInDollars)/1e6).toFixed(2)}`} /> : <Label text={`≈ $${(Number(earnedInDollars)/1e18).toFixed(2)}`} />}
+            {bank.depositTokenName === 'PRINTER-BUSD LP' ? <Value value={getDisplayBalance1(stakedBalance, bank.depositToken.decimal)} />: <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />}
+            {bank.depositTokenName === 'BUSD' ?<Label text={`≈ $${(Number(earnedInDollars)/1e6).toFixed(2)}`} /> : <Label text={`≈ $${(Number(earnedInDollars)/1e18).toFixed(2)}`} />}
             <Label text={`${bank.depositTokenName} Staked`} />
           </StyledCardHeader>
           <StyledCardActions>

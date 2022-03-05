@@ -59,7 +59,7 @@ const Cemetery = () => {
 
   const rebateStats = useRebateTreasury()
   console.log(rebateStats)
-  const [claimabledegen, setClaimabledegen] = useState(0);
+  const [claimablecash, setClaimablecash] = useState(0);
   const [ vested, setVested ] = useState(0)
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const Cemetery = () => {
 
     const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
     const vesting = await rebateStats.RebateTreasury.methods.vesting(address).call()
-    setClaimabledegen(+web3.utils.fromWei(claimable))
+    setClaimablecash(+web3.utils.fromWei(claimable))
     setVested(+web3.utils.fromWei(BN(vesting.amount).sub(BN(vesting.claimed))))
 }
 
@@ -110,7 +110,7 @@ const Cemetery = () => {
                     <Card className={classes.gridItem}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DEGEN Price <small>(TWAP)</small>
+                          CASH Price <small>(TWAP)</small>
                         </Typography>
                         <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} TOMB</Typography>
                       </CardContent>
@@ -151,10 +151,10 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          DEGEN Vesting
+                          CASH Vesting
                         </Typography>
                         <Typography variant="h6">{vested.toFixed(4)} Total Vested</Typography>
-                        <Typography variant="h6">{claimabledegen.toFixed(4)} Claimable</Typography>
+                        <Typography variant="h6">{claimablecash.toFixed(4)} Claimable</Typography>
                         <Button color="primary" size="small" variant="contained" onClick={claimTomb} style={{ marginTop: "8px" }}>
                           CLAIM
                         </Button>

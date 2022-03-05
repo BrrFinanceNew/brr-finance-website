@@ -38,7 +38,7 @@ const Stake: React.FC = () => {
   const stakedBalance = useStakedBalanceOnMasonry();
   const { from, to } = useUnstakeTimerMasonry();
  
-  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('DSHARE', tombFinance.TSHARE);
+  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars('PRINTER', tombFinance.TSHARE);
   
   const tokenPriceInDollars = useMemo(
     () =>
@@ -60,7 +60,7 @@ const Stake: React.FC = () => {
         onStake(value);
         onDismissDeposit();
       }}
-      tokenName={'DShare'}
+      tokenName={'PRinter'}
     />,
   );
 
@@ -71,7 +71,7 @@ const Stake: React.FC = () => {
         onWithdraw(value);
         onDismissWithdraw();
       }}
-      tokenName={'DShare'}
+      tokenName={'PRinter'}
     />,
   );
 
@@ -83,11 +83,11 @@ const Stake: React.FC = () => {
           <StyledCardContentInner>
             <StyledCardHeader>
               <CardIcon>
-                <TokenSymbol symbol="DSHARE" />
+                <TokenSymbol symbol="PRINTER" />
               </CardIcon>
               <Value value={getDisplayBalance(stakedBalance)} />
               <Label text={`≈ $${tokenPriceInDollars}`} />
-              <Label text={'DSHARE Staked'} />
+              <Label text={'PRINTER Staked'} />
             </StyledCardHeader>
             <StyledCardActions>
               {approveStatus !== ApprovalState.APPROVED ? (
@@ -98,7 +98,7 @@ const Stake: React.FC = () => {
                   style={{ marginTop: '20px' }}
                   onClick={approve}
                 >
-                  Approve DSHARE
+                  Approve PRINTER
                 </Button>
               ) : (
                 <>

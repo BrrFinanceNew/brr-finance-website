@@ -7,7 +7,7 @@ import UnlockWallet from '../../components/UnlockWallet';
 import PageHeader from '../../components/PageHeader';
 import ExchangeCard from './components/ExchangeCard';
 import styled from 'styled-components';
-import HomeImage from '../../assets/img/regulations_bg.png';
+import HomeImage from '../../assets/img/1.jpg';
 import useRaffleStats from '../../hooks/useRaffleBalance';
 import useTombFinance from '../../hooks/useTombFinance';
 
@@ -100,7 +100,7 @@ const Bond: React.FC = () => {
     async (amount: string) => { 
       const tx = await tombFinance.sendDollar(amount);
         addTransaction(tx, {
-          summary: `Send ${Number(amount).toFixed(2)} DEGEN to the raffle ${amount} `,
+          summary: `Send ${Number(amount).toFixed(2)} CASH to the raffle ${amount} `,
         });
     
     },
@@ -115,12 +115,12 @@ const Bond: React.FC = () => {
     <>
     
      <Grid item xs={12} md={12} lg={12} >     
-        <h2 style={{ fontSize: '80px', textAlign:'center', color: '#fff' }}>Weekly DSHARE Raffle</h2>   
+        <h2 style={{ fontSize: '80px', textAlign:'center', color: '#fff' }}>Weekly PRINTER Raffle</h2>   
       <Grid container justify="center" spacing={3} style={{margin: '10px'}}>
           {Date.now() < startTime ? <LaunchCountdown deadline={startDate} description={'Raffle Starts In'} descriptionLink={''}></LaunchCountdown> : <LaunchCountdown deadline={endDate} description={'Raffle Closes In'} descriptionLink={''}></LaunchCountdown>}
       </Grid>
         <Card style={{padding: '20px'}}>
-          <p style={{ fontSize: '20px', textAlign:'center', color: '#fff' }}>Every week we'll run a raffle for our community where you have the chance to win DSHARE just by sending in your freely earned DEGEN. 1 DEGEN =  1 entry, unlimited entries per address, the more DEGEN you send the more chance you have to win. The winner will be chosen at random. <br></br><br></br>If you are having issues using the below button to enter the raffle on mobile you can always send DEGEN to the raffle address in a normal transaction.</p>                
+          <p style={{ fontSize: '20px', textAlign:'center', color: '#fff' }}>Every week we'll run a raffle for our community where you have the chance to win PRINTER just by sending in your freely earned CASH. 1 CASH =  1 entry, unlimited entries per address, the more CASH you send the more chance you have to win. The winner will be chosen at random. <br></br><br></br>If you are having issues using the below button to enter the raffle on mobile you can always send CASH to the raffle address in a normal transaction.</p>                
           <p style={{fontSize: '20px', textAlign:'center', color: '#fff' }}>Raffle address: {raffleAddress}</p>
         </Card>
       </Grid>
@@ -129,31 +129,31 @@ const Bond: React.FC = () => {
         <Grid item xs={12} sm={12} lg={6}>  
             <Card>
               <h2 style={{textAlign:'center', marginTop: '10px' }}>Raffle Stats</h2>
-              <p style={{textAlign:'center'}}>Win 1 DSHARE this raffle</p>           
-              <p style={{textAlign:'center'}}>Total DEGEN Entered: {raffleBals}</p>         
+              <p style={{textAlign:'center'}}>Win 1 PRINTER this raffle</p>           
+              <p style={{textAlign:'center'}}>Total CASH Entered: {raffleBals}</p>         
               <p style={{textAlign:'center'}}>Your entries: {userBals}</p>
               <p style={{textAlign:'center'}}>Your account: {account}</p>
             </Card>
           </Grid>
         <Grid item xs={12} sm={12} lg={6}>  
-        <StyledBond>
+        <StylecBond>
           <StyledCardWrapper>
             <ExchangeCard
               action="Enter Raffle"
               fromToken={tombFinance.TOMB}
-              fromTokenName="DEGEN"
+              fromTokenName="CASH"
               toToken={tombFinance.TBOND}
-              toTokenName="DBOND"
+              toTokenName="CBOND"
               priceDesc={
                 Date.now() < endTime && Date.now() > startTime
-                  ? 'Raffle is open! 1 DEGEN = 1 Entry'
+                  ? 'Raffle is open! 1 CASH = 1 Entry'
                   : 'Raffle is currently closed'
               }
               disabled={Date.now() < endTime && Date.now() > startTime ? false : true}
               onExchange={handleBuyBonds}
             />
           </StyledCardWrapper>
-        </StyledBond>
+        </StylecBond>
         </Grid>
       </Grid>
 
@@ -166,7 +166,7 @@ const Bond: React.FC = () => {
   );
 };
 
-const StyledBond = styled.div`
+const StylecBond = styled.div`
   display: flex;
   @media (max-width: 768px) {
     width: 100%;
