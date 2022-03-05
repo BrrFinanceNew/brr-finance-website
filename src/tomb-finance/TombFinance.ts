@@ -374,7 +374,7 @@ export class TombFinance {
       return await poolContract.epochTombPerSecond(0); */
     }
     const rewardPerSecond = await poolContract.dsharePerSecond();
-    if (depositTokenName.startsWith('DEGEN')) {
+    if (depositTokenName.startsWith('DEGEN-TOMB')) {
       return rewardPerSecond.mul(10000).div(80000);
     } else if (depositTokenName.startsWith('TOMB')) {
       return rewardPerSecond.mul(0).div(80000);
@@ -386,8 +386,9 @@ export class TombFinance {
       return rewardPerSecond.mul(5000).div(80000);
     }else if (depositTokenName.startsWith('USDC')) {
       return rewardPerSecond.mul(500).div(80000);
-    }
-    else {
+    }else if (depositTokenName.startsWith('DEGEN')) {
+      return rewardPerSecond.mul(1000).div(80000);
+    }else {
       return rewardPerSecond.mul(0).div(80000);
     }
   }

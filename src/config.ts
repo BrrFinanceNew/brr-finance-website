@@ -259,7 +259,7 @@ DEGENTOMBShareRewardPool: {
     multiplier: '15000x',
     buyLink: 'https://tomb.finance/pit',
     site: '#',
-    sort: 2,
+    sort: 4,
     closedForStaking: false,
   },
   /* USDC */
@@ -276,7 +276,7 @@ DEGENTOMBShareRewardPool: {
     multiplier: '7500x',
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
-    sort: 3,
+    sort: 5,
     closedForStaking: false,
   },
   /*DSHARE DEGEN LP*/
@@ -293,27 +293,27 @@ DEGENTOMBShareRewardPool: {
     multiplier: '24000x',
     buyLink: '',
     site: '#',
-    sort: 1,
+    sort: 2,
     closedForStaking: false,
   }
-  /*
+  
  ,
-  DegenDshareLPDshareRewardPool: {
-    name: 'Earn DSHARE by DEGEN-DSHARE LP',
+  DEGENshareRewardPool: {
+    name: 'Earn DSHARE by DEGEN',
     info: '0%',
-    whitelist: 'No',
-    poolId: 5,
+    whitelist: '',
+    poolId: 6,
     sectionInUI: 2,
-    contract: 'TombFtmRewardPool',
-    depositTokenName: 'DEGEN-DSHARE LP',
+    contract: 'DEGENshareRewardPool',
+    depositTokenName: 'DEGEN',
     earnTokenName: 'DSHARE',
     finished: true,
     multiplier: '15000x',
     buyLink: '#',
     site: '#',
-    sort: 4,
+    sort: 3,
     closedForStaking: true,
-  },*/
+  },
   // TwoombTwosharesLPTShareRewardPool: {
   //   name: 'Earn DSHARE by TOMB-TSHARES LP',
   //   poolId: 4,
