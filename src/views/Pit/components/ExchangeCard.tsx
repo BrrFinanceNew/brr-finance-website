@@ -9,7 +9,7 @@ import CardContent from '../../../components/CardContent';
 import useTombFinance from '../../../hooks/useTombFinance';
 import Label from '../../../components/Label';
 import TokenSymbol from '../../../components/TokenSymbol';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import useModal from '../../../hooks/useModal';
 import ExchangeModal from './ExchangeModal';
@@ -73,9 +73,9 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
               </StyledCardIcon>
               <Label text={fromTokenName} variant="normal" />
             </StyledToken>
-            <StyledExchangeArrow>
+{/*             <StyledExchangeArrow>
               <FontAwesomeIcon icon={faArrowRight} />
-            </StyledExchangeArrow>
+            </StyledExchangeArrow> */}
             <StyledToken>
               <StyledCardIcon style={{ background: 'transparent' }}>
                 <TokenSymbol symbol={toToken.symbol} size={70} />
