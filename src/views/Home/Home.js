@@ -73,8 +73,8 @@ const Home = () => {
     tShare = tShareProd;
   }
   
-  const buyTombAddress = 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7';
-  const buyTShareAddress = 'https://spookyswap.finance/swap?outputCurrency=0x6E209329A33a63C463dbb65AE2d6655Fe5C98411&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75';
+  const buyTombAddress = '';
+  const buyTShareAddress = '';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   
@@ -224,10 +224,10 @@ const Home = () => {
               <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
                 Buy PRINTER
               </Button>
-              <Button  variant="contained" target="_blank" href="https://dexscreener.com/fantom/0xf6b99c9b6e6bdbfd1b2de21f908189b49f43b9e3" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="" style={{ marginRight: '10px' }} className={classes.button}>
                 CASH Chart
               </Button>
-              <Button variant="contained" target="_blank" href="https://dexscreener.com/fantom/0x6E209329A33a63C463dbb65AE2d6655Fe5C98411" className={classes.button}>
+              <Button variant="contained" target="_blank" href="" className={classes.button}>
                 PRINTER Chart
               </Button>
             </CardContent>
