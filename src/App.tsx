@@ -116,7 +116,7 @@ const Providers: React.FC = ({ children }) => {
             walletconnect: { rpcUrl: config.defaultProvider },
             walletlink: {
               url: config.defaultProvider,
-              appName: 'cash Finance',
+              appName: 'Brr Finance',
               appLogoUrl: 'https://github.com/2omb/cash-frontend/blob/8ab3b1f5ecc7d5dad5b856f160d6e7afb8357560/src/assets/img/TOMB-TSHARES.png',
             },
           }}

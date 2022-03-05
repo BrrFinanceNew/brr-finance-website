@@ -103,7 +103,7 @@ const Nav = () => {
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
-                Cash Finance
+                Brr Finance
               </Link>
             </Typography>
             <Box mr={5}>
@@ -161,7 +161,7 @@ const Nav = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Cash Finance
+              Brr Finance
             </Typography>
 
             <Drawer
