@@ -22,6 +22,7 @@ const Modal: React.FC = ({ children }) => {
 };
 
 const StyledModal = styled.div`
+  background: rgba(255,255,255,0);
   border-radius: 12px;
   position: relative;
 `;

@@ -6,6 +6,7 @@ const newTheme = createMuiTheme({
     type: 'dark',
     text: {
       primary: '#E6E9EE',
+      third: '#fff'
     },
     background: {
       default: 'transparent',
@@ -17,9 +18,15 @@ const newTheme = createMuiTheme({
       dark: '#571EB1',
       contrastText: '#16191E',
     },
+      third: {
+      light: '#757CE8',
+      main: '#571EB1',
+      dark: '#571EB1',
+      contrastText: '#16191E',
+    },
     secondary: {
       light: '#757CE8',
-      main: '#757CE8',
+      main: '#ffffff',
       dark: '#757CE8',
       contrastText: '#000',
     },

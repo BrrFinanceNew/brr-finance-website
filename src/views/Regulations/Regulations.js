@@ -18,12 +18,12 @@ const StyledTableCell = withStyles((theme) => ({
   head: {
     fontSize: 18,
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    color: '#2c2560',
+    color: '#ffffff',
     fontWeight: 'bolder',
   },
   body: {
     fontSize: 14,
-    color: '#2c2560',
+    color: '#ffffff',
   },
 }))(TableCell);
 const useStyles = makeStyles((theme) => ({
@@ -95,10 +95,10 @@ const Regulations = () => {
           <TableBody>
             {rows?.map((row, index) => (
               <StyledTableRow
-                style={index % 2 ? { background: 'rgba(255,255,255,0.9)' } : { background: 'rgba(255,255,255,0.8)' }}
+                style={index % 2 ? { background: 'rgba(255,255,255,0.0)' } : { background: 'rgba(255,255,255,0.0)' }}
                 key={row.epoch}
               >
-                <StyledTableCell style={{ color: '#2c2560' }} align="center" component="th" scope="row">
+                <StyledTableCell style={{ color: '#ffffff' }} align="center" component="th" scope="row">
                   {row.epoch}
                 </StyledTableCell>
                 <StyledTableCell align="center">{row.masonry}</StyledTableCell>

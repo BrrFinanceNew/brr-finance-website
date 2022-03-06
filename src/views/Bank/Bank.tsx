@@ -17,7 +17,6 @@ import useStatsForPool from '../../hooks/useStatsForPool';
 import useRedeem from '../../hooks/useRedeem';
 import { Bank as BankEntity } from '../../tomb-finance';
 import useTombFinance from '../../hooks/useTombFinance';
-import StyledCardAccent from '../../components/StyledCardAccent';
 const useStyles = makeStyles((theme) => ({
   gridItem: {
     height: '100%',
@@ -77,12 +76,10 @@ const Bank: React.FC = () => {
         <StyledBank>
           <StyledCardsWrapper>
             <StyledCardWrapper>
-            <StyledCardAccent />
               <Harvest bank={bank} />
             </StyledCardWrapper>
             <Spacer />
             <StyledCardWrapper>
-            <StyledCardAccent />
               <Stake bank={bank} />
             </StyledCardWrapper>
           </StyledCardsWrapper>

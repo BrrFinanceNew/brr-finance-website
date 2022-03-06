@@ -55,7 +55,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 };
 
 const StyledValue = styled.div`
-  //color: ${(props) => props.theme.color.grey[300]};
+  color: white;
   font-size: 30px;
   font-weight: 700;
 `;

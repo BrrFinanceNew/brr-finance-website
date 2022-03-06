@@ -29,7 +29,6 @@ import useUnstakeTimerMasonry from '../../../hooks/masonry/useUnstakeTimerMasonr
 import TokenSymbol from '../../../components/TokenSymbol';
 import useStakeToMasonry from '../../../hooks/useStakeToMasonry';
 import useWithdrawFromMasonry from '../../../hooks/useWithdrawFromMasonry';
-import StyledCardAccent from '../../../components/StyledCardAccent';
 const Stake: React.FC = () => {
   const tombFinance = useTombFinance();
   const [approveStatus, approve] = useApprove(tombFinance.TSHARE, tombFinance.contracts.Masonry.address);
@@ -77,7 +76,6 @@ const Stake: React.FC = () => {
 
   return (
     <Box position='relative'>
-    <StyledCardAccent />
     <Card >
         <CardContent>
           <StyledCardContentInner>

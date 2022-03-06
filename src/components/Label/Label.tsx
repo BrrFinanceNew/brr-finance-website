@@ -30,7 +30,8 @@ interface StyledLabelProps {
 }
 
 const StyledLabel = styled.div<StyledLabelProps>`
-  color: ${(props) => props.color};
+  color: white;
+  font-weight: bold;
 `;
 
 export default Label;

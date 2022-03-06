@@ -14,7 +14,7 @@ import useHarvestFromMasonry from '../../../hooks/useHarvestFromMasonry';
 import useEarningsOnMasonry from '../../../hooks/useEarningsOnMasonry';
 import useTombStats from '../../../hooks/useTombStats';
 import { getDisplayBalance } from '../../../utils/formatBalance';
-import StyledCardAccent from '../../../components/StyledCardAccent';
+
 const Harvest: React.FC = () => {
   const tombStats = useTombStats();
   const { onReward } = useHarvestFromMasonry();
@@ -32,7 +32,6 @@ const Harvest: React.FC = () => {
 
   return (
     <Box position='relative'>
-    <StyledCardAccent />
     <Card >
         <CardContent>
           <StyledCardContentInner>
