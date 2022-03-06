@@ -44,13 +44,13 @@ const Footer = () => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="body2" color="textPrimary" align="left">
-              {'Copyright © Cash Finance '}
+              {'Copyright © Brr Finance '}
               {new Date().getFullYear()}
             </Typography>
           </Grid>
           <Grid item xs={6} style={{ textAlign: 'right' }}>
             <a
-              href="https://twitter.com/Cashfinancee"
+              href="https://twitter.com/BrrFinance"
               rel="noopener noreferrer"
               target="_blank"
               className={classes.link}
@@ -65,7 +65,7 @@ const Footer = () => {
             >
               <img alt="youtube" src={YoutubeImage} className={classes.img} />
             </a>*/}
-            <a href="https://t.co/bj4P9sdvxv" rel="noopener noreferrer" target="_blank" className={classes.link}>
+            <a href="discord.gg/dWfd7rvbhV" rel="noopener noreferrer" target="_blank" className={classes.link}>
               <img alt="discord" src={DiscordImage} className={classes.img} />
             </a>
           </Grid>
