@@ -160,14 +160,14 @@ const Home = () => {
           <Paper style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <Box p={4}>
               <h2>Welcome to Brr Finance!</h2>
-              <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 TOMB</p>
+              <p>An algorithmic stablecoin on the Fantom Opera blockchain, pegged to the price of 1 BUSD</p>
               <p>Cash utilizes multiple bonding mechanisms at the <StyledLink href="/rebates">DAO</StyledLink> as well as seigniorage.</p>
               <p>
                 Stake your CASH-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to earn PRINTER rewards.
                 Then stake your earned PRINTER in the <StyledLink href="/boardroom">Boardroom</StyledLink> to maximize profits!
-              </p><h2>
-              
-              Welcome!</h2>
+              </p>
+              <h2>              
+              </h2>
             </Box>
           </Paper>
 				</Grid>
