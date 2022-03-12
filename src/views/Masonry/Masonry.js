@@ -117,7 +117,7 @@ const Masonry = () => {
                     <Typography>
                       CASH Price<small> (TWAP)</small>
                     </Typography>
-                    <Typography>{scalingFactor} TOMB</Typography>
+                    <Typography>{scalingFactor} BUSD</Typography>
                   </CardContent>
                 </Card>
               </Grid>
