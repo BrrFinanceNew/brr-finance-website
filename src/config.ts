@@ -12,10 +12,8 @@ const configurations: { [env: string]: Configuration } = {
     deployments: require('./tomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
       WFTM: ['0xe9e7cea3dedca5984780bafc599bd69add087d56', 18],
-      WBNB: ['0xe9e7cea3dedca5984780bafc599bd69add087d56', 18],
-      BUSD: ['0xe9e7cea3dedca5984780bafc599bd69add087d56', 18],
-      TSHARES: ['0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37', 18],
-      TOMB: ['0x6c021ae822bea943b2e66552bde1d2696a53fbb7', 18],
+      WBNB: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18],
+      BUSD: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18],
       CASH: ['0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5', 18],
       PRINTER: ['0x6E209329A33a63C463dbb65AE2d6655Fe5C98411', 18],
       CBOND: ['0x6B9bD1806b0641218Ae1b63F23329C127a8Ea8f1', 18],
@@ -80,8 +78,8 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 2,
     closedForStaking: true,
   }, 
-/*cash-tomb 2*/
-/* CashBusdShareRewardPool: {
+/*cash-busd 2*/
+ CashBusdShareRewardPool: {
     name: 'Earn PRINTER by CASH-BUSD LP',
     info: '0%',
     poolId: 0,
@@ -89,15 +87,15 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'CashBusdShareRewardPool',
     depositTokenName: 'CASH-BUSD LP',
     earnTokenName: 'PRINTER',
-    finished: false,
+    finished: true,
     multiplier: '35500x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
     sort: 0,
     closedForStaking: false,
-  }, */
+  }, 
   /*PRINTER BUSD LP*/
-/*   PrinterBusdShareRewardPool: {
+   PrinterBusdShareRewardPool: {
     name: 'Earn PRINTER by PRINTER-BUSD LP',
     info: '0%',
     poolId: 1,
@@ -105,32 +103,31 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'PrinterBusdShareRewardPool',
     depositTokenName: 'PRINTER-BUSD LP',
     earnTokenName: 'PRINTER',
-    finished: false,
+    finished: true,
     multiplier: '24000x',
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     site: '#',
     sort: 1,
     closedForStaking: false,
-  }, */
+  }, 
   /* BUSD */
-/*   BUSDShareRewardPool: {
+   BUSDShareRewardPool: {
     name: 'Earn PRINTER by staking BUSD',
     info: '0.5%',
-    whitelist: '',
     poolId: 4,
     sectionInUI: 2,
     contract: 'BUSDShareRewardPool',
     depositTokenName: 'BUSD',
     earnTokenName: 'PRINTER',
-    finished: false,
+    finished: true,
     multiplier: '7500x',
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     sort: 5,
     closedForStaking: false,
-  }, */
+  }, 
   /*PRINTER CASH LP*/
-/*   PRINTERCASHShareRewardPool: {
+   PRINTERCASHShareRewardPool: {
     name: 'Earn PRINTER by PRINTER-CASH LP',
     info: '0%',
     poolId: 5,
@@ -138,7 +135,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'PRINTERCASHShareRewardPool',
     depositTokenName: 'PRINTER-CASH LP',
     earnTokenName: 'PRINTER',
-    finished: false,
+    finished: true,
     multiplier: '24000x',
     buyLink: '',
     site: '#',
@@ -159,7 +156,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '#',
     sort: 3,
     closedForStaking: true,
-  }, */
+  }, 
 };
 
 export default configurations['production'];

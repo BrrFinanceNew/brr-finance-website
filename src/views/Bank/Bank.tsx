@@ -110,17 +110,17 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
   let pairName: string;
   let uniswapUrl: string;
   if (bank.depositTokenName.includes('CASH')) {
-    pairName = 'CASH-TOMB pair';
-    uniswapUrl = 'https://spookyswap.finance/add/0x6c021ae822bea943b2e66552bde1d2696a53fbb7/' + tombAddr;
+    pairName = 'CASH-BUSD pair';
+    uniswapUrl = 'https://pancakeswap.finance/swap' + tombAddr;
   } else {
     pairName = 'PRINTER-BUSD pair';
-    uniswapUrl = 'https://spookyswap.finance/add/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75/' + tshareAddr;
+    uniswapUrl = 'https://pancakeswap.finance/swap' + tshareAddr;
   }
   return (
     <Card>
       <CardContent>
         <StyledLink href={uniswapUrl} target="_blank">
-          {`👻 Provide liquidity for ${pairName} now on SpookySwap 👻`}
+          {` Provide liquidity for ${pairName} now on PancakeSwap `}
         </StyledLink>
       </CardContent>
     </Card>
@@ -147,7 +147,7 @@ const StyledBank = styled.div`
 const StyledLink = styled.a`
   font-weight: 700;
   text-decoration: none;
-  color: ${(props) => props.theme.color.primary.main};
+  color: white;
 `;
 
 const StyledCardsWrapper = styled.div`

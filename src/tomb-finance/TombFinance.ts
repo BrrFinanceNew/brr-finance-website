@@ -918,15 +918,15 @@ async get2ShareStatFake(): Promise<TokenStat> {
     if (ethereum && ethereum.networkVersion === config.chainId.toString()) {
       let asset;
       let assetUrl;
-      if (assetName === 'TOMB') {
+      if (assetName === 'CASH') {
         asset = this.TOMB;
-        assetUrl = 'https://i.imgur.com/9YKsiKf.png';
-      } else if (assetName === 'TSHARE') {
+        assetUrl = 'https://i.imgur.com/IRCB45H.png';
+      } else if (assetName === 'PRINTER') {
         asset = this.TSHARE;
-        assetUrl = 'https://i.imgur.com/qfhBNNG.png';
-      } else if (assetName === 'TBOND') {
+        assetUrl = 'https://i.imgur.com/MMlXipr.png';
+      } else if (assetName === 'CBOND') {
         asset = this.TBOND;
-        assetUrl = 'https://i.imgur.com/2IGi3na.png';
+        assetUrl = 'https://i.imgur.com/nx7fSvo.png';
       }
       await ethereum.request({
         method: 'wallet_watchAsset',

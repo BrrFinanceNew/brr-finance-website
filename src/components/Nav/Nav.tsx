@@ -100,13 +100,14 @@ const Nav = () => {
       <Toolbar className={classes.toolbar}>
         {matches ? (
           <>
-            <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            <Typography style={{marginRight:"-30%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
                 Brr Finance
               </Link>
+              <a href="https://imgur.com/G09QuiF"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
             </Typography>
-            <Box mr={5}>
+            <Box style={{marginRight:"30%"}} mr={5}>
               <Link color="color" to="/" className={classes.link}>
                 Home
               </Link>
