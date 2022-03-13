@@ -144,7 +144,7 @@ const Nav = () => {
               <a href="https://ethereumtowers.com/" target="_blank" className={classes.link}>
                 Clubhouse
               </a>  */}           
-              <a href="https://cashfi.gitbook.io/cash-finance/" target="_blank" className={classes.link}>
+              <a href="https://brr-finance.gitbook.io/brr-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>
             </Box>
