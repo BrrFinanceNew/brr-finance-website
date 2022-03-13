@@ -197,7 +197,7 @@ const Nav = () => {
  */}{/*                 <ListItem button component="a" href="https://ethereumtowers.com/">
                   <ListItemText>Clubhouse</ListItemText>
                 </ListItem> */}
-                <ListItem button component="a" href="https://cashfi.gitbook.io/cash-finance/">
+                <ListItem button component="a" href="https://brr-finance.gitbook.io/brr-finance/">
                   <ListItemText>Docs</ListItemText>
                 </ListItem>
                 <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
