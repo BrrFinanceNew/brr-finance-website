@@ -73,7 +73,7 @@ const Cemetery = () => {
     const address = (await window.ethereum.request({ method: "eth_accounts" }))[0]
     if (!address) return
 
-    const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
+    const claimable = await rebateStats.RebateTreasury.methods.claimableCash(address).call()
     const vesting = await rebateStats.RebateTreasury.methods.vesting(address).call()
     setClaimablecash(+web3.utils.fromWei(claimable))
     setVested(+web3.utils.fromWei(BN(vesting.amount).sub(BN(vesting.claimed))))
@@ -112,7 +112,7 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           CASH Price <small>(TWAP)</small>
                         </Typography>
-                        <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} TOMB</Typography>
+                        <Typography variant="h6">{tombPriceInFTM ? tombPriceInFTM : '-.----'} BUSD</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
@@ -132,8 +132,8 @@ const Cemetery = () => {
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '35px', marginBottom: '30px' }}>
                     Bondable Assets
                   </Typography>
-                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                    Treasury rebates not yet open!
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%", marginBottom: '15px'}}variant="filled" severity="warning">
+                    Rebates are only profitable when TWAP above 1.2
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks
@@ -145,13 +145,13 @@ const Cemetery = () => {
                       ))}
                   </Grid>
               </div>
-             {/* <Box mt={2}>
+              <Box mt={2}>
                 <Grid container justify="center" spacing={3}>
                   <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          CASH Vesting
+                          CASH Vesting (3 days)
                         </Typography>
                         <Typography variant="h6">{vested.toFixed(4)} Total Vested</Typography>
                         <Typography variant="h6">{claimablecash.toFixed(4)} Claimable</Typography>
@@ -162,7 +162,7 @@ const Cemetery = () => {
                     </Card>
                   </Grid>
                 </Grid>
-                      </Box>*/}
+                      </Box>
             </>
           ) : (
             <UnlockWallet />

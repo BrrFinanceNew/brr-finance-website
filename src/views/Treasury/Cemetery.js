@@ -110,51 +110,17 @@ const Cemetery = () => {
 
               <Box mt={2} style={{ marginTop: '100px' }}>
               <Typography color="textPrimary" align="center" variant="h4" gutterBottom style={{ marginBottom: '50px' }}>
-                Protocol Owned Liquidity
+                Protocol Owned $
               </Typography>
                 <Grid container justify="center" spacing={3}>
                   <Grid item xs={12} md={4} lg={4} className={classes.gridItem}>
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          TOMB-WFTM LP:
+                          BUSD:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance_cash_wftm} separator="," prefix="$" />
-                      </CardContent>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          PRINTER-BUSD LP:
-                        </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_printer_wftm} separator="," prefix="$" />
-                      </CardContent>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          TSHARES-WFTM LP:
-                        </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_2shares_wftm} separator="," prefix="$" />
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                  <Grid item xs={12} md={4} lg={4} className={classes.gridItem}>
-                    <Card style={{ height: "auto" }}>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          WFTM:
-                        </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_cash} separator="," prefix="$" />
-                      </CardContent>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          PRINTER:
-                        </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_printer} separator="," prefix="$" />
-                      </CardContent>
-                      <CardContent align="center">
-                        <Typography variant="h5">
-                          TSHARES:
-                        </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_2shares} separator="," prefix="$" />
-                      </CardContent>
+                      </CardContent>                 
                     </Card>
                   </Grid>
                 </Grid>

@@ -166,6 +166,14 @@ const Home = () => {
                 Stake your CASH-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to earn PRINTER rewards.
                 Then stake your earned PRINTER in the <StyledLink href="/boardroom">Boardroom</StyledLink> to maximize profits!
               </p>
+              <h2>              
+              </h2>
+            </Box>
+          </Paper>
+				</Grid>
+        <Grid style={{marginLeft:"25%" , marginTop:"-2%"}} item xs={12} sm={6}>
+          <Paper style={{backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+            <Box p={4}>
               <p>This protocol is built to last which means that the Genesis farms will be juicy but after that the LP's are going to be adjusted in order to 
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 

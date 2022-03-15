@@ -14,7 +14,7 @@ const assetList = [
     "0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5", // cash/wftm
     "0x6E209329A33a63C463dbb65AE2d6655Fe5C98411", //printer
     "0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65", //printer/wftm
-    "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75", //BUSD
+    "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", //BUSD
 ]
 
 function useRebateTreasury() {

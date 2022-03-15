@@ -33,6 +33,7 @@ import BusdLogo from '../../assets/img/BUSD.png';
 import cashprinter from '../../assets/img/printer-cash.png';
 import ThreeombLPLogo from '../../assets/img/CASH-TOMB.png';
 import ThreesharesLPLogo from '../../assets/img/PRINTER-BUSD.png';
+import bombLogo from '../../assets/img/bomb.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -47,6 +48,8 @@ const logosBySymbol: { [title: string]: string } = {
   WFTM: wftmLogo,
   BUSD: BusdLogo,
   WBNB: wbnbLogo,
+  BOMB: bombLogo,
+
   'TOMB-WFTM LP': TwoombLPLogo,
   'TSHARES-WFTM LP': TwosharesLPLogo,
 
