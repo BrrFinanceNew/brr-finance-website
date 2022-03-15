@@ -517,7 +517,7 @@ export class TombFinance {
 */
 async get2ombStatFake(): Promise<TokenStat> {
   const { TwoOmbFtmRewardPool, TwoOmbFtmLpTombRewardPool, TwoOmbFtmLpTombRewardPoolOld } = this.contracts;
-  const TOMB = new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB")
+  const TOMB = new ERC20("0xbFF6a376F54335919BC5332a16A81a07E8bDc06a", this.provider, "Cash")
   const supply = await TOMB.totalSupply();
   const tombRewardPoolSupply = await TOMB.balanceOf(TwoOmbFtmRewardPool.address);
   const tombRewardPoolSupply2 = await TOMB.balanceOf(TwoOmbFtmLpTombRewardPool.address);
@@ -540,7 +540,7 @@ async get2ombStatFake(): Promise<TokenStat> {
 
 async get2ShareStatFake(): Promise<TokenStat> {
   const { TwoOmbFtmRewardPool, TwoOmbFtmLpTombRewardPool, TwoOmbFtmLpTombRewardPoolOld } = this.contracts;
-  const TSHARE = new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES")
+  const TSHARE = new ERC20("0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199", this.provider, "Printer")
   const supply = await TSHARE.totalSupply();
   const tombRewardPoolSupply = await TSHARE.balanceOf(TwoOmbFtmRewardPool.address);
   const tombRewardPoolSupply2 = await TSHARE.balanceOf(TwoOmbFtmLpTombRewardPool.address);

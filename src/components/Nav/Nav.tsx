@@ -100,14 +100,14 @@ const Nav = () => {
       <Toolbar className={classes.toolbar}>
         {matches ? (
           <>
-            <Typography style={{marginRight:"-30%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            <Typography style={{marginRight:"-35%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
                 Brr Finance
               </Link>
               <a href="https://imgur.com/G09QuiF"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
             </Typography>
-            <Box style={{marginRight:"30%"}} mr={5}>
+            <Box style={{marginRight:"25%"}} mr={5}>
               <Link color="color" to="/" className={classes.link}>
                 Home
               </Link>
@@ -126,6 +126,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/treasury" className={classes.link}>
                 Treasury
               </Link>
+              <Link color="textPrimary" to="/strategy" className={classes.link}>
+                Strategy
+              </Link>
 {/*               <Link color="textPrimary" to="/roadmap" className={classes.link}>
                 Roadmap
               </Link> */}
@@ -133,7 +136,7 @@ const Nav = () => {
                 Raffle
               </Link> */}
              {/* <Link color="textPrimary" to="/tutorials" className={classes.link}>
-                Tutorials
+                Strategy
               </Link>
               <Link color="textPrimary" to="/aboutUs" className={classes.link}>
                 About Us
@@ -191,7 +194,7 @@ const Nav = () => {
                 <ListItemLink primary="Treasury" to="/treasury" />
 {/*                 <ListItemLink primary="Roadmap" to="/roadmap" />
  */}{/*                 <ListItemLink primary="Raffle" to="/raffle" />
- */}                 {/*<ListItemLink primary="Tutorials" to="/tutorials" />*/} 
+ */}                 {/*<ListItemLink primary="Strategy" to="/tutorials" />*/} 
                 {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}                
 {/*                 <ListItemLink primary="Whitelist" to="/whitelist" />
  */}{/*                 <ListItem button component="a" href="https://ethereumtowers.com/">

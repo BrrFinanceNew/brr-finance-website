@@ -14,6 +14,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import asgard from '../../assets/img/asgard.jpg';
 import hermes from '../../assets/img/hermes.png';
 
+import strat1 from '../../assets/img/GreenFlow.png';
+import strat2 from '../../assets/img/OrangeFlow.png';
+import strat3 from '../../assets/img/RedFlow.png';
+
 const BackgroundImage = createGlobalStyle`
   body {
     background: url(${daoImg}) repeat !important;
@@ -60,37 +64,16 @@ const Bond: React.FC = () => {
   return (
     <Switch>
       <Page>
-      <BackgroundImage />
-      <Container>   
-        <Grid item xs={12} md={12} lg={12} >     
-          <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '40px' }}>
-              Tutorials
-          </Typography>
-                <p style={{textAlign:'center', color: '#fff' }}>Cash Finance Tutorials</p>           
-              </Grid>
-
-        <Grid container justify="center" spacing={3} style={{}}>
-          <Grid item xs={12} sm={12} lg={6} >  
-            <Card style={{padding:'30px'}}>
-                  <a href='#' target='_blank'><h2 style={{textAlign:'center'}}>1</h2></a>
-
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={12} lg={6}>  
-          <Card style={{padding:'30px'}}>
-                  <a href='#' target='_blank'><h2 style={{textAlign:'center'}}>2</h2></a>
-           
-            </Card>
-          </Grid>
-                   
-        </Grid>
-      </Container>
+      <BackgroundImage/>
+      <img width={'100%'} src={strat1}/>
+      <img width={'100%'} src={strat2}/>
+      <img width={'100%'} src={strat3}/>
       </Page>
     </Switch>
   );
 };
 
-const StylecBond = styled.div`
+const StyledBond = styled.div`
   display: flex;
   @media (max-width: 768px) {
     width: 100%;

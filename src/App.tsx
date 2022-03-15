@@ -24,7 +24,7 @@ const Boardroom = lazy(() => import('./views/Masonry'));
 const Rebates = lazy(() => import('./views/Rebates'));
 const Bonds = lazy(() => import('./views/Pit'));
 const Treasury = lazy(() => import('./views/Treasury'));
-const Tutorials = lazy(() => import('./views/Tutorials'));
+const Strategy = lazy(() => import('./views/Strategy'));
 const Roadmap = lazy(() => import('./views/Roadmap'));
 const AboutUs = lazy(() => import('./views/AboutUs'));
 const Whitelist = lazy(() => import('./views/Whitelist'));
@@ -75,8 +75,8 @@ const App: React.FC = () => {
             <Route path="/roadmap">
               <Roadmap />
             </Route>
-            <Route path="/tutorials">
-              <Tutorials />
+            <Route path="/strategy">
+              <Strategy />
             </Route>
             <Route path="/aboutUs">
               <AboutUs />

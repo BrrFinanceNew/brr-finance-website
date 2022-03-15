@@ -73,8 +73,8 @@ const Home = () => {
     tShare = tShareProd;
   }
   
-  const buyTombAddress = '';
-  const buyTShareAddress = '';
+  const buyTombAddress = 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
+  const buyTShareAddress = 'https://pancakeswap.finance/swap?outputCurrency=0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
   
@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-3-02 21:00:00Z');
+  const date = new Date('2022-3-19 18:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -156,7 +156,7 @@ const Home = () => {
 		      <Image className="ombImg-home" color="none" style={{ width: '300px', paddingTop: '0px' }} src={CashImage} />
         </Grid>
         {/* Explanation text */}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={9}>
           <Paper style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <Box p={4}>
               <h2>Welcome to Brr Finance!</h2>
@@ -166,14 +166,6 @@ const Home = () => {
                 Stake your CASH-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to earn PRINTER rewards.
                 Then stake your earned PRINTER in the <StyledLink href="/boardroom">Boardroom</StyledLink> to maximize profits!
               </p>
-              <h2>              
-              </h2>
-            </Box>
-          </Paper>
-				</Grid>
-        <Grid style={{marginLeft:"25%" , marginTop:"-2%"}} item xs={12} sm={6}>
-          <Paper style={{backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
-            <Box p={4}>
               <p>This protocol is built to last which means that the Genesis farms will be juicy but after that the LP's are going to be adjusted in order to 
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
@@ -189,8 +181,8 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. Cash is beta software and may contain bugs. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
             </Alert>
             </Box>
-{/*            { <LaunchCountdown deadline={date} description={'PRINTER-CASH starts in'} descriptionLink={''}></LaunchCountdown> }
- */} 
+           { <LaunchCountdown deadline={date} description={'Genesis starts in'} descriptionLink={''}></LaunchCountdown> }
+ 
         </Grid>
 
         {/* <Grid container spacing={3}>
@@ -236,10 +228,10 @@ const Home = () => {
               <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
                 Buy PRINTER
               </Button>
-              <Button  variant="contained" target="_blank" href="" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button  variant="contained" target="_blank" href="https://dexscreener.com/bsc/0x2ec7840D0C9fEB2c590eEeD3ee19F1737b2e4300" style={{ marginRight: '10px' }} className={classes.button}>
                 CASH Chart
               </Button>
-              <Button variant="contained" target="_blank" href="" className={classes.button}>
+              <Button variant="contained" target="_blank" href="https://dexscreener.com/bsc/0x9dd76D241f3Ae71281bDbd1aa1629bff4834DF65" className={classes.button}>
                 PRINTER Chart
               </Button>
             </CardContent>
@@ -274,7 +266,7 @@ const Home = () => {
               <h2>CASH</h2>
               { <Button
                 onClick={() => {
-                  tombFinance.watchAssetInMetamask('TOMB');
+                  tombFinance.watchAssetInMetamask('CASH');
                 }}
                 color="secondary"
                 variant="outlined"
@@ -311,7 +303,7 @@ const Home = () => {
               <h2>PRINTER</h2>
               { <Button
                 onClick={() => {
-                  tombFinance.watchAssetInMetamask('TSHARE');
+                  tombFinance.watchAssetInMetamask('PRINTER');
                 }}
                 color="secondary"
                 variant="outlined"
@@ -346,7 +338,7 @@ const Home = () => {
               <h2>CBOND</h2>
               { <Button
                 onClick={() => {
-                  tombFinance.watchAssetInMetamask('TBOND');
+                  tombFinance.watchAssetInMetamask('CBOND');
                 }}
                 color="secondary"
                 variant="outlined"
