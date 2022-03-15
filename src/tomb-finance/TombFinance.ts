@@ -101,15 +101,10 @@ export class TombFinance {
   //===================================================================
 
   async getTombStat(): Promise<TokenStat> {
-    const { WhitelistTombRewardPool, TombRewardPool} = this.contracts;
     const supply = await this.TOMB.totalSupply();
-    
-    const tombRewardPoolSupply = await this.TOMB.balanceOf(WhitelistTombRewardPool.address);
-    const tombRewardPoolSupply2 = await this.TOMB.balanceOf(TombRewardPool.address);
-    const tombRewardPoolSupplyOld = await this.TOMB.balanceOf('0xb75f7A4446A07ACD145891dfCe4fAbb934285456');
+
+    const tombRewardPoolSupplyOld = await this.TOMB.balanceOf('0xCc5DA4D8850425B90212E9384f8537B098da0C1e');
     const tombCirculatingSupply = supply
-      .sub(tombRewardPoolSupply)
-      .sub(tombRewardPoolSupply2)
       .sub(tombRewardPoolSupplyOld);
     const priceInFTM = await this.getTokenPriceFromPancakeswap(this.TOMB);
     
@@ -251,17 +246,18 @@ export class TombFinance {
     
     const supply = await this.TSHARE.totalSupply();
     
-    const priceInFTM = await this.getTokenPriceFromPancakeswapBUSD(this.TSHARE);
+    const priceInFTM = await this.getTokenPriceFromPancakeswap(this.TSHARE);
+    console.log(priceInFTM)
     
     const tombRewardPoolSupply = await this.TSHARE.balanceOf(CashBusdShareRewardPool.address);
     
     const tShareCirculatingSupply = supply.sub(tombRewardPoolSupply);
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
-    
+  
     const priceOfSharesInDollars = (Number(priceInFTM) / Number(priceOfOneFTM)).toFixed(2);
 
     return {
-      tokenInFtm: priceOfSharesInDollars,
+      tokenInFtm: priceInFTM,
       priceInDollars: priceInFTM,
       totalSupply: getDisplayBalance(supply, this.TSHARE.decimal, 0),
       circulatingSupply: getDisplayBalance(tShareCirculatingSupply, this.TSHARE.decimal, 0),
@@ -269,16 +265,13 @@ export class TombFinance {
   }
 
   async getTombStatInEstimatedTWAP(): Promise<TokenStat> {
-    const { SeigniorageOracle, WhitelistTombRewardPool, TombRewardPool } = this.contracts;
+    const { SeigniorageOracle} = this.contracts;
     const expectedPrice = await SeigniorageOracle.twap(this.TOMB.address, ethers.utils.parseEther('1'));
     
     const supply = await this.TOMB.totalSupply();
-    const tombRewardPoolSupply = await this.TOMB.balanceOf(WhitelistTombRewardPool.address);
-    const tombRewardPoolSupply2 = await this.TOMB.balanceOf(TombRewardPool.address);
-    const tombRewardPoolSupplyOld = await this.TOMB.balanceOf('0xb75f7A4446A07ACD145891dfCe4fAbb934285456');
+
+    const tombRewardPoolSupplyOld = await this.TOMB.balanceOf('0xCc5DA4D8850425B90212E9384f8537B098da0C1e');
     const tombCirculatingSupply = supply
-      .sub(tombRewardPoolSupply)
-      .sub(tombRewardPoolSupply2)
       .sub(tombRewardPoolSupplyOld);
     
     return {
@@ -501,7 +494,6 @@ export class TombFinance {
    */
   async getLPTokenPrice(lpToken: ERC20, token: ERC20, isTomb: boolean, isFake: boolean): Promise<string> {
     const totalSupply = getFullDisplayBalance(await lpToken.totalSupply(), lpToken.decimal);
-    console.log(totalSupply);
     //Get amount of tokenA
     const tokenSupply = getFullDisplayBalance(await token.balanceOf(lpToken.address), token.decimal);
     const stat = isFake === true ? isTomb === true ? await this.get2ombStatFake() : await this.get2ShareStatFake() : isTomb === true ? await this.getTombStat() : await this.getShareStat();
@@ -655,9 +647,9 @@ async get2ShareStatFake(): Promise<TokenStat> {
     const ready = await this.provider.ready;
     if (!ready) return;
     const { chainId } = this.config;
-    const { TOMB } = this.config.externalTokens;
+    const { BUSD } = this.config.externalTokens;
     
-    const wftm = new Token(chainId, TOMB[0], TOMB[1]);
+    const wftm = new Token(chainId, BUSD[0], BUSD[1]);
     const token = new Token(chainId, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
     
     try {

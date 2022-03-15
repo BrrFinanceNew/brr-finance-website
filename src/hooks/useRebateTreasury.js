@@ -11,7 +11,7 @@ const Threeomb = new web3.eth.Contract(ERC20ABI, "0x14DEf7584A6c52f470Ca4F4b9671
 const assetList = [
     "0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca", // 2shares
     "0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52", // 2shares/FTM LP
-    "0xF61d81d623d9c4a45ff5766EDa5AF224c3dde1A5", // cash/wftm
+    "0xbFF6a376F54335919BC5332a16A81a07E8bDc06a", // cash/wftm
     "0x6E209329A33a63C463dbb65AE2d6655Fe5C98411", //printer
     "0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65", //printer/wftm
     "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", //BUSD
