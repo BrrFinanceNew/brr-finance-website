@@ -114,7 +114,7 @@ export class TombFinance {
 
     return {
       tokenInFtm: priceInFTM,
-      priceInDollars: priceOfTombInDollars,
+      priceInDollars: priceInFTM,
       totalSupply: getDisplayBalance(supply, this.TOMB.decimal, 0),
       circulatingSupply: getDisplayBalance(tombCirculatingSupply, this.TOMB.decimal, 0),
     };
@@ -302,13 +302,13 @@ export class TombFinance {
     const depositToken = bank.depositToken;
     const poolContract = this.contracts[bank.contract];
     const depositTokenPrice = await this.getDepositTokenPriceInDollars(bank.depositTokenName, depositToken);
-    
+
     const stakeInPool = await depositToken.balanceOf(bank.address);
-    
+
     const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
     
     const stat = bank.earnTokenName === 'CASH' ? await this.getTombStat() : await this.getShareStat();
-    
+
     const tokenPerSecond = await this.getTokenPerSecond(
       bank.earnTokenName,
       bank.contract,
@@ -347,14 +347,12 @@ export class TombFinance {
     if (earnTokenName === 'CASH') {
       if (!contractName.endsWith('ShareRewardPool')) {
         const rewardPerSecond = await poolContract.cashPerSecond();
-        if (depositTokenName === 'TSHARES') {
-          return rewardPerSecond.mul(6000).div(20000);
-        } else if (depositTokenName === 'TOMB') {
-          return rewardPerSecond.mul(6000).div(20000);
+        if (depositTokenName === 'WBNB') {
+          return rewardPerSecond.mul(9000).div(20000);
+        } else if (depositTokenName === 'BOMB') {
+          return rewardPerSecond.mul(3000).div(20000);
         } else if (depositTokenName === 'BUSD') {
-          return rewardPerSecond.mul(2000).div(20000);
-        }  else if (depositTokenName === 'WFTM') {
-          return rewardPerSecond.mul(6000).div(20000);
+          return rewardPerSecond.mul(5000).div(20000);
         } 
         return rewardPerSecond.div(24);
       }
@@ -369,12 +367,8 @@ export class TombFinance {
       return await poolContract.epochTombPerSecond(0); */
     }
     const rewardPerSecond = await poolContract.printerPerSecond();
-    if (depositTokenName.startsWith('CASH-TOMB')) {
+    if (depositTokenName.startsWith('CASH-BUSD')) {
       return rewardPerSecond.mul(10000).div(80000);
-    } else if (depositTokenName.startsWith('TOMB')) {
-      return rewardPerSecond.mul(0).div(80000);
-    } else if (depositTokenName.startsWith('TBOND')) {
-      return rewardPerSecond.mul(100).div(80000);
     } else if (depositTokenName.startsWith('PRINTER-BUSD')) {
       return rewardPerSecond.mul(10000).div(80000);
     } else if (depositTokenName.startsWith('PRINTER-CASH')) {
@@ -399,8 +393,9 @@ export class TombFinance {
   async getDepositTokenPriceInDollars(tokenName: string, token: ERC20) {
     let tokenPrice;
     const priceOfOneFtmInDollars = await this.getWFTMPriceFromPancakeswap();
-    if (tokenName === 'wFTM') {
-      tokenPrice = priceOfOneFtmInDollars;
+    if (tokenName === 'WBNB') {
+      const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=wbnb&vs_currencies=usd").then(res => res.json())
+      tokenPrice = data["wbnb"].usd
     } else {
 
       if (tokenName === 'CASH-BUSD LP') {
@@ -415,9 +410,9 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
       } else if (tokenName === 'BUSD') {
         tokenPrice = 1; 
-      } else if (tokenName === 'TOMB' || tokenName === 'TBOND') {
-        const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=TOMB&vs_currencies=usd").then(res => res.json())
-        tokenPrice = data["tomb"].usd
+      } else if (tokenName === 'BOMB') {
+        const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bomb-money&vs_currencies=usd").then(res => res.json())
+        tokenPrice = data["bomb-money"].usd
       }else if (tokenName === 'PRINTER') {
          const shareprice = await this.getShareStat();   
          tokenPrice = shareprice.priceInDollars;

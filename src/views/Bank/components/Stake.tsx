@@ -105,7 +105,7 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
             </CardIcon>
      
             {bank.depositTokenName === 'PRINTER-BUSD LP' ? <Value value={getDisplayBalance1(stakedBalance, bank.depositToken.decimal)} />: <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />}
-            {bank.depositTokenName === 'BUSD' ?<Label text={`≈ $${(Number(earnedInDollars)/1e6).toFixed(2)}`} /> : <Label text={`≈ $${(Number(earnedInDollars)/1e18).toFixed(2)}`} />}
+            {<Label text={`≈ $${(Number(earnedInDollars)/1e18).toFixed(2)}`} />}
             <Label text={`${bank.depositTokenName} Staked`} />
           </StyledCardHeader>
           <StyledCardActions>
