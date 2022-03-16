@@ -21,11 +21,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
   const [val, setVal] = useState('');
 
   const fullBalance = useMemo(() => {
-    if(tokenName === 'PRINTER-BUSD LP'){
-      return getFullDisplayBalance1(max, decimals, false);
-    }else{
-      return getFullDisplayBalance(max, decimals, false);
-    }
+      return getFullDisplayBalance(max, decimals, false);    
   }, [max, decimals]);
 
   const handleChange = useCallback(

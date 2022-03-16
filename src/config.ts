@@ -108,7 +108,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     site: '#',
     sort: 0,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   /*PRINTER BUSD LP*/
    PrinterBusdShareRewardPool: {
@@ -124,7 +124,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     site: '#',
     sort: 1,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   /* BUSD */
    BUSDShareRewardPool: {
