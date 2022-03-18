@@ -348,13 +348,15 @@ export class TombFinance {
       if (!contractName.endsWith('ShareRewardPool')) {
         const rewardPerSecond = await poolContract.cashPerSecond();
         if (depositTokenName === 'WBNB') {
-          return rewardPerSecond.mul(9000).div(20000);
+          return rewardPerSecond.mul(8000).div(20000);
         } else if (depositTokenName === 'BOMB') {
           return rewardPerSecond.mul(3000).div(20000);
         } else if (depositTokenName === 'BUSD') {
-          return rewardPerSecond.mul(5000).div(20000);
+          return rewardPerSecond.mul(4000).div(20000);
         } else if (depositTokenName === 'GRAPE') {
           return rewardPerSecond.mul(2000).div(20000);
+        } else if (depositTokenName === 'EMP') {
+          return rewardPerSecond.mul(3000).div(20000);
         }  
         return rewardPerSecond.div(24);
       }
@@ -415,6 +417,9 @@ export class TombFinance {
       } else if (tokenName === 'BOMB') {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bomb-money&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["bomb-money"].usd
+      } else if (tokenName === 'EMP') {
+        const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=emp-money&vs_currencies=usd").then(res => res.json())
+        tokenPrice = data["emp-money"].usd
       } else if (tokenName === 'GRAPE') {
           const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=grape-finance&vs_currencies=usd").then(res => res.json())
           tokenPrice = data["grape-finance"].usd
