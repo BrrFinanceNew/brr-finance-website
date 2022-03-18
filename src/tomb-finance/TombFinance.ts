@@ -353,7 +353,9 @@ export class TombFinance {
           return rewardPerSecond.mul(3000).div(20000);
         } else if (depositTokenName === 'BUSD') {
           return rewardPerSecond.mul(5000).div(20000);
-        } 
+        } else if (depositTokenName === 'GRAPE') {
+          return rewardPerSecond.mul(2000).div(20000);
+        }  
         return rewardPerSecond.div(24);
       }
       const poolStartTime = await poolContract.poolStartTime();
@@ -413,7 +415,10 @@ export class TombFinance {
       } else if (tokenName === 'BOMB') {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bomb-money&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["bomb-money"].usd
-      }else if (tokenName === 'PRINTER') {
+      } else if (tokenName === 'GRAPE') {
+          const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=grape-finance&vs_currencies=usd").then(res => res.json())
+          tokenPrice = data["grape-finance"].usd
+      } else if (tokenName === 'PRINTER') {
          const shareprice = await this.getShareStat();   
          tokenPrice = shareprice.priceInDollars;
       }else {
