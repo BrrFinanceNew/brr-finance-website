@@ -105,7 +105,7 @@ const Nav = () => {
               <Link to="/" color="inherit" className={classes.brandLink}>
                 Brr Finance
               </Link>
-              <a href="https://imgur.com/G09QuiF"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
+              <a href="https://twitter.com/ApeOClock/status/1492068413266542592"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
             </Typography>
             <Box style={{marginRight:"25%"}} mr={5}>
               <Link color="color" to="/" className={classes.link}>
