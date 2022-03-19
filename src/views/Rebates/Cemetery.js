@@ -53,12 +53,12 @@ const Cemetery = () => {
   const scalingFactor = useMemo(() => (cashStat ? Number(cashStat.priceInDollars).toFixed(4) : null), [cashStat]);
   const activeBanks = banks.filter((bank) => !bank.finished);
 
-  console.log(cashStat)
+ 
 
   const tombPriceInFTM = useMemo(() => (tombStats ? Number(tombStats.tokenInFtm).toFixed(4) : null), [tombStats]);
 
   const rebateStats = useRebateTreasury()
-  console.log(rebateStats)
+
   const [claimablecash, setClaimablecash] = useState(0);
   const [ vested, setVested ] = useState(0)
 
@@ -128,7 +128,7 @@ const Cemetery = () => {
                   </Grid>
                 </Grid>
               </Box>
-              <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
+              <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 3).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '35px', marginBottom: '30px' }}>
                     Bondable Assets
                   </Typography>
