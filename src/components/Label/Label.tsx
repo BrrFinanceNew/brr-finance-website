@@ -30,7 +30,7 @@ interface StyledLabelProps {
 }
 
 const StyledLabel = styled.div<StyledLabelProps>`
-  color: white;
+
   font-weight: bold;
 `;
 

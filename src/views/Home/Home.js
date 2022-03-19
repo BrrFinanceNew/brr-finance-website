@@ -178,7 +178,7 @@ const Home = () => {
         <Grid container justify="center">
             <Box mt={3} style={{ width: '1000px' }}>
             <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                Do your own research before investing. Investing is risky and may result in monetary loss. Cash is beta software and may contain bugs. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
+                Do your own research before investing. Investing is risky and may result in monetary loss. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
             </Alert>
             </Box>
            { <LaunchCountdown deadline={date} description={'Genesis starts in'} descriptionLink={''}></LaunchCountdown> }

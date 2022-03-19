@@ -50,7 +50,7 @@ const Pit: React.FC = () => {
     async (amount: string) => {
       const tx = await tombFinance.buyBonds(amount);
       addTransaction(tx, {
-        summary: `Buy ${Number(amount).toFixed(2)} TBOND with ${amount} TOMB`,
+        summary: `Buy ${Number(amount).toFixed(2)} CBOND with ${amount} CASH`,
       });
     },
     [tombFinance, addTransaction],
@@ -59,7 +59,7 @@ const Pit: React.FC = () => {
   const handleRedeemBonds = useCallback(
     async (amount: string) => {
       const tx = await tombFinance.redeemBonds(amount);
-      addTransaction(tx, { summary: `Redeem ${amount} TBOND` });
+      addTransaction(tx, { summary: `Redeem ${amount} CBOND` });
     },
     [tombFinance, addTransaction],
   );
@@ -118,7 +118,7 @@ const Pit: React.FC = () => {
                   priceDesc={`${getDisplayBalance(bondBalance)} CBOND Available in wallet`}
                   onExchange={handleRedeemBonds}
                   disabled={!bondStat || bondBalance.eq(0) || !isBondRedeemable}
-                  disabledDescription={!isBondRedeemable ? `Enabled when CASH > ${BOND_REDEEM_PRICE}TOMB` : null}
+                  disabledDescription={!isBondRedeemable ? `Enabled when CASH > ${BOND_REDEEM_PRICE} BUSD` : null}
                 />
               </StyledCardWrapper>
             </StylecBond>

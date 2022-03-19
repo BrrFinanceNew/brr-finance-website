@@ -30,7 +30,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <TokenSymbol symbol="CASH" />
           <StyledBalance>
             <StyledValue>{displayTombBalance}</StyledValue>
-            <Label color="white" text="CASH Available" variant="primary" />
+            <Label color="black" text="CASH Available" variant="primary" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
@@ -38,7 +38,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <TokenSymbol symbol="PRINTER" />
           <StyledBalance>
             <StyledValue>{displayTshareBalance}</StyledValue>
-            <Label color="white" text="PRINTER Available" variant="primary" />
+            <Label color="black" text="PRINTER Available" variant="primary" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
@@ -46,7 +46,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <TokenSymbol symbol="CBOND" />
           <StyledBalance>
             <StyledValue>{displayTbondBalance}</StyledValue>
-            <Label color="white" text="CBOND Available" variant="primary" />
+            <Label color="black" text="CBOND Available" variant="primary" />
           </StyledBalance>
         </StyledBalanceWrapper>
       </Balances>
@@ -55,7 +55,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 };
 
 const StyledValue = styled.div`
-  color: white;
+  color: #000;
   font-size: 30px;
   font-weight: 700;
 `;
