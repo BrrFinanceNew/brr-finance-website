@@ -60,8 +60,8 @@ const Home = () => {
   const tBondStats = useBondStats();
   const tombFinance = useTombFinance();
   const { price: ftmPrice, marketCap: ftmMarketCap, priceChange: ftmPriceChange } = useFantomPrice();
-  const { balance: rebatesTVL } = useTotalTreasuryBalance();
-  const totalTVL = TVL + rebatesTVL;
+  //const { balance: rebatesTVL } = useTotalTreasuryBalance();
+  const totalTVL = TVL;
 
   let tomb;
   let tShare;
@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>              
+              <h2>   Genesis Staking is open, rewards start on timer finish!          
               </h2>
             </Box>
           </Paper>

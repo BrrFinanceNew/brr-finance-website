@@ -83,7 +83,7 @@ const Cemetery = () => {
                     Public Genesis Pool Has ended, you can withdraw your funds
                   </Typography> */}
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                    The genesis pools are subject to a 1% Deposit FEE !
+                    Genesis sttaking is open! The genesis pools are subject to a 1% Deposit FEE !
                   </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
