@@ -74,10 +74,7 @@ const CemeteryCard = ({ bank }) => {
             <Typography color="textSecondary">
               {/* {bank.name} */}
               Bond {bank.depositTokenName.toUpperCase()} Earn CASH
-            </Typography>
-            <Typography color="textSecondary">
-              Multiplier: {bank.multiplier}
-            </Typography>
+            </Typography>           
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>

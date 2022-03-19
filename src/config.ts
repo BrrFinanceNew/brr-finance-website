@@ -226,15 +226,15 @@ BUSDRebates: {
   info: '0%',
   poolId: 0,
   sectionInUI: 3,
-  contract: 'grapeRewardPool',
+  contract: 'BUSDShareRewardPool',
   depositTokenName: 'BUSD',
   earnTokenName: 'CASH',
-  finished: true,
+  finished: false,
   multiplier: '5000x',
   buyLink: '',
   site: '',
   sort: 0,
-  closedForStaking: true,
+  closedForStaking: false,
 } */
 };
 
