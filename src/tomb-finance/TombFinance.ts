@@ -359,7 +359,7 @@ export class TombFinance {
         } else if (depositTokenName === 'EMP') {
           return rewardPerSecond.mul(4000).div(20000);
         } else if (depositTokenName === 'DIBS') {
-          return rewardPerSecond.mul(1000).div(20000);
+          return rewardPerSecond.mul(500).div(20000);
         }  
         return rewardPerSecond.div(24);
       }
