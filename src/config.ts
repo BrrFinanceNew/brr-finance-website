@@ -64,7 +64,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&inputCurrency=0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     sort: 0,
-    closedForStaking: true,
+    closedForStaking: false,
   }, 
    wbnbRewardPool: { 
     name: 'Earn CASH by staking WBNB',
@@ -79,7 +79,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     sort: 2,
-    closedForStaking: true,
+    closedForStaking: false,
   },  
   bombRewardPool: { 
     name: 'Earn CASH by staking BOMB',
@@ -94,7 +94,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://app.bogged.finance/bsc/swap?tokenIn=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&tokenOut=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
     sort: 2,
-    closedForStaking: true,
+    closedForStaking: false,
   },  
   grapeRewardPool: { 
     name: 'Earn CASH by staking GRAPE',
@@ -109,7 +109,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://traderjoexyz.com/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&outputCurrency=0x5541d83efad1f281571b343977648b75d95cdac2',
     sort: 2,
-    closedForStaking: true,
+    closedForStaking: false,
   },
   empRewardPool: { 
     name: 'Earn CASH by staking EMP',
@@ -124,7 +124,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://pancakeswap.finance/swap?inputCurrency=0x2170Ed0880ac9A755fd29B2688956BD959F933F8&outputCurrency=0x3b248CEfA87F836a4e6f6d6c9b42991b88Dc1d58',
     sort: 2,
-    closedForStaking: true,
+    closedForStaking: false,
   },
 /*cash-busd 2*/
  CashBusdShareRewardPool: {
@@ -208,17 +208,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   BUSDRebates: {
     name: 'Bond BUSD, earn CASH',
     info: '0%',
-    poolId: 4,
+    poolId: 0,
     sectionInUI: 3,
-    contract: 'CASHshareRewardPool',
+    contract: 'grapeRewardPool',
     depositTokenName: 'BUSD',
     earnTokenName: 'CASH',
-    finished: false,
+    finished: true,
     multiplier: '5000x',
     buyLink: '',
     site: '',
-    sort: 3,
-    closedForStaking: false,
+    sort: 0,
+    closedForStaking: true,
   } 
 };
 

@@ -288,9 +288,9 @@ const Home = () => {
                 </span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
-                Market Cap: ${(tombCirculatingSupply * tombPriceInDollars).toFixed(2)} <br />
-                Circulating Supply: {tombCirculatingSupply} <br />
-                Total Supply: {tombTotalSupply}
+                Market Cap: ${(tombCirculatingSupply * tombPriceInDollars).toLocaleString('en-US')} <br />
+                Circulating Supply: {Number(tombCirculatingSupply).toLocaleString('en-US')} <br />
+                Total Supply: {Number(tombTotalSupply).toLocaleString('en-US')}
               </span>
             </CardContent>
           </Card>
@@ -323,9 +323,9 @@ const Home = () => {
                 <span style={{ fontSize: '16px' }}>${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}</span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
-                Market Cap: ${(tShareCirculatingSupply * tSharePriceInDollars).toFixed(2)} <br />
-                Circulating Supply: {tShareCirculatingSupply} <br />
-                Total Supply: {tShareTotalSupply}
+                Market Cap: ${(1 * tSharePriceInDollars).toLocaleString('en-US')} <br />
+                Circulating Supply: 1{/*tShareCirculatingSupply*/} <br />
+                Total Supply: 1{/*tShareTotalSupply*/}
               </span>
             </CardContent>
           </Card>
@@ -358,9 +358,9 @@ const Home = () => {
                 <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'}</span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
-                Market Cap: ${(tBondCirculatingSupply * tBondPriceInDollars).toFixed(2)} <br />
-                Circulating Supply: {tBondCirculatingSupply} <br />
-                Total Supply: {tBondTotalSupply}
+                Market Cap: ${(tBondCirculatingSupply * tBondPriceInDollars).toLocaleString('en-US')} <br />
+                Circulating Supply: {Number(tBondCirculatingSupply).toLocaleString('en-US')} <br />
+                Total Supply: {Number(tBondTotalSupply).toLocaleString('en-US')}
               </span>
             </CardContent>
           </Card>
@@ -383,7 +383,7 @@ const Home = () => {
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} CASH /{' '}
-                  {tombLPStats?.ftmAmount ? tombLPStats?.ftmAmount : '-.--'} BUSD
+                  {tombLPStats?.ftmAmount ? (tombLPStats?.ftmAmount).toLocaleString('en-US') : '-.--'} BUSD
                 </span>
               </Box>
 {/*               <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
@@ -410,15 +410,15 @@ const Home = () => {
             </Box>*/}
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} PRINTER /{' '}
-                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} BUSD
+                  {tshareLPStats?.tokenAmount ? Number(tshareLPStats?.tokenAmount).toLocaleString('en-US') : '-.--'} PRINTER /{' '}
+                  {tshareLPStats?.ftmAmount ? Number(tshareLPStats?.ftmAmount).toLocaleString('en-US') : '-.--'} BUSD
                 </span>
               </Box>
 {/*               <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
  */}              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
+                Liquidity: ${tshareLPStats?.totalLiquidity ? Number(tshareLPStats.totalLiquidity).toLocaleString('en-US') : '-.--'}
                 <br />
-                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
+                Total supply: {tshareLPStats?.totalSupply ? Number(tshareLPStats.totalSupply).toLocaleString('en-US') : '-.--'}
               </span>
             </CardContent>
           </Card>
