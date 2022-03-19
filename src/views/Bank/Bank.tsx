@@ -111,10 +111,10 @@ const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
   let uniswapUrl: string;
   if (bank.depositTokenName.includes('CASH')) {
     pairName = 'CASH-BUSD pair';
-    uniswapUrl = 'https://pancakeswap.finance/swap' + tombAddr;
+    uniswapUrl = 'https://pancakeswap.finance/add/0xbFF6a376F54335919BC5332a16A81a07E8bDc06a/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
   } else {
     pairName = 'PRINTER-BUSD pair';
-    uniswapUrl = 'https://pancakeswap.finance/swap' + tshareAddr;
+    uniswapUrl = 'https://pancakeswap.finance/add/0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
   }
   return (
     <Card>

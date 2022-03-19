@@ -137,7 +137,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'PRINTER',
     finished: true,
     multiplier: '35500x',
-    buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
+    buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     site: '#',
     sort: 0,
     closedForStaking: true,
@@ -153,7 +153,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     earnTokenName: 'PRINTER',
     finished: true,
     multiplier: '24000x',
-    buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
+    buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     site: '#',
     sort: 1,
     closedForStaking: true,
@@ -161,7 +161,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   /* BUSD */
    BUSDShareRewardPool: {
     name: 'Earn PRINTER by staking BUSD',
-    info: '0.5%',
+    info: '1%',
     poolId: 4,
     sectionInUI: 2,
     contract: 'BUSDShareRewardPool',
@@ -172,7 +172,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: "#",
     buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     sort: 5,
-    closedForStaking: false,
+    closedForStaking: true,
   }, 
   /*PRINTER CASH LP*/
    PRINTERCASHShareRewardPool: {
@@ -188,7 +188,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     buyLink: '',
     site: '#',
     sort: 2,
-    closedForStaking: false,
+    closedForStaking: true,
   },
   CASHshareRewardPool: {
     name: 'Earn PRINTER by CASH',
@@ -204,13 +204,13 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '#',
     sort: 3,
     closedForStaking: true,
-  }/* , 
+  }, 
   BUSDRebates: {
     name: 'Bond BUSD, earn CASH',
     info: '0%',
     poolId: 4,
     sectionInUI: 3,
-    contract: '-',
+    contract: 'CASHshareRewardPool',
     depositTokenName: 'BUSD',
     earnTokenName: 'CASH',
     finished: false,
@@ -219,7 +219,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     site: '',
     sort: 3,
     closedForStaking: false,
-  } */
+  } 
 };
 
 export default configurations['production'];
