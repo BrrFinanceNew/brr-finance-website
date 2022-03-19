@@ -133,14 +133,15 @@ export class TombFinance {
     const token0 = name.startsWith('CASH') ? this.TOMB : this.TSHARE;
     const isTomb = name.startsWith('CASH');
     const tokenAmountBN = await token0.balanceOf(lpToken.address);
+    
     const tokenAmount = getDisplayBalance(tokenAmountBN, 18);
-
-    const ftmAmountBN = lpToken.symbol === "CASH-BUSD LP" ? await this.TOMB1.balanceOf(lpToken.address) : await this.BUSD.balanceOf(lpToken.address);
+    
+    const ftmAmountBN = lpToken.symbol === "CASH-BUSD LP" ? await this.TOMB.balanceOf(lpToken.address) : await this.BUSD.balanceOf(lpToken.address);
 
     const ftmAmount = lpToken.symbol === "CASH-BUSD LP" ? getDisplayBalance(ftmAmountBN, 18) : getDisplayBalance(ftmAmountBN, 6);
-    
+  
     const tokenAmountInOneLP = Number(tokenAmount) / Number(lpTokenSupply);
-    
+   
     const ftmAmountInOneLP = Number(ftmAmount) / Number(lpTokenSupply);
     const lpTokenPrice = await this.getLPTokenPrice(lpToken, token0, isTomb, false);
     
@@ -482,11 +483,11 @@ export class TombFinance {
     }
 
     const TSHAREPrice = (await this.getShareStat()).priceInDollars;
-    console.log('a', totalValue);
+    
     const masonrytShareBalanceOf = await this.TSHARE.balanceOf(this.currentMasonry().address);
     const masonryTVL = Number(getDisplayBalance(masonrytShareBalanceOf, this.TSHARE.decimal)) * Number(TSHAREPrice);
-
-    return totalValue;
+    
+    return totalValue + masonryTVL;
   }
 
   /**
