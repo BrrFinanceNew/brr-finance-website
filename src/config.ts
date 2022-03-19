@@ -107,7 +107,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     info: '1%',
     multiplier: '7500x',
     site: "#",
-    buyLink: 'https://app.bogged.finance/bsc/swap?tokenIn=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&tokenOut=0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    buyLink: 'https://traderjoexyz.com/trade?inputCurrency=0x130966628846bfd36ff31a822705796e8cb8c18d&outputCurrency=0x5541d83efad1f281571b343977648b75d95cdac2',
     sort: 2,
     closedForStaking: true,
   },
