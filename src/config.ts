@@ -151,12 +151,12 @@ CashBusdShareRewardPool: {
   contract: 'CashBusdShareRewardPool',
   depositTokenName: 'CASH-BUSD LP',
   earnTokenName: 'PRINTER',
-  finished: true,
+  finished: false,
   multiplier: '35500x',
   buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
   site: '#',
   sort: 0,
-  closedForStaking: true,
+  closedForStaking: false,
 }, 
 /*PRINTER BUSD LP*/
  PrinterBusdShareRewardPool: {

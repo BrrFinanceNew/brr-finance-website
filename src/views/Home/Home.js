@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>   Genesis is LIVE  <br/> CASH-BUSD LP starts at 19:00 UTC !       
+              <h2>   Genesis ending soon at 18:00 UTC  <br/> CASH-BUSD LP staking is opened !       
               </h2>
             </Box>
           </Paper>

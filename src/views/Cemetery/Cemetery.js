@@ -64,7 +64,7 @@ const Cemetery = () => {
                   <Typography color="textPrimary" variant="h4" gutterBottom>
                     Earn PRINTER by staking LP Tokens
                   </Typography>
-                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"30%" , marginLeft:"20%"}}variant="filled" severity="warning">
                   Stake your LPs in the farms below to earn PRINTER
                 </Alert>
                   <Grid container spacing={3}>
@@ -82,7 +82,7 @@ const Cemetery = () => {
 {/*                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '100px' }}>
                     Public Genesis Pool Has ended, you can withdraw your funds
                   </Typography> */}
-                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
+                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"44%" , marginLeft:"20%"}}variant="filled" severity="warning">
                     Genesis staking is open! The genesis pools are subject to a 1% Deposit FEE !
                   </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
