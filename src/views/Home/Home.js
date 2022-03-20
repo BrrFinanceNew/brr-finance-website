@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>   Genesis ending soon at 18:00 UTC  <br/> CASH-BUSD LP staking is opened !       
+              <h2>   Genesis farms ended. Withdraw funds and join the CASH-BUSD LP      
               </h2>
             </Box>
           </Paper>
@@ -324,8 +324,8 @@ const Home = () => {
               </Box> */}
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${(1 * tSharePriceInDollars).toLocaleString('en-US')} <br />
-                Circulating Supply: 1{/*tShareCirculatingSupply*/} <br />
-                Total Supply: 1{/*tShareTotalSupply*/}
+                Circulating Supply: {tShareCirculatingSupply -695} <br />
+                Total Supply: 80000{/*tShareTotalSupply*/}
               </span>
             </CardContent>
           </Card>
