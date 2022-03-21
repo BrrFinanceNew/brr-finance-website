@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>Genesis farms ended. Withdraw funds and join the CASH-BUSD LP 
+              <h2>The PRINTER-BUSD LP is opened for Staking !
               </h2>
             </Box>
           </Paper>
