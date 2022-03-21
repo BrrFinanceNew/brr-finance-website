@@ -82,9 +82,9 @@ const Cemetery = () => {
                    <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '100px' }}>
                     Genesis Pool Has ended, you can withdraw your funds
                   </Typography> 
-                  <Alert style={{ backgroundColor:"black" , color:"white" , width:"44%" , marginLeft:"20%"}}variant="filled" severity="warning">
+{/*                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"44%" , marginLeft:"20%"}}variant="filled" severity="warning">
                     Genesis staking is open! The genesis pools are subject to a 1% Deposit FEE !
-                  </Alert>
+                  </Alert> */}
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 1)
