@@ -100,14 +100,14 @@ const Nav = () => {
       <Toolbar className={classes.toolbar}>
         {matches ? (
           <>
-            <Typography style={{marginRight:"-35%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            <Typography style={{marginRight:"-30%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
                 Brr Finance
               </Link>
               <a href="https://twitter.com/ApeOClock/status/1492068413266542592"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
             </Typography>
-            <Box style={{marginRight:"25%"}} mr={5}>
+            <Box style={{marginRight:""}} mr={5}>
               <Link color="color" to="/" className={classes.link}>
                 Home
               </Link>
@@ -117,36 +117,21 @@ const Nav = () => {
               <Link color="textPrimary" to="/boardroom" className={classes.link}>
                 Boardroom
               </Link>
-              <Link color="textPrimary" to="/bonds" className={classes.link}>
-                cBonds
-              </Link>
               <Link color="textPrimary" to="/rebates" className={classes.link}>
-                DAO
+                Rebate Treasury
               </Link>
               <Link color="textPrimary" to="/treasury" className={classes.link}>
                 Treasury
               </Link>
+              <Link color="textPrimary" to="/rebatesStrategy" className={classes.link}>
+                Rebate Strategy
+              </Link>
+              <Link color="textPrimary" to="/bonds" className={classes.link}>
+                cBonds
+              </Link>
               <Link color="textPrimary" to="/strategy" className={classes.link}>
                 Strategy
-              </Link>
-{/*               <Link color="textPrimary" to="/roadmap" className={classes.link}>
-                Roadmap
-              </Link> */}
-{/*               <Link color="textPrimary" to="/raffle" className={classes.link}>
-                Raffle
-              </Link> */}
-             {/* <Link color="textPrimary" to="/tutorials" className={classes.link}>
-                Strategy
-              </Link>
-              <Link color="textPrimary" to="/aboutUs" className={classes.link}>
-                About Us
-        </Link>*/}
-{/*               <Link color="textPrimary" to="/whitelist" className={classes.link}>
-                Whitelist
-              </Link>
-              <a href="https://ethereumtowers.com/" target="_blank" className={classes.link}>
-                Clubhouse
-              </a>  */}           
+              </Link>          
               <a href="https://brr-finance.gitbook.io/brr-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>

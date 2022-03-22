@@ -220,7 +220,7 @@ CASHshareRewardPool: {
   site: '#',
   sort: 3,
   closedForStaking: true,
-}, 
+},*/
 BUSDRebates: {
   name: 'Bond BUSD, earn CASH',
   info: '0%',
@@ -235,7 +235,7 @@ BUSDRebates: {
   site: '',
   sort: 0,
   closedForStaking: false,
-} */
+} 
 };
 
 export default configurations['production'];

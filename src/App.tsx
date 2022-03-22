@@ -17,11 +17,13 @@ import Loader from './components/Loader';
 import Popups from './components/Popups';
 import Regulations from './views/Regulations/Regulations';
 import { RefreshContextProvider } from './contexts/RefreshContext';
+import RebatesStrategy from './views/RebatesStrategy';
 
 const Home = lazy(() => import('./views/Home'));
 const Farms = lazy(() => import('./views/Cemetery'));
 const Boardroom = lazy(() => import('./views/Masonry'));
 const Rebates = lazy(() => import('./views/Rebates'));
+const rebatesStrategy = lazy(() => import('./views/RebatesStrategy'));
 const Bonds = lazy(() => import('./views/Pit'));
 const Treasury = lazy(() => import('./views/Treasury'));
 const Strategy = lazy(() => import('./views/Strategy'));
@@ -65,6 +67,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/rebates">
               <Rebates />
+              </Route>
+            <Route path="/rebatesStrategy">
+              <RebatesStrategy />
             </Route>
             <Route path="/bonds">
               <Bonds />
