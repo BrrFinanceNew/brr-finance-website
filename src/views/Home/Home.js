@@ -323,7 +323,7 @@ const Home = () => {
                 <span style={{ fontSize: '16px' }}>${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}</span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
-                Market Cap: ${(1 * tSharePriceInDollars).toLocaleString('en-US')} <br />
+                Market Cap: ${(tShareCirculatingSupply * tSharePriceInDollars).toLocaleString('en-US')} <br />
                 Circulating Supply: {tShareCirculatingSupply -695} <br />
                 Total Supply: 80000{/*tShareTotalSupply*/}
               </span>
