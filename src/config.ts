@@ -89,7 +89,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'bombRewardPool',
     depositTokenName: 'BOMB',
     earnTokenName: 'CASH',
-    finished: false,
+    finished: true,
     info: '1%',
     multiplier: '7500x',
     site: "#",
