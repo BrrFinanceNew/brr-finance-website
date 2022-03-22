@@ -57,37 +57,26 @@ function useTotalTreasuryBalance() {
         }
     }, [])
 
-    return { balance, balance_2shares_wftm, balance_cash_wftm, balance_printer_wftm, balance_cash, balance_printer, balance_2shares }
+    return {balance}
 
     async function getBalance() {
         // const { data2omb } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=2omb-fi')
         // const { data2shares } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=2share')
         // const { datacash } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=30mb-token')
         
-        const { data } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=3shares')
-        const pRinterBalance = web3.utils.fromWei(await ThreeShares.methods.balanceOf(treasuryAddress).call())
-        const valueprinter = pRinterBalance * data[0].current_price
+        //const { data } = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=3shares')
+        //const pRinterBalance = web3.utils.fromWei(await ThreeShares.methods.balanceOf(treasuryAddress).call())
+        //const valueprinter = pRinterBalance * data[0].current_price
 
-        const data2sharesAndcash = await axios('https://openapi.debank.com/v1/user/chain_balance?id=0x8378EAeDa45Fb7b5a21710dc751Ab08aDacf5aD0&chain_id=ftm')
-
-        console.log(`PRinter USD: $${valueprinter}`)
-        console.log(`2Shares + cash: $${data2sharesAndcash.data.usd_value}`)
-        const LP_2shares_wftm = await getLPPrice('0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52', '0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca')
-        const LP_cash_wftm = await getLPPrice('0x83A52eff2E9D112E9B022399A9fD22a9DB7d33Ae', '0x14def7584a6c52f470ca4f4b9671056b22f4ffde')
-        const LP_printer_wftm = await getLPPrice('0xd352daC95a91AfeFb112DBBB3463ccfA5EC15b65', '0x6437adac543583c4b31bf0323a0870430f5cc2e7')
-        setBalance(data2sharesAndcash.data.usd_value + valueprinter + LP_2shares_wftm + LP_cash_wftm + LP_printer_wftm)
-        setBalance_2shares_wftm(LP_2shares_wftm)
-        setBalance_cash_wftm(LP_cash_wftm)
-        setBalance_printer_wftm(LP_printer_wftm)
-        setBalance_cash(await getcashBalance())
-        setBalance_printer(await getprinterBalance())
-        setBalance_2shares(await get2sharesBalance())
+        const data2sharesAndcash = await axios('https://openapi.debank.com/v1/user/chain_balance?id=0x8378EAeDa45Fb7b5a21710dc751Ab08aDacf5aD0&chain_id=bsc')   
+        setBalance(data2sharesAndcash.data.usd_value)
+   
     }
 
     async function getcashBalance() {
         const tokencash = new web3.eth.Contract(ERC20ABI, '0x14DEf7584A6c52f470Ca4F4b9671056b22f4FfDE')
         const { data } = await axios(`https://fantom.api.0x.org/swap/v1/quote?buyToken=BUSD&sellToken=0x14DEf7584A6c52f470Ca4F4b9671056b22f4FfDE&sellAmount=100000000000000000`)
-        const usdValue = Number(web3.utils.fromWei(await tokencash.methods.balanceOf(treasuryAddress).call())) * Number(data.price)
+        const usdValue = 1
 
         return usdValue
     }
@@ -119,11 +108,6 @@ function useTotalTreasuryBalance() {
         const OneTokenValue = (wftmValue + tokenValue) / Number(web3.utils.fromWei(await LPtoken.methods.totalSupply().call()))
 
         const total = OneTokenValue * Number(web3.utils.fromWei(await LPtoken.methods.balanceOf(treasuryAddress).call()))
-
-        console.log(wftmValue)
-        console.log(tokenValue)
-        console.log(OneTokenValue)
-        console.log(total)
 
         return total
     }

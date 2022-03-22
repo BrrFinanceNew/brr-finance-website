@@ -65,6 +65,7 @@ const Cemetery = () => {
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
   const { balance, balance_2shares_wftm, balance_cash_wftm, balance_printer_wftm, balance_cash, balance_printer, balance_2shares } = useTotalTreasuryBalance();
+ 
   return (
     <Switch>
       <Page>
@@ -119,7 +120,7 @@ const Cemetery = () => {
                         <Typography variant="h5">
                           BUSD:
                         </Typography>
-                        <CountUp style={{ fontSize: '25px' }} end={balance_cash_wftm} separator="," prefix="$" />
+                        <CountUp style={{ fontSize: '25px' }} end={balance} separator="," prefix="$" />
                       </CardContent>                 
                     </Card>
                   </Grid>
