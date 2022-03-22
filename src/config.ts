@@ -226,7 +226,7 @@ BUSDRebates: {
   info: '0%',
   poolId: 0,
   sectionInUI: 3,
-  contract: 'BUSDShareRewardPool',
+  contract: 'CASHshareRewardPool',
   depositTokenName: 'BUSD',
   earnTokenName: 'CASH',
   finished: false,

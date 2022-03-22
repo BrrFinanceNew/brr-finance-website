@@ -31,7 +31,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const { price: ftmPrice, marketCap: ftmMarketCap, priceChange: ftmPriceChange } = useFantomPrice();
 
   const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(max, tokenName === 'BUSD' ? 6 : 18);
+    return getFullDisplayBalance(max, tokenName === 'USDC' ? 6 : 18);
   }, [max, tokenName]);
 
   const handleChange = useCallback(
@@ -42,18 +42,22 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   );
 
   const handleSelectMax = useCallback(() => {
+    console.log(rebateStats.tombAvailable);
     setVal((rebateStats.tombAvailable > +fullBalance ? fullBalance : rebateStats.tombAvailable.toString()));
   }, [fullBalance, setVal, rebateStats]);
 
   function getAssetPrice(token: String) {
     const address = tombFinance.externalTokens[tokenName].address
     const assetPrice = rebateStats.assets.find((a: any) => a.token === address).price
+    console.log(rebateStats.assets)
     return assetPrice
   }
 
   function getOutAmount() {
     const toBondPrice = getAssetPrice(tokenName)
+    
     const outAmount = +val * (toBondPrice / rebateStats.tombPrice * (1 + (rebateStats.bondPremium / 100)) * (token.params.multiplier / 1000000))
+    console.log(rebateStats.tombPrice)
     return outAmount
   }
 
