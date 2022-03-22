@@ -64,7 +64,7 @@ const Cemetery = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
-  const { balance, balance_2shares_wftm, balance_cash_wftm, balance_printer_wftm, balance_cash, balance_printer, balance_2shares } = useTotalTreasuryBalance();
+  const { balance } = useTotalTreasuryBalance();
  
   return (
     <Switch>
