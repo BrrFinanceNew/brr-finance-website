@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>The Rebate Treasury bonding is LIVE. All the APR's acorss the project have been adjusted for long term sustainability.
+              <h2>The Rebate Treasury bonding is LIVE. All the APR's across the project have been adjusted for long term sustainability.
               </h2>
             </Box>
           </Paper>

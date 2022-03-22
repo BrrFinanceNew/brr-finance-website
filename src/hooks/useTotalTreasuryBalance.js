@@ -68,7 +68,7 @@ function useTotalTreasuryBalance() {
         const pRinterBalance = web3.utils.fromWei(await ThreeShares.methods.balanceOf(treasuryAddress).call())
         const valueprinter = pRinterBalance * data[0].current_price
 
-        const data2sharesAndcash = await axios('https://openapi.debank.com/v1/user/chain_balance?id=0x8378EAeDa45Fb7b5a21710dc751Ab08aDacf5aD0&chain_id=ftm')
+        const data2sharesAndcash = await axios('https://openapi.debank.com/v1/user/chain_balance?id=0x8378eaeda45fb7b5a21710dc751ab08adacf5ad0?chain=bsc')
 
         console.log(`PRinter USD: $${valueprinter}`)
         console.log(`2Shares + cash: $${data2sharesAndcash.data.usd_value}`)
