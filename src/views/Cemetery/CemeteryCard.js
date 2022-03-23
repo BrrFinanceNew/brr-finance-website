@@ -35,7 +35,7 @@ const CemeteryCard = ({ bank }) => {
             <Typography variant="h6" component="h2">
 
             <Typography color="textSecondary">
-              Deposit Fee: {bank.info}
+              {bank.info}
             </Typography>
             <Typography color="textSecondary">
      

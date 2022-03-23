@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-3-23 18:00:00Z');
+  const date = new Date('2022-3-23 21:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;

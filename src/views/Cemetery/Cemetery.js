@@ -65,7 +65,7 @@ const Cemetery = () => {
                     Earn PRINTER by staking LP Tokens
                   </Typography>
                   <Alert style={{ backgroundColor:"black" , color:"white" , width:"30%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                  Stake your LPs in the farms below to earn PRINTER
+                  Please unstake from the old Cash single stake pool and stake in the new pool!
                 </Alert>
                   <Grid container spacing={3}>
                     {activeBanks

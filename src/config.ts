@@ -145,7 +145,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
 /*cash-busd 2*/
 CashBusdShareRewardPool: {
   name: 'Earn PRINTER by CASH-BUSD LP',
-  info: '0%',
+  info: 'Deposit Fee: 0%',
   poolId: 0,
   sectionInUI: 2,
   contract: 'CashBusdShareRewardPool',
@@ -161,7 +161,7 @@ CashBusdShareRewardPool: {
 /*PRINTER BUSD LP*/
  PrinterBusdShareRewardPool: {
   name: 'Earn PRINTER by PRINTER-BUSD LP',
-  info: '0%',
+  info: 'Deposit Fee: 0%',
   poolId: 1,
   sectionInUI: 2,
   contract: 'PrinterBusdShareRewardPool',
@@ -177,7 +177,7 @@ CashBusdShareRewardPool: {
 /* BUSD */
  BUSDShareRewardPool: {
   name: 'Earn PRINTER by staking BUSD',
-  info: '1%',
+  info: 'Deposit Fee: 1%',
   poolId: 4,
   sectionInUI: 2,
   contract: 'BUSDShareRewardPool',
@@ -187,15 +187,30 @@ CashBusdShareRewardPool: {
   multiplier: '7500x',
   site: "#",
   buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
-  sort: 2,
+  sort: 5,
   closedForStaking: true,
 }, 
 CASHShareRewardPool: {
-  name: 'Earn PRINTER by staking CASH',
-  info: '0%',
+  name: 'Old Pool Please Unstake',
+  info: 'Old CASH Pool Please Unstake',
   poolId: 3,
   sectionInUI: 2,
   contract: 'CASHShareRewardPool',
+  depositTokenName: 'CASH',
+  earnTokenName: 'PRINTER',
+  finished: false,
+  multiplier: '7500x',
+  site: "#",
+  buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+  sort: 3,
+  closedForStaking: true,
+},
+CASH2ShareRewardPool: {
+  name: 'Earn PRINTER by staking CASH (New Pool)',
+  info: 'New CASH Staking Pool',
+  poolId: 1,
+  sectionInUI: 2,
+  contract: 'CASH2ShareRewardPool',
   depositTokenName: 'CASH',
   earnTokenName: 'PRINTER',
   finished: false,
