@@ -375,7 +375,7 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.printerPerSecond();
     if (depositTokenName.startsWith('CASH-BUSD')) {
-      return rewardPerSecond.mul(1000).div(80000);
+      return rewardPerSecond.mul(2000).div(80000);
     } else if (depositTokenName.startsWith('PRINTER-BUSD')) {
       return rewardPerSecond.mul(1000).div(80000);
     } else if (depositTokenName.startsWith('PRINTER-CASH')) {
