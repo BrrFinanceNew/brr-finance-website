@@ -37,6 +37,8 @@ import bombLogo from '../../assets/img/bomb.png';
 import grapeLogo from '../../assets/img/grape.png';
 import empLogo from '../../assets/img/emp.png';
 import dibsLogo from '../../assets/img/dibs.png';
+import bankLogo from '../../assets/img/bank.png';
+
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -55,6 +57,7 @@ const logosBySymbol: { [title: string]: string } = {
   GRAPE: grapeLogo,
   EMP: empLogo,
   DIBS: dibsLogo,
+  BANK: bankLogo,
 
   'TOMB-WFTM LP': TwoombLPLogo,
   'TSHARES-WFTM LP': TwosharesLPLogo,
