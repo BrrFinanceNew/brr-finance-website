@@ -401,6 +401,7 @@ export class TombFinance {
     let tokenPrice;
     const priceOfOneFtmInDollars = await this.getWFTMPriceFromPancakeswap();
     if (tokenName === 'WBNB') {
+      const CASH = new ERC20("0x2ec7840D0C9fEB2c590eEeD3ee19F1737b2e4300", this.provider, "CASH")
       const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=wbnb&vs_currencies=usd").then(res => res.json())
       tokenPrice = data["wbnb"].usd
     } else {
@@ -417,6 +418,8 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "TOMB"), true, true);
       } else if (tokenName === 'BUSD') {
         tokenPrice = 1; 
+      } else if (tokenName === 'CASH') {
+      tokenPrice = await this.getTokenPriceFromPancakeswap(token);
       } else if (tokenName === 'BOMB') {
         const data = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bomb-money&vs_currencies=usd").then(res => res.json())
         tokenPrice = data["bomb-money"].usd
