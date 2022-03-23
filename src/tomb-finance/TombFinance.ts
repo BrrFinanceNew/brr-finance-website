@@ -383,7 +383,7 @@ export class TombFinance {
     }else if (depositTokenName.startsWith('BUSD')) {
       return rewardPerSecond.mul(0).div(80000);
     }else if (depositTokenName.startsWith('CASH')) {
-      return rewardPerSecond.mul(0).div(80000);
+      return rewardPerSecond.mul(1000).div(80000);
     }else {
       return rewardPerSecond.mul(0).div(80000);
     }

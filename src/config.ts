@@ -190,6 +190,21 @@ CashBusdShareRewardPool: {
   sort: 2,
   closedForStaking: true,
 }, 
+CASHShareRewardPool: {
+  name: 'Earn PRINTER by staking CASH',
+  info: '0%',
+  poolId: 3,
+  sectionInUI: 2,
+  contract: 'CASHShareRewardPool',
+  depositTokenName: 'CASH',
+  earnTokenName: 'PRINTER',
+  finished: true,
+  multiplier: '7500x',
+  site: "#",
+  buyLink: 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+  sort: 2,
+  closedForStaking: true,
+},
 /*PRINTER CASH LP*//*
  PRINTERCASHShareRewardPool: {
   name: 'Earn PRINTER by PRINTER-CASH LP',
