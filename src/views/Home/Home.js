@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>The $CASH Staking is opened! <br/>Please unstake the old CASH pool and join the New one!</h2>
+              <h2>The $CASH Staking is opened! <br/>Check the strategy pages if you want to help the protocol.</h2>
             </Box>
           </Paper>
 				</Grid>
@@ -180,8 +180,8 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
             </Alert>
             </Box>
-            { <LaunchCountdown deadline={date} description={'CASH Single Staking starts in'} descriptionLink={''}></LaunchCountdown> }
-  
+{/*             { <LaunchCountdown deadline={date} description={'CASH Single Staking starts in'} descriptionLink={''}></LaunchCountdown> }
+ */}  
         </Grid>
 
         {/* <Grid container spacing={3}>
