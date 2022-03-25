@@ -89,9 +89,9 @@ const App: React.FC = () => {
             <Route path="/whitelist">
               <Whitelist />
             </Route>
-{/*             <Route path="/raffle">
+            <Route path="/raffle">
               <Raffle />
-            </Route> */}
+            </Route> 
             {/* <Route path="/sbs">
               <SBS />
             </Route>

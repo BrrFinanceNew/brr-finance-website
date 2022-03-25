@@ -46,7 +46,7 @@ const StyledCard = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left:1%;
+  margin-left:0%;
   margin-bottom:1%;
   margin-top:1%;
 `;

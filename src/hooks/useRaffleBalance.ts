@@ -3,7 +3,7 @@ import useTombFinance from './useTombFinance';
 import {TokenStat} from '../tomb-finance/types';
 import useRefresh from './useRefresh';
 import useWallet from 'use-wallet';
-const useRaffleStats = (account: string) => {
+const useRaffleStats = (account: string, raffleAddress: string) => {
   const [stat, setStat] = useState<TokenStat>();
   const {fastRefresh} = useRefresh();
   const tombFinance = useTombFinance();
@@ -12,7 +12,7 @@ const useRaffleStats = (account: string) => {
     async function fetchGrapePrice() {
       
       try {
-        setStat(await tombFinance.getRaffleStat(account));
+        setStat(await tombFinance.getRaffleStat(account, raffleAddress));
       } catch (err) {
         console.error(err);
       }

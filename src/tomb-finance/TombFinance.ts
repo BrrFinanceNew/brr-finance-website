@@ -196,27 +196,24 @@ export class TombFinance {
     };
   }
 
-  async sendDollar(amount: string | number): Promise<TransactionResponse> {
+  async sendDollar(amount: string | number, recepient: string): Promise<TransactionResponse> {
     const {tomb} = this.contracts;
-    const recepient = '0x01475F2462650FD371e7C7f464A76527189F79e6'; //raffle address
+
     return await tomb.transfer(recepient, decimalToBalance(amount));
   }
 
-  async getRaffleStat(account: string): Promise<TokenStat> {
+  async getRaffleStat(account: string, raffleAddress: string): Promise<TokenStat> {
     let total = 0;
     const {tomb} = this.contracts;
 
-    const recepient = '0x01475F2462650FD371e7C7f464A76527189F79e6'; //raffle address
-
-    //const priceInBTC = await this.getTokenPriceFromPancakeswap(this.TOMB);
     const priceInBTC = 0;
-    const balOfRaffle = await tomb.balanceOf(recepient);
-
+    const balOfRaffle = await tomb.balanceOf(raffleAddress);
+    
     const currentBlockNumber = await this.provider.getBlockNumber();
 
-    const filterTo = tomb.filters.Transfer(account, recepient);
+    const filterTo = tomb.filters.Transfer(account, raffleAddress);
 
-    const logsTo = await tomb.queryFilter(filterTo, -200000, currentBlockNumber);
+    const logsTo = await tomb.queryFilter(filterTo, -2048, currentBlockNumber);
 
     if (logsTo.length !== 0 && account !== null) {
       for (let i = 0; i < logsTo.length; i++) {
@@ -231,7 +228,7 @@ export class TombFinance {
       tokenInFtm: priceInBTC.toString(),
       priceInDollars: total.toString(),
       totalSupply: getDisplayBalance(balOfRaffle, 18, 0),
-      circulatingSupply: recepient.toString(),
+      circulatingSupply: raffleAddress.toString(),
     };
   }
 

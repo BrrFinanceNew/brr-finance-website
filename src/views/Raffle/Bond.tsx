@@ -67,16 +67,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Bond: React.FC = () => {
+  const startDate = new Date('2022-3-4 17:00:00Z');
+  const endDate = new Date('2022-3-18 17:00:00Z');
+  const raffleAddress = '0xA3F2C4D813d75E26335ddE70DcFd703996Ae25D8';
   const {path} = useRouteMatch();
   const {account} = useWallet();
   const classes = useStyles();
   const tombFinance = useTombFinance();
   const addTransaction = useTransactionAdder();
-  const raffleStats = useRaffleStats(account);
+  const raffleStats = useRaffleStats(account, raffleAddress);
 
-  const startDate = new Date('2022-3-4 17:00:00Z');
-  const endDate = new Date('2022-3-7 17:00:00Z');
-  const raffleAddress = '0x01475F2462650FD371e7C7f464A76527189F79e6';
+
 
   const startTime = Number(startDate); 
   const endTime = Number(endDate); 
@@ -98,7 +99,7 @@ const Bond: React.FC = () => {
 
   const handleBuyBonds = useCallback( 
     async (amount: string) => { 
-      const tx = await tombFinance.sendDollar(amount);
+      const tx = await tombFinance.sendDollar(amount, raffleAddress);
         addTransaction(tx, {
           summary: `Send ${Number(amount).toFixed(2)} CASH to the raffle ${amount} `,
         });
@@ -116,8 +117,9 @@ const Bond: React.FC = () => {
     
      <Grid item xs={12} md={12} lg={12} >     
         <h2 style={{ fontSize: '80px', textAlign:'center', color: '#fff' }}>Weekly PRINTER Raffle</h2>   
-      <Grid container justify="center" spacing={3} style={{margin: '10px'}}>
-          {Date.now() < startTime ? <LaunchCountdown deadline={startDate} description={'Raffle Starts In'} descriptionLink={''}></LaunchCountdown> : <LaunchCountdown deadline={endDate} description={'Raffle Closes In'} descriptionLink={''}></LaunchCountdown>}
+
+      <Grid container justify="center" spacing={3} style={{margin: '10px'}}>      
+      {Date.now() < startTime ? <LaunchCountdown deadline={startDate} description={'Raffle Starts In'} descriptionLink={''}></LaunchCountdown> : <LaunchCountdown deadline={endDate} description={'Raffle Closes In'} descriptionLink={''}></LaunchCountdown>}
       </Grid>
         <Card style={{padding: '20px'}}>
           <p style={{ fontSize: '20px', textAlign:'center', color: '#fff' }}>Every week we'll run a raffle for our community where you have the chance to win PRINTER just by sending in your freely earned CASH. 1 CASH =  1 entry, unlimited entries per address, the more CASH you send the more chance you have to win. The winner will be chosen at random. <br></br><br></br>If you are having issues using the below button to enter the raffle on mobile you can always send CASH to the raffle address in a normal transaction.</p>                
