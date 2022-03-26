@@ -21,6 +21,7 @@ import RebatesStrategy from './views/RebatesStrategy';
 
 const Home = lazy(() => import('./views/Home'));
 const Farms = lazy(() => import('./views/Cemetery'));
+const Node = lazy(() => import('./views/Node'));
 const Boardroom = lazy(() => import('./views/Masonry'));
 const Rebates = lazy(() => import('./views/Rebates'));
 const rebatesStrategy = lazy(() => import('./views/RebatesStrategy'));
@@ -60,6 +61,9 @@ const App: React.FC = () => {
               <Home />
             </Route>
             <Route path="/farms">
+              <Farms />
+            </Route>
+            <Route path="/node">
               <Farms />
             </Route>
             <Route path="/boardroom">
