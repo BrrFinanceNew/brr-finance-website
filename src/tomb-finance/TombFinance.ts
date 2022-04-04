@@ -167,14 +167,19 @@ export class TombFinance {
   async getBondStat(): Promise<TokenStat> {
     const { Treasury } = this.contracts;
     const tombStat = await this.getTombStat();
+    
     const bondTombRatioBN = await Treasury.getBondPremiumRate();
+    
     const modifier = bondTombRatioBN / 1e18 > 1 ? bondTombRatioBN / 1e18 : 1;
+    
     const bondPriceInFTM = (Number(tombStat.tokenInFtm) * modifier).toFixed(2);
-    const priceOfTBondInDollars = (Number(tombStat.priceInDollars) * modifier).toFixed(2);
+    
+    //const priceOfTBondInDollars = (Number(tombStat.priceInDollars) * modifier).toFixed(2);
     const supply = await this.TBOND.displayedTotalSupply();
+    console.log(this.TBOND)
     return {
       tokenInFtm: bondPriceInFTM,
-      priceInDollars: priceOfTBondInDollars,
+      priceInDollars: bondPriceInFTM,
       totalSupply: supply,
       circulatingSupply: supply,
     };
@@ -461,7 +466,7 @@ export class TombFinance {
    */
   async buyBonds(amount: string | number): Promise<TransactionResponse> {
     const { Treasury } = this.contracts;
-    const treasuryTombPrice = await Treasury.getTombPrice();
+    const treasuryTombPrice = await Treasury.getCashPrice();
     return await Treasury.buyBonds(decimalToBalance(amount), treasuryTombPrice);
   }
 
@@ -471,7 +476,7 @@ export class TombFinance {
    */
   async redeemBonds(amount: string): Promise<TransactionResponse> {
     const { Treasury } = this.contracts;
-    const priceForTomb = await Treasury.getTombPrice();
+    const priceForTomb = await Treasury.getCashPrice();
     return await Treasury.redeemBonds(decimalToBalance(amount), priceForTomb);
   }
 
