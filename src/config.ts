@@ -114,12 +114,12 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     closedForStaking: true,
   },
   empRewardPool: { 
-    name: 'Earn CASH by staking CASH',
+    name: 'Earn CASH by staking EMP',
     poolId: 4,
     sectionInUI: 1,
     contract: 'empRewardPool',
-    depositTokenName: 'CASH',
-    earnTokenName: 'CASH',
+    depositTokenName: 'EMP',
+    earnTokenName: 'EMP',
     finished: false,
     info: '1%',
     multiplier: '7500x',
@@ -281,12 +281,12 @@ BUSDRebates: {
   site: '',
   sort: 0,
   closedForStaking: false,
-}/* ,
+},
 CashMasterNode: {
   name: 'Generate CASH with Nodes',
   info: '0%',
   poolId: 0,
-  sectionInUI: 3,
+  sectionInUI: 4,
   contract: 'CashMasterNode',
   depositTokenName: 'CASH',
   earnTokenName: 'CASH',
@@ -296,7 +296,7 @@ CashMasterNode: {
   site: '',
   sort: 2,
   closedForStaking: false,
-} */
+} 
 };
 
 export default configurations['production'];

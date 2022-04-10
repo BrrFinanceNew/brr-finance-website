@@ -201,6 +201,43 @@ export class TombFinance {
     };
   }
 
+  async getNodes(contract: string, user: string): Promise<BigNumber[]> {
+    return await this.contracts[contract].getNodes(user);
+  }
+
+  async getMaxPayout(contract: string, user: string): Promise<BigNumber[]> {
+    return await this.contracts[contract].maxPayout(user);
+  }
+
+  async getUserDetails(contract: string, user: string): Promise<BigNumber[]> {
+    return await this.contracts[contract].users(user);
+  }
+  
+  async getTotalNodes(contract: string): Promise<BigNumber[]> {
+    return await this.contracts[contract].getTotalNodes();
+  }
+
+  async claimedBalanceNode(poolName: ContractName, account = this.myAccount): Promise<BigNumber> {
+    const pool = this.contracts[poolName];
+    try {
+      let userInfo = await pool.users(account);
+      return await userInfo.total_claims;
+    } catch (err) {
+      console.error(`Failed to call userInfo() on pool ${pool.address}: ${err}`);
+      return BigNumber.from(0);
+    }
+  }
+  
+  async getNodePrice(poolName: ContractName, poolId: Number): Promise<BigNumber> {
+    const pool = this.contracts[poolName];
+    try {
+      return await pool.tierAmounts(poolId);
+    } catch (err) {
+      console.error(`Failed to call tierAmounts on contract ${pool.address}: ${err}`);
+      return BigNumber.from(0);
+    }
+  }
+
   async sendDollar(amount: string | number, recepient: string): Promise<TransactionResponse> {
     const {tomb} = this.contracts;
 
@@ -236,6 +273,7 @@ export class TombFinance {
       circulatingSupply: raffleAddress.toString(),
     };
   }
+
 
   /**
    * @returns TokenStat for TSHARE
@@ -304,6 +342,46 @@ export class TombFinance {
     if (this.myAccount === undefined) return;
     const depositToken = bank.depositToken;
     const poolContract = this.contracts[bank.contract];
+
+    if (bank.sectionInUI === 4) {
+      if (bank.sectionInUI === 4) {
+        const [depositTokenPrice, points, totalPoints, tierAmount, poolBalance, totalBalance, dripRate, dailyUserDrip] = await Promise.all([
+          this.getDepositTokenPriceInDollars(bank.depositTokenName, depositToken),
+          poolContract.tierAllocPoints(bank.poolId),
+          poolContract.totalAllocPoints(),
+          poolContract.tierAmounts(bank.poolId),
+          poolContract.getCashBalancePool(),
+          depositToken.balanceOf(bank.address),
+          poolContract.dripRate(),
+          poolContract.getDayDripEstimate(this.myAccount),
+        ]);
+        const stakeAmount = Number(getDisplayBalance(tierAmount))
+        // const userStakePrice = Number(depositTokenPrice) * Number(getDisplayBalance(user.total_deposits))
+  
+        const dailyDrip = totalPoints && +totalPoints > 0 
+          ? getDisplayBalance(poolBalance.mul(BigNumber.from(86400)).mul(points).div(totalPoints).div(dripRate)) 
+          : 0;
+        const dailyDripAPR = (Number(dailyDrip) / stakeAmount) * 100;
+        const yearlyDripAPR = (Number(dailyDrip) * 365 / stakeAmount) * 100;
+        
+        const dailyDripUser = Number(getDisplayBalance(dailyUserDrip));
+        const yearlyDripUser = Number(dailyDripUser) * 365;
+        // const dailyDripUserPricePerYear = Number(empStat.priceInDollars) * Number(dailyDripUser);
+        // const yearlyDripUserPricePerYear = Number(empStat.priceInDollars) * Number(yearlyDripUser);
+        // const dailyDripUserAPR = (dailyDripUserPricePerYear / userStakePrice) * 100;
+        // const yearlyDripUserAPR = (yearlyDripUserPricePerYear / userStakePrice) * 100;
+        
+        const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(totalBalance, depositToken.decimal));
+  
+        return {
+          userDailyBurst: dailyDripUser.toFixed(2).toString(),
+          userYearlyBurst: yearlyDripUser.toFixed(2).toString(),
+          dailyAPR: dailyDripAPR.toFixed(2).toString(),
+          yearlyAPR: yearlyDripAPR.toFixed(2).toString(),
+          TVL: TVL.toFixed(2).toString(),
+        };
+      }
+    }else{
     const depositTokenPrice = await this.getDepositTokenPriceInDollars(bank.depositTokenName, depositToken);
 
     const stakeInPool = await depositToken.balanceOf(bank.address);
@@ -333,7 +411,7 @@ export class TombFinance {
       TVL: TVL.toFixed(2).toString(),
     };
   }
-
+  }
   /**
    * Method to return the amount of tokens the pool yields per second
    * @param earnTokenName the name of the token that the pool is earning
@@ -585,6 +663,9 @@ async get2ShareStatFake(): Promise<TokenStat> {
   ): Promise<BigNumber> {
     const pool = this.contracts[poolName];
     try {
+      if (earnTokenName === 'CASH' && poolName.includes('Node')) {
+        return await pool.getTotalRewards(account);
+      }
       if (earnTokenName === 'CASH') {
         return await pool.pendingCASH(poolId, account);
       } else {
@@ -613,9 +694,26 @@ async get2ShareStatFake(): Promise<TokenStat> {
    * @param amount Number of tokens with decimals applied. (e.g. 1.45 DAI * 10^18)
    * @returns {string} Transaction hash
    */
-  async stake(poolName: ContractName, poolId: Number, amount: BigNumber): Promise<TransactionResponse> {
+   async stake(poolName: ContractName, poolId: Number, sectionInUI: Number, amount: BigNumber): Promise<TransactionResponse> {
     const pool = this.contracts[poolName];
-    return await pool.deposit(poolId, amount);
+
+    return sectionInUI !== 4 
+      ? await pool.deposit(poolId, amount)
+      : await pool.create(poolId, amount);
+  }
+
+  async setTierValues(poolName: ContractName): Promise<TransactionResponse> {
+    const pool = this.contracts[poolName];
+
+    return await pool.setTierValues(
+      [BigNumber.from('1000000000000000000')], [BigNumber.from('5000000000000000000')]
+    );
+  }
+
+  async getTierValues(poolName: ContractName): Promise<void> {
+    const pool = this.contracts[poolName];
+
+    console.log(await pool.tierAmounts(0), await pool.tierAllocPoints(0));
   }
 
   /**
@@ -632,10 +730,13 @@ async get2ShareStatFake(): Promise<TokenStat> {
   /**
    * Transfers earned token reward from given pool to my account.
    */
-  async harvest(poolName: ContractName, poolId: Number): Promise<TransactionResponse> {
+   async harvest(poolName: ContractName, poolId: Number, sectionInUI: Number): Promise<TransactionResponse> {
     const pool = this.contracts[poolName];
     //By passing 0 as the amount, we are asking the contract to only redeem the reward and not the currently staked token
-    return await pool.withdraw(poolId, 0);
+
+    return sectionInUI !== 4
+    ? await pool.withdraw(poolId, 0)
+    : await pool.claim();
   }
 
   /**

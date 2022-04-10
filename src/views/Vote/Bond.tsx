@@ -70,23 +70,19 @@ const Bond: React.FC = () => {
   const startDate = new Date('2022-4-03 12:00:00Z');
   const endDate = new Date('2022-4-07 20:00:00Z');
   const raffleAddressYes = '0x1A61b77c7735AD8770825E0D3E43e19DaE3cb7a7';
-  const raffleAddressNo = '0x1A61b77c7735AD8770825E0D3E43e19DaE3cb7a7';
+  const raffleAddressNo = '0xEB6c4b5aC4822480860476FF543D77D3882244e1';
   const {path} = useRouteMatch();
   const {account} = useWallet();
   const classes = useStyles();
   const tombFinance = useTombFinance();
   const addTransaction = useTransactionAdder();
   const raffleStats = useRaffleStats(account, raffleAddressYes);
-
+  const RaffleStatsNo = useRaffleStats(account, raffleAddressNo);
 
 
   const startTime = Number(startDate); 
   const endTime = Number(endDate); 
-/*
-  const grapePrice = useMemo(
-    () => (raffleStats ? Number(raffleStats.tokenInFtm).toFixed(2) : null),
-    [raffleStats],
-  );*/
+
   
   const raffleBalsYes = useMemo(
     () => (raffleStats ? Number(raffleStats.totalSupply).toFixed(0) : null),
@@ -94,8 +90,8 @@ const Bond: React.FC = () => {
   );
 
   const raffleBalsNo = useMemo(
-    () => (raffleStats ? Number(raffleStats.totalSupply).toFixed(0) : null),
-    [raffleStats],
+    () => (RaffleStatsNo ? Number(RaffleStatsNo.totalSupply).toFixed(0) : null),
+    [RaffleStatsNo],
   );
 
   const userBalsYes = useMemo(
@@ -104,15 +100,26 @@ const Bond: React.FC = () => {
   );
 
   const userBalsNo = useMemo(
-    () => (raffleStats ? Number(raffleStats.priceInDollars).toFixed(0) : null),
-    [raffleStats],
+    () => (RaffleStatsNo ? Number(RaffleStatsNo.priceInDollars).toFixed(0) : null),
+    [RaffleStatsNo],
   );
 
   const handleBuyBonds = useCallback( 
     async (amount: string) => { 
       const tx = await tombFinance.sendDollar(amount, raffleAddressYes);
         addTransaction(tx, {
-          summary: `Send ${Number(amount).toFixed(2)} CASH to the raffle ${amount} `,
+          summary: `Send ${Number(amount).toFixed(2)} CASH to the yes vote ${amount} `,
+        });
+    
+    },
+    [tombFinance, addTransaction],
+  );
+
+  const handleNoBonds = useCallback( 
+    async (amount: string) => { 
+      const tx = await tombFinance.sendDollar(amount, raffleAddressNo);
+        addTransaction(tx, {
+          summary: `Send ${Number(amount).toFixed(2)} CASH to the no vote ${amount} `,
         });
     
     },
@@ -191,7 +198,7 @@ const Bond: React.FC = () => {
                   : 'Voting is currently closed'
               }
               disabled={Date.now() < endTime && Date.now() > startTime ? false : true}
-              onExchange={handleBuyBonds}
+              onExchange={handleNoBonds}
             />
           </StyledCardWrapper>
         </StylecBond>

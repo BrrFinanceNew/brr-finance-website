@@ -29,6 +29,8 @@ export type Whitelist = {
 };
 
 export type PoolStats = {
+  userDailyBurst?: string;
+  userYearlyBurst?: string;
   dailyAPR: string;
   yearlyAPR: string;
   TVL: string;
