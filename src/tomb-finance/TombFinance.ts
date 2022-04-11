@@ -350,7 +350,7 @@ export class TombFinance {
           poolContract.tierAllocPoints(bank.poolId),
           poolContract.totalAllocPoints(),
           poolContract.tierAmounts(bank.poolId),
-          poolContract.getCashBalancePool(),
+          poolContract.getBalancePool(),
           depositToken.balanceOf(bank.address),
           poolContract.dripRate(),
           poolContract.getDayDripEstimate(this.myAccount),
@@ -536,6 +536,14 @@ export class TombFinance {
   async getBondOraclePriceInLastTWAP(): Promise<BigNumber> {
     const { Treasury } = this.contracts;
     return Treasury.getBondPremiumRate();
+  }
+
+  async compound(poolName: ContractName, poolId: Number, sectionInUI: Number): Promise<TransactionResponse> {
+    const pool = this.contracts[poolName];
+    //By passing 0 as the amount, we are asking the contract to only redeem the reward and not the currently staked token
+    return sectionInUI !== 4
+    ? await pool.withdraw(poolId, 0)
+    : await pool.compound();
   }
 
   /**

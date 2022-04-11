@@ -46,7 +46,7 @@ const CashNode = () => {
   const userDetails = useUserDetails(bank?.contract, bank?.sectionInUI, account);
   const stakedTokenPriceInDollars = useStakedTokenPriceInDollars(bank.depositTokenName, bank.depositToken);
 
-  console.log(bank?.sectionInUI)
+
 
   const tokenPriceInDollars = useMemo(
     () => (stakedTokenPriceInDollars ? stakedTokenPriceInDollars : null),

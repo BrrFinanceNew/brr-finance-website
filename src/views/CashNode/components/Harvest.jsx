@@ -8,7 +8,7 @@ import Label from '../../../components/Label';
 import Value from '../../../components/Value';
 import useEarnings from '../../../hooks/useEarnings';
 import useHarvest from '../../../hooks/useHarvest';
-
+import useCompound from '../../../hooks/useCompound';
 import {getDisplayBalance} from '../../../utils/formatBalance';
 import TokenSymbol from '../../../components/TokenSymbol';
 import {Bank} from '../../../tomb-finance';
@@ -25,7 +25,7 @@ const Harvest = ({bank}) => {
   );
   const earnedInDollars = (Number(tokenPriceInDollars) * Number(getDisplayBalance(earnings))).toFixed(2);
   const { onReward } = useHarvest(bank);
-
+  const { onCompound } = useCompound(bank);
 
   return (
     <Card>
@@ -38,7 +38,7 @@ const Harvest = ({bank}) => {
             <Typography style={{textTransform: 'uppercase', color: '#930993'}}>
               <Value value={getDisplayBalance(earnings)} />
             </Typography>
-            <Label text={`≈ $${earnedInDollars}`} />
+          <Label text={`≈ $${earnedInDollars}`} />
             <Typography style={{textTransform: 'uppercase', color: '#322f32'}}>{bank.earnTokenName} Earned</Typography>
           </StyledCardHeader>
           <StyledCardActions>
@@ -49,7 +49,16 @@ const Harvest = ({bank}) => {
             >
               Claim
             </Button>
-          </StyledCardActions>
+            </StyledCardActions>
+            <Button
+          style={{marginTop: '20px'}}
+              onClick={onCompound}
+              disabled={earnings < 50*1e18}
+              className={earnings < 50*1e18 ? 'shinyButtonDisabled' : 'shinyButton'}
+            >
+              Compound {(earnings/(50*1e18)).toFixed(0)} Nodes
+          </Button>
+          
         </StyledCardContentInner>
       </CardContent>
     </Card>
