@@ -295,7 +295,7 @@ CashMasterNode: {
   buyLink: '',
   site: '',
   sort: 2,
-  closedForStaking: true,
+  closedForStaking: false,
 } 
 };
 
