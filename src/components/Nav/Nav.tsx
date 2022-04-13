@@ -183,7 +183,7 @@ const Nav = () => {
                 <ListItemLink primary="Home" to="/" />
                 <ListItemLink primary="Farm" to="/farms" />
                 <ListItemLink primary="Boardroom" to="/boardroom" />
-               {/* <ListItemLink primary="Nodes" to="/nodes/CashMasterNode" />*/}
+                <ListItemLink primary="Nodes" to="/nodes/CashMasterNode" />
                 <ListItemLink primary="cBonds" to="/bonds" />
                 <ListItemLink primary="DAO" to="/rebates" />
                 <ListItemLink primary="Treasury" to="/treasury" />
