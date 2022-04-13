@@ -114,7 +114,7 @@ const Home = () => {
 
   const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
   const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
-  const date = new Date('2022-3-23 21:00:00Z');
+  const date = new Date('2022-4-13 19:00:00Z');
 
   const StyledLink = styled.a`
     font-weight: 700;
@@ -170,7 +170,7 @@ const Home = () => {
                 make this as stable as possible. </p>
               <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
                 long term project , not a hit and run. </p>
-              <h2>The $CASH Staking is opened! <br/>Check the strategy pages if you want to help the protocol.</h2>
+              <h2>The Node Cash staking starts soon!</h2>
             </Box>
           </Paper>
 				</Grid>
@@ -180,8 +180,8 @@ const Home = () => {
                 Do your own research before investing. Investing is risky and may result in monetary loss. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
             </Alert>
             </Box>
-{/*             { <LaunchCountdown deadline={date} description={'CASH Single Staking starts in'} descriptionLink={''}></LaunchCountdown> }
- */}  
+            { <LaunchCountdown deadline={date} description={'NODE CASH  Staking starts in'} descriptionLink={''}></LaunchCountdown> }
+  
         </Grid>
 
         {/* <Grid container spacing={3}>
