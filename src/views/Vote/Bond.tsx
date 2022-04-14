@@ -67,10 +67,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Bond: React.FC = () => {
-  const startDate = new Date('2022-4-03 12:00:00Z');
-  const endDate = new Date('2022-4-07 20:00:00Z');
-  const raffleAddressYes = '0x1A61b77c7735AD8770825E0D3E43e19DaE3cb7a7';
-  const raffleAddressNo = '0xEB6c4b5aC4822480860476FF543D77D3882244e1';
+  const startDate = new Date('2022-4-14 09:00:00Z');
+  const endDate = new Date('2022-4-15 20:00:00Z');
+  const raffleAddressYes = '0x566f9ED49C7bCE33073603370B8c9F8Fb1F5C7f5';
+  const raffleAddressNo = '0xe3C82e9c682A4a858C7E23B683b37a9A9a179acF';
   const {path} = useRouteMatch();
   const {account} = useWallet();
   const classes = useStyles();
@@ -140,7 +140,14 @@ const Bond: React.FC = () => {
       {Date.now() < startTime ? <LaunchCountdown deadline={startDate} description={'Vote Starts In'} descriptionLink={''}></LaunchCountdown> : <LaunchCountdown deadline={endDate} description={'Vote Closes In'} descriptionLink={''}></LaunchCountdown>}
       </Grid>
           <Card style={{padding: '20px'}}>
-          <p style={{ fontSize: '20px', textAlign:'center', color: '#fff' }}>Vote Text</p>                
+          <p style={{ fontSize: '20px', textAlign:'center', color: '#fff' }}>Brr Finance vote #001 <br/>
+Petition to the Circus
+Dear Brr Finance community.<br/><br/> This first vote proposition is actually coming from the Brr Finance dev team itself. We would like to have community input on it: a vote on yes or no.<br/><br/>
+After deliberation, we see we have done and achieved the following: $35k spent on initial marketing, a Dao King YouTube interview, a rebate treasury, a cash burning voting system, a nodes system, some doxxed and some KYC team members, a nice and friendly community, an education section, and more. Upcoming in the short run are a more active Twitter account and a Telegram.
+What we have not achieved, however, is a big inflow of investors interested in staying with the protocol long term. And ultimately, that is the most important of all.<br/><br/>
+We are at a point where we feel it would be wise to petition to the Seigniorage Circus. If they accept us as one of their campaigns, there is a high likelihood that the directional force of their communal investments will bring Brr back up to the skies, where it should be.<br/><br/>
+But the Circus does more. If the Circus accepts us, they will probably start directing us to make changes based on their insight. If we say yes to them, we’ll have to accept that they’ll get a say in how we do things. As dev team, we are already okay with that, but since we’ve wanted for Brr to be community directed, we put this to vote.<br/><br/>
+For those who don’t know the Seigniorage Circus: https://discord.gg/e4yTGmfaVk</p>                
 {/*           <p style={{fontSize: '20px', textAlign:'center', color: '#fff' }}>Raffle address: {raffleAddress}</p>
  */}        </Card>  
       </Grid>
