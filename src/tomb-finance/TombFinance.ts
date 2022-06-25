@@ -15,7 +15,7 @@ import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
 import config, { bankDefinitions } from '../config';
 import moment from 'moment';
 import { parseUnits } from 'ethers/lib/utils';
-import { FTM_TICKER, SPOOKY_ROUTER_ADDR, TOMB_TICKER } from '../utils/constants';
+import { FTM_TICKER, SPOOKY_ROUTER_ADDR, TOMB_TICKER, TSHARE_TICKER, BUSD_TICKER } from '../utils/constants';
 /**
  * An API module of 2omb Finance contracts.
  * All contract-interacting domain logic should be defined in here.
@@ -1178,15 +1178,20 @@ async get2ShareStatFake(): Promise<TokenStat> {
       let overrides = {
         value: parseUnits(amount, 18),
       };
-      return await zapper.zapIn(lpToken.address, SPOOKY_ROUTER_ADDR, this.myAccount, overrides);
+      return await zapper.zapBNBToLP(lpToken.address, overrides);
     } else {
-      const token = tokenName === TOMB_TICKER ? this.TOMB : this.TSHARE;
-      return await zapper.zapInToken(
+      let token: ERC20;
+      switch (tokenName) {
+        case TOMB_TICKER: token = this.TOMB; break;
+        case TSHARE_TICKER: token = this.TSHARE; break;
+        case BUSD_TICKER: token = this.BUSD; break;
+        default: token = null;
+      }
+      return await zapper.zapTokenToLP(
         token.address,
         parseUnits(amount, 18),
         lpToken.address,
-        SPOOKY_ROUTER_ADDR,
-        this.myAccount,
+        { gasLimit: '1500000' }
       );
     }
   }

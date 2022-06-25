@@ -112,8 +112,8 @@ const Home = () => {
   );
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
 
-  const tombLpZap = useZap({ depositTokenName: 'TOMB-FTM-LP' });
-  const tshareLpZap = useZap({ depositTokenName: 'TSHARE-FTM-LP' });
+  const tombLpZap = useZap({ depositTokenName: 'CASH-BUSD LP' });
+  const tshareLpZap = useZap({ depositTokenName: 'PRINTER-BUSD LP' });
   const date = new Date('2022-4-13 19:00:00Z');
 
   const StyledLink = styled.a`
@@ -130,7 +130,7 @@ const Home = () => {
         tombLpZap.onZap(zappingToken, tokenName, amount);
         onDissmissTombZap();
       }}
-      tokenName={'TOMB-FTM-LP'}
+      tokenName={'CASH-BUSD LP'}
     />,
   );
 
@@ -142,7 +142,7 @@ const Home = () => {
         tshareLpZap.onZap(zappingToken, tokenName, amount);
         onDissmissTshareZap();
       }}
-      tokenName={'TSHARE-FTM-LP'}
+      tokenName={'PRINTER-BUSD LP'}
     />,
   );
 
@@ -373,12 +373,12 @@ const Home = () => {
                   <TokenSymbol symbol="CASH-TOMB HOME" />
                 </CardIcon>
               </Box>
-              {/*
-              <Box mt={2}>
-                <Button color="primary" disabled={true} onClick={onPresentTombZap} variant="contained">
+             
+             {/* <Box mt={2}>
+                <Button color="primary" onClick={onPresentTombZap} variant="contained">
                   Zap In
                 </Button>
-              </Box>*/}
+            </Box>*/}
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tombLPStats?.tokenAmount ? tombLPStats?.tokenAmount : '-.--'} CASH /{' '}
@@ -406,7 +406,7 @@ const Home = () => {
                 <Button color="primary" onClick={onPresentTshareZap} variant="contained">
                   Zap In
                 </Button>
-            </Box>*/}
+</Box>*/}
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
                   {tshareLPStats?.tokenAmount ? Number(tshareLPStats?.tokenAmount).toLocaleString('en-US') : '-.--'} PRINTER /{' '}
