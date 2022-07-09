@@ -14,8 +14,7 @@ import {
   ListItemText,
   Divider,
 } from '@material-ui/core';
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 import ListItemLink from '../ListItemLink';
 
@@ -24,7 +23,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from './AccountButton';
-
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -37,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     color: 'var(--white)',
     'background-color': 'rgba(0,0,0,0)',
-    'backdrop-filter': "blur(2px)",
+    'backdrop-filter': 'blur(2px)',
     // borderBottom: `1px solid ${theme.palette.divider}`,
     padding: '0 10px',
     marginBottom: '3rem',
@@ -45,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: 240,
     flexShrink: 0,
-    backgroundColor: 'var(--accent)'
+    backgroundColor: 'var(--accent)',
   },
   drawerPaper: {
     width: 240,
@@ -100,23 +98,35 @@ const Nav = () => {
       <Toolbar className={classes.toolbar}>
         {matches ? (
           <>
-            <Typography style={{marginRight:"-30%"}} variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+            <Typography
+              style={{ marginRight: '-30%' }}
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.toolbarTitle}
+            >
               {/* <a className={ classes.brandLink } href="/">2omb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
                 Brr Finance
               </Link>
-              <a href="https://twitter.com/ApeOClock/status/1492068413266542592"><img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" /></a>
+              <a href="https://twitter.com/ApeOClock/status/1492068413266542592">
+                <img src="https://i.imgur.com/G09QuiF.png" width="10%" margin-left="10px" title="source: imgur.com" />
+              </a>
             </Typography>
-            <Box style={{marginRight:""}} mr={5}>
+            <Box style={{ marginRight: '' }} mr={5}>
               <Link color="color" to="/" className={classes.link}>
                 Home
               </Link>
+              <a href="https://brr.liquidcapital.finance/" target="_blank" className={classes.link}>
+                Mint 2.0
+              </a>
               <Link color="textPrimary" to="/farms" className={classes.link}>
                 Farm
               </Link>
               <Link color="textPrimary" to="/nodes/CashMasterNode" className={classes.link}>
                 Node
-        </Link> *
+              </Link>{' '}
+              *
               <Link color="textPrimary" to="/boardroom" className={classes.link}>
                 Boardroom
               </Link>
@@ -140,7 +150,7 @@ const Nav = () => {
               </Link>
               <Link color="textPrimary" to="/strategy" className={classes.link}>
                 Strategy
-              </Link>          
+              </Link>
               <a href="https://brr-finance.gitbook.io/brr-finance/" target="_blank" className={classes.link}>
                 Docs
               </a>
@@ -181,6 +191,9 @@ const Nav = () => {
               <Divider />
               <List>
                 <ListItemLink primary="Home" to="/" />
+                <ListItem button component="a" href="https://brr.liquidcapital.finance">
+                  <ListItemText>Mint 2.0</ListItemText>
+                </ListItem>
                 <ListItemLink primary="Farm" to="/farms" />
                 <ListItemLink primary="Boardroom" to="/boardroom" />
                 <ListItemLink primary="Nodes" to="/nodes/CashMasterNode" />
@@ -189,13 +202,15 @@ const Nav = () => {
                 <ListItemLink primary="Treasury" to="/treasury" />
                 <ListItemLink primary="Raffle" to="/raffle" />
                 <ListItemLink primary="Vote" to="/vote" />
-
-{/*                 <ListItemLink primary="Roadmap" to="/roadmap" />
- */}{/*                 <ListItemLink primary="Raffle" to="/raffle" />
- */}                 {/*<ListItemLink primary="Strategy" to="/tutorials" />*/} 
-                {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}                
-{/*                 <ListItemLink primary="Whitelist" to="/whitelist" />
- */}{/*                 <ListItem button component="a" href="https://ethereumtowers.com/">
+                {/*                 <ListItemLink primary="Roadmap" to="/roadmap" />
+                 */}
+                {/*                 <ListItemLink primary="Raffle" to="/raffle" />
+                 */}{' '}
+                {/*<ListItemLink primary="Strategy" to="/tutorials" />*/}
+                {/*<ListItemLink primary="About Us" to="/aboutUs" />*/}
+                {/*                 <ListItemLink primary="Whitelist" to="/whitelist" />
+                 */}
+                {/*                 <ListItem button component="a" href="https://ethereumtowers.com/">
                   <ListItemText>Clubhouse</ListItemText>
                 </ListItem> */}
                 <ListItem button component="a" href="https://brr-finance.gitbook.io/brr-finance/">

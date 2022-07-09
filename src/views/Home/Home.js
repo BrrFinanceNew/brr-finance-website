@@ -72,12 +72,14 @@ const Home = () => {
     tomb = tombProd;
     tShare = tShareProd;
   }
-  
-  const buyTombAddress = 'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
-  const buyTShareAddress = 'https://pancakeswap.finance/swap?outputCurrency=0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
+
+  const buyTombAddress =
+    'https://pancakeswap.finance/swap?outputCurrency=0xbFF6a376F54335919BC5332a16A81a07E8bDc06a&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
+  const buyTShareAddress =
+    'https://pancakeswap.finance/swap?outputCurrency=0xDACDCf56f42b3F3a0fB57459CeFC10b8F393f199&inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 
   const tombLPStats = useMemo(() => (tombFtmLpStats ? tombFtmLpStats : null), [tombFtmLpStats]);
-  
+
   const tshareLPStats = useMemo(() => (tShareFtmLpStats ? tShareFtmLpStats : null), [tShareFtmLpStats]);
   const tombPriceInDollars = useMemo(
     () => (tombStats ? Number(tombStats.priceInDollars).toFixed(2) : null),
@@ -153,35 +155,64 @@ const Home = () => {
         {/* Logo */}
         <Grid container item xs={12} sm={3} justify="center">
           {/* <Paper>xs=6 sm=3</Paper> */}
-		      <Image className="ombImg-home" color="none" style={{ width: '300px', paddingTop: '0px' }} src={CashImage} />
+          <Image className="ombImg-home" color="none" style={{ width: '300px', paddingTop: '0px' }} src={CashImage} />
+          <div>
+            <Button
+              color="primary"
+              href="https://brr.liquidcapital.finance"
+              variant="contained"
+              style={{ marginTop: '20px' }}
+            >
+              Enter Mint 2.0
+            </Button>
+          </div>
         </Grid>
         {/* Explanation text */}
         <Grid item xs={12} sm={9}>
-          <Paper style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Paper style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <Box p={4}>
               <h2>Welcome to Brr Finance!</h2>
               <p>An algorithmic stablecoin on the Binance Smart Chain, pegged to the price of 1 BUSD</p>
-              <p>Cash utilizes multiple bonding mechanisms at the <StyledLink href="/rebates">DAO</StyledLink> as well as seigniorage.</p>
               <p>
-                Stake your CASH-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to earn PRINTER rewards.
-                Then stake your earned PRINTER in the <StyledLink href="/boardroom">Boardroom</StyledLink> to maximize profits!
+                Cash utilizes multiple bonding mechanisms at the <StyledLink href="/rebates">DAO</StyledLink> as well as
+                seigniorage.
               </p>
-              <p>This protocol is built to last which means that the Genesis farms will be juicy but after that the LP's are going to be adjusted in order to 
-                make this as stable as possible. </p>
-              <p> We all want crazy aprs but that means crazy dips and gigantic risks. Our aim is to make this a 
-                long term project , not a hit and run. </p>
-              <h2>The Node Cash staking is LIVE!</h2>
+              <p>
+                Stake your CASH-BUSD LP in the <StyledLink href="/farms">Farm</StyledLink> to earn PRINTER rewards. Then
+                stake your earned PRINTER in the <StyledLink href="/boardroom">Boardroom</StyledLink> to maximize
+                profits!
+              </p>
+              <p>
+                This protocol is built to last which means that the Genesis farms will be juicy but after that the LP's
+                are going to be adjusted in order to make this as stable as possible.{' '}
+              </p>
+              <p>
+                {' '}
+                We all want crazy APRs but that means crazy dips and gigantic risk. Our aim is to make this a long term
+                project, not a hit and run.{' '}
+              </p>
+              <h2>
+                <StyledLink href="https://brr.liquidcapital.finance">
+                  Remember to enter the Mint 2.0 presale, held by our partner, Liquid Capital!
+                </StyledLink>
+              </h2>
+              <p>A portion of sales from Mint 2.0 go to supporting the protocol!</p>
             </Box>
           </Paper>
-				</Grid>
+        </Grid>
         <Grid container justify="center">
-            <Box mt={3} style={{ width: '1000px' }}>
-            <Alert style={{ backgroundColor:"black" , color:"white" , width:"60%" , marginLeft:"20%"}}variant="filled" severity="warning">
-                Do your own research before investing. Investing is risky and may result in monetary loss. By using cash, you agree that the Cash team is not responsible for any financial losses from investing in Cash.
+          <Box mt={3} style={{ width: '1000px' }}>
+            <Alert
+              style={{ backgroundColor: 'black', color: 'white', width: '60%', marginLeft: '20%' }}
+              variant="filled"
+              severity="warning"
+            >
+              Do your own research before investing. Investing is risky and may result in monetary loss. By using cash,
+              you agree that the Cash team is not responsible for any financial losses from investing in Cash.
             </Alert>
-            </Box>
-{/*             { <LaunchCountdown deadline={date} description={'NODE CASH  Staking starts in'} descriptionLink={''}></LaunchCountdown> }
- */}  
+          </Box>
+          {/*             { <LaunchCountdown deadline={date} description={'NODE CASH  Staking starts in'} descriptionLink={''}></LaunchCountdown> }
+           */}
         </Grid>
 
         {/* <Grid container spacing={3}>
@@ -195,24 +226,43 @@ const Home = () => {
 
         {/* TVL */}
         <Grid item xs={12} sm={4}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-              { <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />}
+              {<CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />}
             </CardContent>
           </Card>
         </Grid>
 
         {/* Wallet */}
         <Grid item xs={12} sm={8}>
-          <Card style={{ height: '100%', backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+          <Card
+            style={{
+              height: '100%',
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+              border: '1px solid var(--white)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
             <CardContent align="center">
               {/* <h2 style={{ marginBottom: '20px' }}>Wallet Balance</h2> */}
-              <Button color="primary" href="/farms" variant="contained" style={{marginRight: '10px'}}>
+              <Button color="primary" href="/farms" variant="contained" style={{ marginRight: '10px' }}>
                 Farm Now
               </Button>
               <Button color="primary" href="/boardroom" variant="contained" style={{ marginRight: '10px' }}>
                 Stake Now
+              </Button>
+              <Button
+                color="primary"
+                href="https://brr.liquidcapital.finance"
+                variant="contained"
+                style={{ marginRight: '10px' }}
+              >
+                Enter Mint 2.0
               </Button>
               <Button
                 color="primary"
@@ -224,13 +274,31 @@ const Home = () => {
               >
                 Buy CASH
               </Button>
-              <Button color="primary" variant="contained" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }} className={classes.button}>
+              <Button
+                color="primary"
+                variant="contained"
+                target="_blank"
+                href={buyTShareAddress}
+                style={{ marginRight: '10px' }}
+                className={classes.button}
+              >
                 Buy PRINTER
               </Button>
-              <Button  variant="contained" target="_blank" href="https://dexscreener.com/bsc/0x2ec7840D0C9fEB2c590eEeD3ee19F1737b2e4300" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button
+                variant="contained"
+                target="_blank"
+                href="https://dexscreener.com/bsc/0x2ec7840D0C9fEB2c590eEeD3ee19F1737b2e4300"
+                style={{ marginRight: '10px' }}
+                className={classes.button}
+              >
                 CASH Chart
               </Button>
-              <Button variant="contained" target="_blank" href="https://dexscreener.com/bsc/0x9dd76D241f3Ae71281bDbd1aa1629bff4834DF65" className={classes.button}>
+              <Button
+                variant="contained"
+                target="_blank"
+                href="https://dexscreener.com/bsc/0x9dd76D241f3Ae71281bDbd1aa1629bff4834DF65"
+                className={classes.button}
+              >
                 PRINTER Chart
               </Button>
             </CardContent>
@@ -239,20 +307,20 @@ const Home = () => {
 
         {/* TOMB */}
         <Grid item xs={12} sm={3}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>Peg</h2>
-              <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
-                <CardIcon style={{ backgroundColor: "transparent !important" }}>
-                  <TokenSymbol symbol="TOMBHOME" style={{ backgroundColor: "transparent !important"}} />
+              <Box mt={2} style={{ backgroundColor: 'transparent !important' }}>
+                <CardIcon style={{ backgroundColor: 'transparent !important' }}>
+                  <TokenSymbol symbol="TOMBHOME" style={{ backgroundColor: 'transparent !important' }} />
                 </CardIcon>
-      
+
                 <span style={{ fontSize: '30px' }}>${ftmPrice ? ftmPrice : '-.----'} BUSD</span>
               </Box>
               <span style={{ fontSize: '12px' }}>
-{/*                 Market Cap: ${ftmMarketCap} <br />
+                {/*                 Market Cap: ${ftmMarketCap} <br />
                 Price Change 24h: {ftmPriceChange.toFixed(2)}% <br /> */}
-                <br />                <br />                <br />
+                <br /> <br /> <br />
               </span>
             </CardContent>
           </Card>
@@ -260,28 +328,30 @@ const Home = () => {
 
         {/* TOMB */}
         <Grid item xs={12} sm={3}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>CASH</h2>
-              { <Button
-                onClick={() => {
-                  tombFinance.watchAssetInMetamask('CASH');
-                }}
-                color="secondary"
-                variant="outlined"
-                style={{ position: 'absolute', top: '10px', right: '10px', borderColor: "var(--accent-light)" }}
-              >
-                +&nbsp;
-                <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> }
-              <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
-                <CardIcon style={{ backgroundColor: "transparent !important" }}>
-                  <TokenSymbol symbol="CASH" style={{ backgroundColor: "transparent !important" }} />
+              {
+                <Button
+                  onClick={() => {
+                    tombFinance.watchAssetInMetamask('CASH');
+                  }}
+                  color="secondary"
+                  variant="outlined"
+                  style={{ position: 'absolute', top: '10px', right: '10px', borderColor: 'var(--accent-light)' }}
+                >
+                  +&nbsp;
+                  <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
+                </Button>
+              }
+              <Box mt={2} style={{ backgroundColor: 'transparent !important' }}>
+                <CardIcon style={{ backgroundColor: 'transparent !important' }}>
+                  <TokenSymbol symbol="CASH" style={{ backgroundColor: 'transparent !important' }} />
                 </CardIcon>
-    
+
                 <span style={{ fontSize: '30px' }}>{tombPriceInFTM ? tombPriceInFTM : '-.----'} BUSD</span>
               </Box>
-   {/*            <Box>
+              {/*            <Box>
                 <span style={{ fontSize: '16px', alignContent: 'flex-start' }}>
                   ${tombPriceInDollars ? tombPriceInDollars : '-.--'}
                 </span>
@@ -297,28 +367,30 @@ const Home = () => {
 
         {/* TSHARE */}
         <Grid item xs={12} sm={3}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>PRINTER</h2>
-              { <Button
-                onClick={() => {
-                  tombFinance.watchAssetInMetamask('PRINTER');
-                }}
-                color="secondary"
-                variant="outlined"
-                style={{ position: 'absolute', top: '10px', right: '10px', borderColor: "var(--accent-light)" }}
-              >
-                +&nbsp;
-                <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> }
+              {
+                <Button
+                  onClick={() => {
+                    tombFinance.watchAssetInMetamask('PRINTER');
+                  }}
+                  color="secondary"
+                  variant="outlined"
+                  style={{ position: 'absolute', top: '10px', right: '10px', borderColor: 'var(--accent-light)' }}
+                >
+                  +&nbsp;
+                  <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
+                </Button>
+              }
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="PRINTER" />
                 </CardIcon>
-  
+
                 <span style={{ fontSize: '30px' }}>{tSharePriceInFTM ? tSharePriceInFTM : '-.----'} BUSD</span>
               </Box>
-{/*               <Box>
+              {/*               <Box>
                 <span style={{ fontSize: '16px' }}>${tSharePriceInDollars ? tSharePriceInDollars : '-.--'}</span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
@@ -332,28 +404,30 @@ const Home = () => {
 
         {/* TBOND */}
         <Grid item xs={12} sm={3}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center" style={{ position: 'relative' }}>
               <h2>CBOND</h2>
-              { <Button
-                onClick={() => {
-                  tombFinance.watchAssetInMetamask('CBOND');
-                }}
-                color="secondary"
-                variant="outlined"
-                style={{ position: 'absolute', top: '10px', right: '10px', borderColor: "var(--accent-light)" }}
-              >
-                +&nbsp;
-                <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
-              </Button> }
+              {
+                <Button
+                  onClick={() => {
+                    tombFinance.watchAssetInMetamask('CBOND');
+                  }}
+                  color="secondary"
+                  variant="outlined"
+                  style={{ position: 'absolute', top: '10px', right: '10px', borderColor: 'var(--accent-light)' }}
+                >
+                  +&nbsp;
+                  <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
+                </Button>
+              }
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="CBOND" />
                 </CardIcon>
-     
+
                 <span style={{ fontSize: '30px' }}>{tBondPriceInFTM ? tBondPriceInFTM : '-.----'} BUSD</span>
               </Box>
-{/*               <Box>
+              {/*               <Box>
                 <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'}</span>
               </Box> */}
               <span style={{ fontSize: '12px' }}>
@@ -365,7 +439,7 @@ const Home = () => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center">
               <h2>CASH-BUSD LP</h2>
               <Box mt={2}>
@@ -373,8 +447,7 @@ const Home = () => {
                   <TokenSymbol symbol="CASH-TOMB HOME" />
                 </CardIcon>
               </Box>
-             
-             {/* <Box mt={2}>
+              {/* <Box mt={2}>
                 <Button color="primary" onClick={onPresentTombZap} variant="contained">
                   Zap In
                 </Button>
@@ -385,8 +458,9 @@ const Home = () => {
                   {tombLPStats?.ftmAmount ? (tombLPStats?.ftmAmount).toLocaleString('en-US') : '-.--'} BUSD
                 </span>
               </Box>
-{/*               <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
- */}              <span style={{ fontSize: '12px' }}>
+              {/*               <Box>${tombLPStats?.priceOfOne ? tombLPStats.priceOfOne : '-.--'}</Box>
+               */}{' '}
+              <span style={{ fontSize: '12px' }}>
                 Liquidity: ${tombLPStats?.totalLiquidity ? tombLPStats.totalLiquidity : '-.--'} <br />
                 Total supply: {tombLPStats?.totalSupply ? tombLPStats.totalSupply : '-.--'}
               </span>
@@ -394,7 +468,7 @@ const Home = () => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
+          <Card style={{ backgroundColor: 'transparent', boxShadow: 'none', border: '1px solid var(--white)' }}>
             <CardContent align="center">
               <h2>PRINTER-BUSD LP</h2>
               <Box mt={2}>
@@ -409,15 +483,19 @@ const Home = () => {
 </Box>*/}
               <Box mt={2}>
                 <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? Number(tshareLPStats?.tokenAmount).toLocaleString('en-US') : '-.--'} PRINTER /{' '}
+                  {tshareLPStats?.tokenAmount ? Number(tshareLPStats?.tokenAmount).toLocaleString('en-US') : '-.--'}{' '}
+                  PRINTER /{' '}
                   {tshareLPStats?.ftmAmount ? Number(tshareLPStats?.ftmAmount).toLocaleString('en-US') : '-.--'} BUSD
                 </span>
               </Box>
-{/*               <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
- */}              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? Number(tshareLPStats.totalLiquidity).toLocaleString('en-US') : '-.--'}
+              {/*               <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
+               */}{' '}
+              <span style={{ fontSize: '12px' }}>
+                Liquidity: $
+                {tshareLPStats?.totalLiquidity ? Number(tshareLPStats.totalLiquidity).toLocaleString('en-US') : '-.--'}
                 <br />
-                Total supply: {tshareLPStats?.totalSupply ? Number(tshareLPStats.totalSupply).toLocaleString('en-US') : '-.--'}
+                Total supply:{' '}
+                {tshareLPStats?.totalSupply ? Number(tshareLPStats.totalSupply).toLocaleString('en-US') : '-.--'}
               </span>
             </CardContent>
           </Card>
